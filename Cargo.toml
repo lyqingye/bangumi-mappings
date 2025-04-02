@@ -15,3 +15,6 @@ thiserror = "2.0.12"
 tmdb-api = { git = "https://github.com/lyqingye/tmdb-api.git" }
 reqwest = { version = "0.12.11", features = ["json", "rustls-tls"], default-features = false }
 schemars = "0.8.16"
+dotenv = "0.15.0"
+clap = { version = "4.5.35", features = ["derive"] }
+governor = { version = "0.8", features = ["jitter", "std"] }
