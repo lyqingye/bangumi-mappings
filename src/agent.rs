@@ -61,7 +61,7 @@ impl AnimeMatcherAgent {
         .max_tokens(8192)
         .temperature(0.2)
         .tool(search_tools)
-        .tool(season_tool)
+        // .tool(season_tool)
         .tool(bgm_search_tool)
         .build();
 
