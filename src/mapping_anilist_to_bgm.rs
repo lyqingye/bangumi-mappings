@@ -44,10 +44,10 @@ impl AnimeMappings {
 }
 
 pub async fn mapping_anilist_to_bgm(year: i32) -> Result<i32, anyhow::Error> {
-    let mut agent = AnimeMatcherAgent::new();
     let media_list = DumpedMediaList::load_from_file(year)?;
     let mut mappings = AnimeMappings::load_from_file()?;
     for media in media_list.media_list {
+        let mut agent = AnimeMatcherAgent::new();
         if mappings.contains(media.id) {
             continue;
         }
