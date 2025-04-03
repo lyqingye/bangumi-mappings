@@ -60,7 +60,7 @@ impl AnimeMatcherAgent {
         .append_preamble("4. 以Jsonschema格式回复匹配结果,不要携带任何信息")
         .max_tokens(8192)
         .temperature(0.2)
-        .tool(search_tools)
+        // .tool(search_tools)
         // .tool(season_tool)
         .tool(bgm_search_tool)
         .build();
@@ -222,10 +222,32 @@ impl Tool for TMDBSearchTool {
         let query = args.query;
         tokio::spawn(async move {
             let cmd = TVShowSearch::new(query).with_language(Some("zh-CN".to_string()));
-            match cmd.execute(&client).await {
-                Ok(result) => Ok(result.results),
-                Err(e) => Err(TMDBError::new(e.to_string())),
+
+            // 添加重试逻辑
+            let mut attempts = 0;
+            let max_attempts = 10;
+
+            while attempts < max_attempts {
+                match cmd.execute(&client).await {
+                    Ok(result) => return Ok(result.results),
+                    Err(e) => {
+                        attempts += 1;
+                        if attempts >= max_attempts {
+                            return Err(TMDBError::new(format!(
+                                "搜索失败，已重试{}次: {}",
+                                attempts, e
+                            )));
+                        }
+                        info!(
+                            "搜索错误: {}，等待10秒后重试 ({}/{})",
+                            e, attempts, max_attempts
+                        );
+                        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
+                    }
+                }
             }
+
+            Err(TMDBError::new("所有重试尝试均失败"))
         })
         .await
         .unwrap_or(Err(TMDBError::new("search not found")))
@@ -281,9 +303,38 @@ impl Tool for TMDBSeasonTool {
         let client = self.client.clone();
         tokio::spawn(async move {
             let cmd = TVShowEpisodeGroups::new(tv_id);
-            let ep_groups = match cmd.execute(&client).await {
-                Ok(result) => result,
-                Err(_) => return Err(TMDBError::new("season not found")),
+
+            // 添加重试逻辑 - 第一个请求的重试
+            let mut attempts = 0;
+            let max_attempts = 10;
+            let mut ep_groups = None;
+
+            while attempts < max_attempts {
+                match cmd.execute(&client).await {
+                    Ok(result) => {
+                        ep_groups = Some(result);
+                        break;
+                    }
+                    Err(e) => {
+                        attempts += 1;
+                        if attempts >= max_attempts {
+                            return Err(TMDBError::new(format!(
+                                "获取剧集组失败，已重试{}次: {}",
+                                attempts, e
+                            )));
+                        }
+                        info!(
+                            "获取剧集组错误: {}，等待10秒后重试 ({}/{})",
+                            e, attempts, max_attempts
+                        );
+                        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
+                    }
+                }
+            }
+
+            let ep_groups = match ep_groups {
+                Some(result) => result,
+                None => return Err(TMDBError::new("获取剧集组失败，所有重试均失败")),
             };
 
             let mut group_id = None;
@@ -303,19 +354,46 @@ impl Tool for TMDBSeasonTool {
 
             let cmd2 = TVShowEpisodeGroupsDetails::new(group_id.unwrap())
                 .with_language(Some("zh-CN".to_string()));
-            match cmd2.execute(&client).await {
-                Ok(result) => Ok(result
-                    .groups
-                    .iter()
-                    .map(|item| Season {
-                        id: item.id.clone(),
-                        name: item.name.clone(),
-                        number: item.order,
-                        first_air_date: item.episodes.first().map(|item| item.air_date.to_string()),
-                    })
-                    .collect::<Vec<Season>>()),
-                Err(_) => return Err(TMDBError::new("season not found")),
+
+            // 添加重试逻辑 - 第二个请求的重试
+            let mut attempts = 0;
+            let max_attempts = 10;
+
+            while attempts < max_attempts {
+                match cmd2.execute(&client).await {
+                    Ok(result) => {
+                        return Ok(result
+                            .groups
+                            .iter()
+                            .map(|item| Season {
+                                id: item.id.clone(),
+                                name: item.name.clone(),
+                                number: item.order,
+                                first_air_date: item
+                                    .episodes
+                                    .first()
+                                    .map(|item| item.air_date.to_string()),
+                            })
+                            .collect::<Vec<Season>>());
+                    }
+                    Err(e) => {
+                        attempts += 1;
+                        if attempts >= max_attempts {
+                            return Err(TMDBError::new(format!(
+                                "获取季度详情失败，已重试{}次: {}",
+                                attempts, e
+                            )));
+                        }
+                        info!(
+                            "获取季度详情错误: {}，等待10秒后重试 ({}/{})",
+                            e, attempts, max_attempts
+                        );
+                        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
+                    }
+                }
             }
+
+            Err(TMDBError::new("获取季度详情失败，所有重试均失败"))
         })
         .await
         .unwrap_or(Err(TMDBError::new("season not found")))
@@ -414,16 +492,44 @@ impl Tool for BgmTVSearchTool {
                 Err(e) => return Err(TMDBError::new(format!("JSON序列化错误: {}", e))),
             };
 
-            let response = match client
-                .post(&url)
-                .header(USER_AGENT, "lyqingye/anime-matcher-agent")
-                .query(&[("limit", "10"), ("offset", "0")])
-                .body(body)
-                .send()
-                .await
-            {
-                Ok(resp) => resp,
-                Err(e) => return Err(TMDBError::new(format!("请求错误: {}", e))),
+            // 添加重试逻辑
+            let mut attempts = 0;
+            let max_attempts = 10;
+            let mut response = None;
+
+            while attempts < max_attempts {
+                match client
+                    .post(&url)
+                    .header(USER_AGENT, "lyqingye/anime-matcher-agent")
+                    .query(&[("limit", "10"), ("offset", "0")])
+                    .body(body.clone())
+                    .send()
+                    .await
+                {
+                    Ok(resp) => {
+                        response = Some(resp);
+                        break;
+                    }
+                    Err(e) => {
+                        attempts += 1;
+                        if attempts >= max_attempts {
+                            return Err(TMDBError::new(format!(
+                                "请求错误，已重试{}次: {}",
+                                attempts, e
+                            )));
+                        }
+                        info!(
+                            "请求错误: {}，等待10秒后重试 ({}/{})",
+                            e, attempts, max_attempts
+                        );
+                        tokio::time::sleep(tokio::time::Duration::from_secs(10)).await;
+                    }
+                }
+            }
+
+            let response = match response {
+                Some(resp) => resp,
+                None => return Err(TMDBError::new("所有重试尝试均失败")),
             };
 
             let response_text = match response.text().await {
