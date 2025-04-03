@@ -35,7 +35,9 @@ enum Commands {
     Mapping {
         /// 搜索关键词
         #[arg(short, long)]
-        year: i32,
+        start: i32,
+        #[arg(short, long)]
+        end: i32,
     },
 }
 
@@ -57,8 +59,8 @@ async fn main() -> Result<(), anyhow::Error> {
             let result = agent.match_anime(&query).await?;
             println!("{}", serde_json::to_string(&result).unwrap());
         }
-        Commands::Mapping { year } => {
-            mapping_anilist_to_bgm::mapping_anilist_to_bgm(year).await?;
+        Commands::Mapping { start, end } => {
+            mapping_anilist_to_bgm::mapping_anilist_to_bgm(start, end).await?;
         }
     }
     Ok(())

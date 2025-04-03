@@ -1,7 +1,8 @@
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, fs::File};
-use tracing::info;
+use tokio::time;
+use tracing::{info, warn};
 
 use crate::{agent::AnimeMatcherAgent, dump_anilist::DumpedMediaList};
 
@@ -27,11 +28,9 @@ impl AnimeMappings {
                         .collect(),
                 })
             }
-            Err(_) => {
-                Ok(Self {
-                    mappings: HashMap::new(),
-                })
-            }
+            Err(_) => Ok(Self {
+                mappings: HashMap::new(),
+            }),
         }
     }
 
@@ -54,7 +53,15 @@ impl AnimeMappings {
     }
 }
 
-pub async fn mapping_anilist_to_bgm(year: i32) -> Result<i32, anyhow::Error> {
+pub async fn mapping_anilist_to_bgm(start: i32, end: i32) -> Result<()> {
+    for year in start..=end {
+        info!("处理年份Mappings: {}", year);
+        mapping_anilist_to_bgm_by_year(year).await?;
+    }
+    Ok(())
+}
+
+async fn mapping_anilist_to_bgm_by_year(year: i32) -> Result<()> {
     let media_list = DumpedMediaList::load_from_file(year)?;
     let mut mappings = AnimeMappings::load_from_file(year)?;
     for media in media_list.media_list {
@@ -88,12 +95,45 @@ pub async fn mapping_anilist_to_bgm(year: i32) -> Result<i32, anyhow::Error> {
             keywords = format!("{} day: {}", keywords, day);
         }
         info!("mapping {} to bgm, keywords: {}", media.id, keywords);
-        let result = agent
-            .match_anime(&format!("{} {}", keywords, media.id))
-            .await?;
-        info!("result: {:?}", result);
-        mappings.add_mapping(media.id, Some(result.id));
-        mappings.save_to_file(year)?;
+
+        let mut attempts = 0;
+        let max_attempts = 10;
+        let mut result = None;
+
+        while attempts < max_attempts {
+            match agent
+                .match_anime(&format!("{} {}", keywords, media.id))
+                .await
+            {
+                Ok(res) => {
+                    result = Some(res);
+                    break;
+                }
+                Err(e) => {
+                    attempts += 1;
+                    if attempts >= max_attempts {
+                        return Err(anyhow::anyhow!("匹配动漫失败，已重试{}次: {}", attempts, e));
+                    }
+                    info!(
+                        "匹配动漫错误: {}，等待5秒后重试 ({}/{})",
+                        e, attempts, max_attempts
+                    );
+                    time::sleep(time::Duration::from_secs(5)).await;
+                }
+            }
+        }
+
+        match result {
+            Some(result) => {
+                info!("result: {:?}", result);
+                mappings.add_mapping(media.id, Some(result.id));
+                mappings.save_to_file(year)?;
+            }
+            None => {
+                warn!("匹配动漫: {} 失败", media.id);
+                mappings.add_mapping(media.id, None);
+            }
+        }
     }
-    Ok(0)
+    Ok(())
 }

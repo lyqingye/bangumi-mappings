@@ -37,17 +37,17 @@ impl AnimeMatcherAgent {
 
         let model = "deepseek-chat";
 
-        let tmdb_client = Arc::new(Client::<ReqwestExecutor>::new(
-            std::env::var("TMDB_API_KEY").unwrap(),
-        ));
+        // let tmdb_client = Arc::new(Client::<ReqwestExecutor>::new(
+        //     std::env::var("TMDB_API_KEY").unwrap(),
+        // ));
 
-        let search_tools = TMDBSearchTool {
-            client: tmdb_client.clone(),
-        };
+        // let search_tools = TMDBSearchTool {
+        //     client: tmdb_client.clone(),
+        // };
 
-        let season_tool = TMDBSeasonTool {
-            client: tmdb_client.clone(),
-        };
+        // let season_tool = TMDBSeasonTool {
+        //     client: tmdb_client.clone(),
+        // };
 
         let bgm_search_tool = BgmTVSearchTool::new();
 
@@ -56,8 +56,8 @@ impl AnimeMatcherAgent {
         .preamble("你是一个智能助手，匹配用户查询的动漫信息, 用户会输入动漫的相关信息，最终你需要找到与用户查询信息最相似的动漫")
         // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
         // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("3. 你也可以使用bgm_tv_search工具搜索动漫，你可能需要进行多次搜索，然后找到相似度最高的动漫")
-        .append_preamble("4. 以Jsonschema格式回复匹配结果,不要携带任何信息")
+        .append_preamble("1. 你也可以使用bgm_tv_search工具搜索动漫，你可能需要进行多次搜索，然后找到相似度最高的动漫")
+        .append_preamble("2. 以Json方式返回数据: {\"id\": \"\", \"name\": \"\"},不要携带其它与json无关的信息")
         .max_tokens(8192)
         .temperature(0.2)
         // .tool(search_tools)
