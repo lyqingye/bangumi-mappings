@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-rig-core = "0.11.0"
+rig-core = {git = "https://github.com/0xPlaygrounds/rig"}
 tokio = { version = "1.39.0", features = ["full"] }
 serde = { version = "1.0.215", features = ["derive"] }
 serde_json = "1.0.105"
@@ -18,3 +18,4 @@ schemars = "0.8.16"
 dotenv = "0.15.0"
 clap = { version = "4.5.35", features = ["derive"] }
 governor = { version = "0.8", features = ["jitter", "std"] }
+chrono = "0.4.40"

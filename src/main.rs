@@ -2,6 +2,7 @@ use agent::AnimeMatcherAgent;
 
 mod agent;
 mod dump_anilist;
+mod mapping_anilist_to_bgm;
 
 use clap::{Parser, Subcommand};
 
@@ -29,6 +30,13 @@ enum Commands {
         #[arg(short, long)]
         query: String,
     },
+    /// 匹配动漫信息
+    #[command(name = "mapping")]
+    Mapping {
+        /// 搜索关键词
+        #[arg(short, long)]
+        year: i32,
+    },
 }
 
 #[tokio::main]
@@ -48,6 +56,9 @@ async fn main() -> Result<(), anyhow::Error> {
             let mut agent = AnimeMatcherAgent::new();
             let result = agent.match_anime(&query).await?;
             println!("{}", serde_json::to_string(&result).unwrap());
+        }
+        Commands::Mapping { year } => {
+            mapping_anilist_to_bgm::mapping_anilist_to_bgm(year).await?;
         }
     }
     Ok(())

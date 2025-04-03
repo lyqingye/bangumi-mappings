@@ -1,5 +1,7 @@
 use std::sync::Arc;
 
+use chrono::NaiveDate;
+use reqwest::header::USER_AGENT;
 use rig::{
     OneOrMany,
     completion::{self, Completion, PromptError, ToolDefinition},
@@ -21,20 +23,19 @@ use tmdb_api::{
     },
 };
 
-use rig::providers::xai::completion::CompletionModel;
+use rig::providers::deepseek::DeepSeekCompletionModel;
 use tracing::info;
 
 pub struct AnimeMatcherAgent {
-    agent: MultiTurnAgent<CompletionModel>,
-    extract_client: providers::deepseek::Client,
+    agent: MultiTurnAgent<DeepSeekCompletionModel>,
+    client: providers::deepseek::Client,
 }
 
 impl AnimeMatcherAgent {
     pub fn new() -> Self {
-        let extract_client = providers::deepseek::Client::from_env();
+        let client = providers::deepseek::Client::from_env();
 
-        let client = providers::xai::Client::from_env();
-        let model = "grok-2-latest";
+        let model = "deepseek-chat";
 
         let tmdb_client = Arc::new(Client::<ReqwestExecutor>::new(
             std::env::var("TMDB_API_KEY").unwrap(),
@@ -48,16 +49,20 @@ impl AnimeMatcherAgent {
             client: tmdb_client.clone(),
         };
 
+        let bgm_search_tool = BgmTVSearchTool::new();
+
         let agent = client
         .agent(model)
         .preamble("你是一个智能助手，匹配用户查询的动漫信息, 用户会输入动漫的相关信息，最终你需要找到与用户查询信息最相似的动漫")
-        .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
-        .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("最终你需要使用纯json输出,不要包含其他任何信息! json schema: {id: string, name: string, season: number}")
+        // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
+        // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
+        .append_preamble("3. 你也可以使用bgm_tv_search工具搜索动漫，你可能需要进行多次搜索，然后找到相似度最高的动漫")
+        .append_preamble("4. 以Jsonschema格式回复匹配结果,不要携带任何信息")
         .max_tokens(8192)
         .temperature(0.2)
         .tool(search_tools)
         .tool(season_tool)
+        .tool(bgm_search_tool)
         .build();
 
         // 创建多轮对话agent
@@ -67,14 +72,14 @@ impl AnimeMatcherAgent {
         };
         Self {
             agent: multi_agent,
-            extract_client,
+            client,
         }
     }
 
     pub async fn match_anime(&mut self, query: &str) -> anyhow::Result<MatchResult> {
         let result = self.agent.multi_turn_prompt(query).await?;
         let extract_agent = self
-            .extract_client
+            .client
             .extractor::<MatchResult>("deepseek-chat")
             .preamble("提取匹配结果信息")
             .build();
@@ -157,9 +162,9 @@ impl<M: rig::completion::CompletionModel> MultiTurnAgent<M> {
 
 #[derive(Deserialize, Serialize, Debug, JsonSchema)]
 pub struct MatchResult {
-    pub id: String,
+    pub id: i32,
     pub name: String,
-    pub season: u64,
+    // pub season: u64,
 }
 
 pub struct TMDBSearchTool {
@@ -314,5 +319,124 @@ impl Tool for TMDBSeasonTool {
         })
         .await
         .unwrap_or(Err(TMDBError::new("season not found")))
+    }
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct BgmTVSearchArgs {
+    query: String,
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize, Default)]
+#[serde(default)]
+pub struct Pagination {
+    pub total: i32,
+    pub limit: i32,
+    pub offset: i32,
+}
+
+#[derive(Debug, Deserialize, Serialize, Default, Clone)]
+pub struct PageResponse<T> {
+    #[serde(flatten)]
+    pub pagination: Pagination,
+    pub data: Vec<T>,
+}
+
+#[derive(Debug, Deserialize, Serialize, Default, Clone)]
+#[serde(default)]
+pub struct Subject {
+    pub id: i32,
+    #[serde(rename = "type")]
+    pub subject_type: i32,
+    pub name: String,
+    pub name_cn: Option<String>,
+    pub series: bool,
+    pub date: Option<NaiveDate>,
+    pub eps: i32,
+    pub total_episodes: i32,
+    pub meta_tags: Vec<String>,
+}
+
+pub struct BgmTVSearchTool {
+    client: reqwest::Client,
+    base_url: String,
+}
+
+impl BgmTVSearchTool {
+    pub fn new() -> Self {
+        let client = reqwest::Client::new();
+        Self {
+            client,
+            base_url: "https://api.bgm.tv".to_string(),
+        }
+    }
+}
+
+impl Tool for BgmTVSearchTool {
+    const NAME: &'static str = "bgm_tv_search";
+
+    type Error = TMDBError;
+    type Args = BgmTVSearchArgs;
+    type Output = PageResponse<Subject>;
+
+    async fn definition(&self, _prompt: String) -> ToolDefinition {
+        ToolDefinition {
+            name: "bgm_tv_search".to_string(),
+            description: "Search for TV shows on BgmTV".to_string(),
+            parameters: json!({
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query for bgm tv"
+                    }
+                },
+                "required": ["query"]
+            }),
+        }
+    }
+
+    async fn call(&self, args: Self::Args) -> Result<Self::Output, Self::Error> {
+        // 保存参数为本地变量
+        let query = args.query;
+        let base_url = self.base_url.clone();
+        let client = self.client.clone();
+
+        // 使用spawn_blocking来处理阻塞操作
+        tokio::spawn(async move {
+            let url = format!("{}/v0/search/subjects", base_url);
+
+            // 创建搜索过滤器
+            let search_query = json!({ "keyword": query });
+
+            let body = match serde_json::to_string(&search_query) {
+                Ok(b) => b,
+                Err(e) => return Err(TMDBError::new(format!("JSON序列化错误: {}", e))),
+            };
+
+            let response = match client
+                .post(&url)
+                .header(USER_AGENT, "lyqingye/anime-matcher-agent")
+                .query(&[("limit", "10"), ("offset", "0")])
+                .body(body)
+                .send()
+                .await
+            {
+                Ok(resp) => resp,
+                Err(e) => return Err(TMDBError::new(format!("请求错误: {}", e))),
+            };
+
+            let response_text = match response.text().await {
+                Ok(text) => text,
+                Err(e) => return Err(TMDBError::new(format!("读取响应错误: {}", e))),
+            };
+
+            match serde_json::from_str::<PageResponse<Subject>>(&response_text) {
+                Ok(resp) => Ok(resp),
+                Err(e) => Err(TMDBError::new(format!("解析响应错误: {}", e))),
+            }
+        })
+        .await
+        .unwrap_or(Err(TMDBError::new("搜索失败")))
     }
 }
