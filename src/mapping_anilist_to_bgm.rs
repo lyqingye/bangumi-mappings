@@ -16,20 +16,31 @@ pub struct AnimeMappings {
 }
 
 impl AnimeMappings {
-    pub fn load_from_file() -> Result<Self> {
-        let file = File::open("anilist_mappings.json")?;
-        let mappings: Vec<MappingItem> = serde_json::from_reader(file)?;
-        Ok(Self {
-            mappings: mappings
-                .into_iter()
-                .map(|item| (item.anilist_id, item))
-                .collect(),
-        })
+    pub fn load_from_file(year: i32) -> Result<Self> {
+        match File::open(format!("anilist_mappings_{}.json", year)) {
+            Ok(file) => {
+                let mappings: Vec<MappingItem> = serde_json::from_reader(file)?;
+                Ok(Self {
+                    mappings: mappings
+                        .into_iter()
+                        .map(|item| (item.anilist_id, item))
+                        .collect(),
+                })
+            }
+            Err(_) => {
+                Ok(Self {
+                    mappings: HashMap::new(),
+                })
+            }
+        }
     }
 
-    pub fn save_to_file(&self) -> Result<()> {
-        let file = File::create("anilist_mappings.json")?;
+    pub fn save_to_file(&self, year: i32) -> Result<()> {
+        let file_name = format!("anilist_mappings_{}.json", year);
+        let temp_file = format!("{}.tmp", file_name);
+        let file = File::create(&temp_file)?;
         serde_json::to_writer(file, &self.mappings.values().collect::<Vec<_>>())?;
+        std::fs::rename(temp_file, file_name)?;
         Ok(())
     }
 
@@ -45,7 +56,7 @@ impl AnimeMappings {
 
 pub async fn mapping_anilist_to_bgm(year: i32) -> Result<i32, anyhow::Error> {
     let media_list = DumpedMediaList::load_from_file(year)?;
-    let mut mappings = AnimeMappings::load_from_file()?;
+    let mut mappings = AnimeMappings::load_from_file(year)?;
     for media in media_list.media_list {
         let mut agent = AnimeMatcherAgent::new();
         if mappings.contains(media.id) {
@@ -82,7 +93,7 @@ pub async fn mapping_anilist_to_bgm(year: i32) -> Result<i32, anyhow::Error> {
             .await?;
         info!("result: {:?}", result);
         mappings.add_mapping(media.id, Some(result.id));
-        mappings.save_to_file()?;
+        mappings.save_to_file(year)?;
     }
     Ok(0)
 }
