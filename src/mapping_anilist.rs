@@ -96,6 +96,22 @@ pub async fn mapping_anilist_to_bgm(
     Ok(())
 }
 
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub struct Input {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub native_title: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub romaji_title: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub english_title: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub year: Option<i32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub month: Option<i32>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub day: Option<i32>,
+}
+
 async fn mapping_anilist_to_bgm_by_year(
     year: i32,
     provider: &str,
@@ -116,31 +132,16 @@ async fn mapping_anilist_to_bgm_by_year(
                 mapping_tmdb = false;
             }
         }
-        let mut keywords = "match anime: ".to_string();
+        let input = Input {
+            native_title: media.title.native.clone(),
+            romaji_title: media.title.romaji.clone(),
+            english_title: media.title.english.clone(),
+            year: media.start_date.year,
+            month: media.start_date.month,
+            day: media.start_date.day,
+        };
 
-        if let Some(native) = &media.title.native {
-            keywords = format!("{} native title: {}", keywords, native);
-        }
-
-        if let Some(romaji) = &media.title.romaji {
-            keywords = format!("{} romaji title: {}", keywords, romaji);
-        }
-
-        if let Some(english) = &media.title.english {
-            keywords = format!("{} english title: {}", keywords, english);
-        }
-
-        if let Some(year) = media.start_date.year {
-            keywords = format!("{} year: {}", keywords, year);
-        }
-
-        if let Some(month) = media.start_date.month {
-            keywords = format!("{} month: {}", keywords, month);
-        }
-
-        if let Some(day) = media.start_date.day {
-            keywords = format!("{} day: {}", keywords, day);
-        }
+        let keywords = serde_json::to_string(&input)?;
 
         if mapping_bgm {
             info!("mapping {} to bgm, keywords: {}", media.id, keywords);
