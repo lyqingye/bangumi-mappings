@@ -2,9 +2,12 @@ use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, fs::File};
 use tokio::time;
-use tracing::{info, warn};
+use tracing::{error, info, warn};
 
-use crate::{agent::AnimeMatcherAgent, dump_anilist::DumpedMediaList};
+use crate::{
+    agent::{new_deepseek, new_gemini, new_xai},
+    dump_anilist::DumpedMediaList,
+};
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct MappingItem {
@@ -48,39 +51,47 @@ impl AnimeMappings {
             .insert(anilist_id, MappingItem { anilist_id, bgm_id });
     }
 
-    pub fn contains(&self, anilist_id: i32) -> bool {
-        self.mappings.contains_key(&anilist_id)
+    pub fn get_mapping(&self, anilist_id: i32) -> Option<&MappingItem> {
+        self.mappings.get(&anilist_id)
     }
 }
 
-pub async fn mapping_anilist_to_bgm(start: i32, end: i32) -> Result<()> {
+pub async fn mapping_anilist_to_bgm(
+    start: i32,
+    end: i32,
+    provider: &str,
+    model: &str,
+) -> Result<()> {
     for year in start..=end {
         info!("处理年份Mappings: {}", year);
-        mapping_anilist_to_bgm_by_year(year).await?;
+        mapping_anilist_to_bgm_by_year(year, provider, model).await?;
     }
     Ok(())
 }
 
-async fn mapping_anilist_to_bgm_by_year(year: i32) -> Result<()> {
+async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str) -> Result<()> {
     let media_list = DumpedMediaList::load_from_file(year)?;
     let mut mappings = AnimeMappings::load_from_file(year)?;
     for media in media_list.media_list {
-        let mut agent = AnimeMatcherAgent::new();
-        if mappings.contains(media.id) {
+        let exists = mappings.get_mapping(media.id);
+        if let Some(exists) = exists {
+            if exists.bgm_id.is_some() && exists.bgm_id.unwrap() != 0 {
+                continue;
+            }
             continue;
         }
         let mut keywords = "match anime: ".to_string();
 
         if let Some(native) = media.title.native {
-            keywords = format!("{} nativ: {}", keywords, native);
+            keywords = format!("{} native title: {}", keywords, native);
         }
 
         if let Some(romaji) = media.title.romaji {
-            keywords = format!("{} romiji: {}", keywords, romaji);
+            keywords = format!("{} romaji title: {}", keywords, romaji);
         }
 
         if let Some(english) = media.title.english {
-            keywords = format!("{} english: {}", keywords, english);
+            keywords = format!("{} english title: {}", keywords, english);
         }
 
         if let Some(year) = media.start_date.year {
@@ -97,14 +108,29 @@ async fn mapping_anilist_to_bgm_by_year(year: i32) -> Result<()> {
         info!("mapping {} to bgm, keywords: {}", media.id, keywords);
 
         let mut attempts = 0;
-        let max_attempts = 10;
+        let max_attempts = 3;
         let mut result = None;
 
         while attempts < max_attempts {
-            match agent
-                .match_anime(&format!("{} {}", keywords, media.id))
-                .await
-            {
+            let r = match provider {
+                "xai" => {
+                    let mut agent = new_xai(model);
+                    agent.match_anime(&keywords).await
+                }
+                "gemini" => {
+                    let mut agent = new_gemini(model);
+                    agent.match_anime(&keywords).await
+                }
+                "deepseek" => {
+                    let mut agent = new_deepseek(model);
+                    agent.match_anime(&keywords).await
+                }
+                _ => {
+                    return Err(anyhow::anyhow!("不支持的provider: {}", provider));
+                }
+            };
+
+            match r {
                 Ok(res) => {
                     result = Some(res);
                     break;
@@ -112,9 +138,10 @@ async fn mapping_anilist_to_bgm_by_year(year: i32) -> Result<()> {
                 Err(e) => {
                     attempts += 1;
                     if attempts >= max_attempts {
-                        return Err(anyhow::anyhow!("匹配动漫失败，已重试{}次: {}", attempts, e));
+                        warn!("匹配动漫失败，已重试{}次: {}", attempts, e);
+                        break;
                     }
-                    info!(
+                    error!(
                         "匹配动漫错误: {}，等待5秒后重试 ({}/{})",
                         e, attempts, max_attempts
                     );
@@ -130,7 +157,7 @@ async fn mapping_anilist_to_bgm_by_year(year: i32) -> Result<()> {
                 mappings.save_to_file(year)?;
             }
             None => {
-                warn!("匹配动漫: {} 失败", media.id);
+                error!("匹配动漫: {} 失败", media.id);
                 mappings.add_mapping(media.id, None);
             }
         }

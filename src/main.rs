@@ -1,4 +1,4 @@
-use agent::AnimeMatcherAgent;
+use agent::new_xai;
 
 mod agent;
 mod dump_anilist;
@@ -38,6 +38,10 @@ enum Commands {
         start: i32,
         #[arg(short, long)]
         end: i32,
+        #[arg(short, long)]
+        provider: String,
+        #[arg(short, long)]
+        model: String,
     },
 }
 
@@ -55,12 +59,17 @@ async fn main() -> Result<(), anyhow::Error> {
             dump_anilist::run_dump_anilist(start, end).await?;
         }
         Commands::Match { query } => {
-            let mut agent = AnimeMatcherAgent::new();
+            let mut agent = new_xai("grok-2-1212");
             let result = agent.match_anime(&query).await?;
             println!("{}", serde_json::to_string(&result).unwrap());
         }
-        Commands::Mapping { start, end } => {
-            mapping_anilist_to_bgm::mapping_anilist_to_bgm(start, end).await?;
+        Commands::Mapping {
+            start,
+            end,
+            provider,
+            model,
+        } => {
+            mapping_anilist_to_bgm::mapping_anilist_to_bgm(start, end, &provider, &model).await?;
         }
     }
     Ok(())

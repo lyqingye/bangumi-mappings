@@ -5,6 +5,7 @@ use reqwest::header::USER_AGENT;
 use rig::{
     OneOrMany,
     completion::{self, Completion, PromptError, ToolDefinition},
+    extractor::Extractor,
     message::{AssistantContent, Message, ToolCall, ToolFunction, ToolResultContent, UserContent},
     providers,
     tool::Tool,
@@ -23,69 +24,130 @@ use tmdb_api::{
     },
 };
 
-use rig::providers::deepseek::DeepSeekCompletionModel;
 use tracing::info;
 
-pub struct AnimeMatcherAgent {
-    agent: MultiTurnAgent<DeepSeekCompletionModel>,
-    client: providers::deepseek::Client,
+pub struct AnimeMatcherAgent<M: rig::completion::CompletionModel> {
+    agent: MultiTurnAgent<M>,
+    extractor: Extractor<M, MatchResult>,
 }
 
-impl AnimeMatcherAgent {
-    pub fn new() -> Self {
-        let client = providers::deepseek::Client::from_env();
+impl<M: rig::completion::CompletionModel> AnimeMatcherAgent<M> {
+    pub async fn match_anime(&mut self, query: &str) -> anyhow::Result<MatchResult> {
+        let result = self.agent.multi_turn_prompt(query).await?;
 
-        let model = "deepseek-chat";
+        match serde_json::from_str::<MatchResult>(&result) {
+            Ok(result) => Ok(result),
+            Err(_) => {
+                let extract_result = self.extractor.extract(&result).await?;
+                Ok(extract_result)
+            }
+        }
+    }
+}
 
-        // let tmdb_client = Arc::new(Client::<ReqwestExecutor>::new(
-        //     std::env::var("TMDB_API_KEY").unwrap(),
-        // ));
+pub fn new_deepseek(
+    model: &str,
+) -> AnimeMatcherAgent<providers::deepseek::DeepSeekCompletionModel> {
+    let client = providers::deepseek::Client::from_env();
+    let model = model;
+    let bgm_search_tool = BgmTVSearchTool::new();
 
-        // let search_tools = TMDBSearchTool {
-        //     client: tmdb_client.clone(),
-        // };
-
-        // let season_tool = TMDBSeasonTool {
-        //     client: tmdb_client.clone(),
-        // };
-
-        let bgm_search_tool = BgmTVSearchTool::new();
-
-        let agent = client
+    let agent = client
         .agent(model)
-        .preamble("你是一个智能助手，匹配用户查询的动漫信息, 用户会输入动漫的相关信息，最终你需要找到与用户查询信息最相似的动漫")
+        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
         // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
         // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("1. 你也可以使用bgm_tv_search工具搜索动漫，你可能需要进行多次搜索，然后找到相似度最高的动漫")
-        .append_preamble("2. 以Json方式返回数据: {\"id\": \"\", \"name\": \"\"},不要携带其它与json无关的信息")
+        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
+        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
         .max_tokens(8192)
-        .temperature(0.2)
-        // .tool(search_tools)
-        // .tool(season_tool)
+        .temperature(0.1)
         .tool(bgm_search_tool)
         .build();
 
-        // 创建多轮对话agent
-        let multi_agent = MultiTurnAgent {
-            agent,
-            chat_history: Vec::new(),
-        };
-        Self {
-            agent: multi_agent,
-            client,
-        }
+    // 创建多轮对话agent
+    let multi_agent = MultiTurnAgent {
+        agent,
+        chat_history: Vec::new(),
+    };
+
+    let extractor = client
+        .extractor(model)
+        .preamble("extract the id and name from the input text")
+        .build();
+
+    AnimeMatcherAgent {
+        agent: multi_agent,
+        extractor,
     }
+}
 
-    pub async fn match_anime(&mut self, query: &str) -> anyhow::Result<MatchResult> {
-        let result = self.agent.multi_turn_prompt(query).await?;
-        let extract_agent = self
-            .client
-            .extractor::<MatchResult>("deepseek-chat")
-            .preamble("提取匹配结果信息")
-            .build();
+pub fn new_xai(model: &str) -> AnimeMatcherAgent<providers::xai::completion::CompletionModel> {
+    let client = providers::xai::Client::from_env();
+    let bgm_search_tool = BgmTVSearchTool::new();
+    let model = model;
 
-        let extract_result: MatchResult = extract_agent.extract(&result).await?;
-        Ok(extract_result)
+    let agent = client
+        .agent(model)
+        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
+        // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
+        // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
+        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
+        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
+        .max_tokens(8192)
+        .temperature(0.1)
+        .tool(bgm_search_tool)
+        .build();
+
+    // 创建多轮对话agent
+    let multi_agent = MultiTurnAgent {
+        agent,
+        chat_history: Vec::new(),
+    };
+
+    let extractor = client
+        .extractor(model)
+        .preamble("extract the id and name from the input text")
+        .build();
+
+    AnimeMatcherAgent {
+        agent: multi_agent,
+        extractor,
+    }
+}
+
+pub fn new_gemini(
+    model: &str,
+) -> AnimeMatcherAgent<providers::gemini::completion::CompletionModel> {
+    let client = providers::gemini::Client::from_env();
+    let bgm_search_tool = BgmTVSearchTool::new();
+    let model = model;
+
+    let agent = client
+        .agent(model)
+        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
+        // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
+        // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
+        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
+        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
+        .max_tokens(8192)
+        .temperature(0.1)
+        .tool(bgm_search_tool)
+        .build();
+
+    // 创建多轮对话agent
+    let multi_agent = MultiTurnAgent {
+        agent,
+        chat_history: Vec::new(),
+    };
+
+    let extractor = client
+        .extractor(model)
+        .preamble("extract the id and name from the input text")
+        .build();
+
+    AnimeMatcherAgent {
+        agent: multi_agent,
+        extractor,
     }
 }
 
@@ -432,7 +494,32 @@ pub struct Subject {
     pub date: Option<NaiveDate>,
     pub eps: i32,
     pub total_episodes: i32,
-    pub meta_tags: Vec<String>,
+    pub infobox: Vec<InfoboxItem>,
+}
+
+#[derive(Debug, Deserialize, Serialize, Default, Clone)]
+pub struct InfoboxItem {
+    pub key: String,
+    #[serde(default)]
+    pub value: InfoboxValue,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(untagged)]
+pub enum InfoboxValue {
+    String(String),
+    Array(Vec<InfoboxArrayItem>),
+}
+
+impl Default for InfoboxValue {
+    fn default() -> Self {
+        InfoboxValue::String(String::new())
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, Default, Clone)]
+pub struct InfoboxArrayItem {
+    pub v: String,
 }
 
 pub struct BgmTVSearchTool {
@@ -485,7 +572,14 @@ impl Tool for BgmTVSearchTool {
             let url = format!("{}/v0/search/subjects", base_url);
 
             // 创建搜索过滤器
-            let search_query = json!({ "keyword": query });
+            let search_query = json!({
+                "keyword": query,
+                "filter": {
+                    "type": [2],
+                    "sort": "rank",
+                    "nsfw": true,
+                }
+            });
 
             let body = match serde_json::to_string(&search_query) {
                 Ok(b) => b,
@@ -538,7 +632,14 @@ impl Tool for BgmTVSearchTool {
             };
 
             match serde_json::from_str::<PageResponse<Subject>>(&response_text) {
-                Ok(resp) => Ok(resp),
+                Ok(mut resp) => {
+                    resp.data.iter_mut().for_each(|item| {
+                        item.infobox.retain(|item| {
+                            item.key == "中文名" || item.key == "别名" || item.key == "英文名"
+                        });
+                    });
+                    Ok(resp)
+                }
                 Err(e) => Err(TMDBError::new(format!("解析响应错误: {}", e))),
             }
         })
