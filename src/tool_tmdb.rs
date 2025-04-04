@@ -241,21 +241,23 @@ impl Tool for TMDBSeasonTool {
                     Err(e) => return Err(TMDBError::new(format!("获取季度详情失败: {}", e))),
                 };
 
-                return Ok(TMDBSeasonResult {
-                    data: details
-                        .groups
-                        .iter()
-                        .map(|item| Season {
-                            id: item.id.clone(),
-                            name: item.name.clone(),
-                            number: item.order as i32,
-                            first_air_date: item
-                                .episodes
-                                .first()
-                                .map(|item| item.air_date.to_string()),
-                        })
-                        .collect::<Vec<Season>>(),
-                });
+                if !details.groups.is_empty() {
+                    return Ok(TMDBSeasonResult {
+                        data: details
+                            .groups
+                            .iter()
+                            .map(|item| Season {
+                                id: item.id.clone(),
+                                name: item.name.clone(),
+                                number: item.order as i32,
+                                first_air_date: item
+                                    .episodes
+                                    .first()
+                                    .map(|item| item.air_date.to_string()),
+                            })
+                            .collect::<Vec<Season>>(),
+                    });
+                }
             }
 
             let cmd_details = TVShowDetails::new(tv_id).with_language(Some("zh-CN".to_string()));
