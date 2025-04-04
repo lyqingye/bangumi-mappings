@@ -3,12 +3,7 @@ use std::sync::Arc;
 use chrono::NaiveDate;
 use reqwest::header::USER_AGENT;
 use rig::{
-    OneOrMany,
-    completion::{self, Completion, PromptError, ToolDefinition},
-    extractor::Extractor,
-    message::{AssistantContent, Message, ToolCall, ToolFunction, ToolResultContent, UserContent},
-    providers::{self, gemini::completion::gemini_api_types::GenerationConfig},
-    tool::Tool,
+    completion::{self, Completion, PromptError, ToolDefinition}, extractor::Extractor, message::{AssistantContent, Message, ToolCall, ToolFunction, ToolResultContent, UserContent}, providers, tool::Tool, OneOrMany
 };
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
