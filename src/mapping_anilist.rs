@@ -149,7 +149,7 @@ async fn mapping_anilist_to_bgm_by_year(
 
             match result {
                 Ok(result) => {
-                    if result.id.is_none() || result.season.is_none() {
+                    if result.id.is_none() {
                         warn!(
                             "匹配动漫: {:?} 失败, result: {:?}",
                             media.title.native, result
