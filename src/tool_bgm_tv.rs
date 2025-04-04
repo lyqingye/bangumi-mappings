@@ -73,10 +73,11 @@ pub struct BgmTVSearchTool {
 
 impl BgmTVSearchTool {
     pub fn new() -> Self {
+        let base_url = std::env::var("BGM_API_URL").unwrap_or("https://api.bgm.tv".to_string());
         let client = reqwest::Client::new();
         Self {
             client,
-            base_url: "https://api.bgm.tv".to_string(),
+            base_url,
         }
     }
 }
