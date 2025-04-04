@@ -33,6 +33,7 @@ impl TMDBSearchTool {
 #[derive(Deserialize)]
 pub struct TMDBSearchArgs {
     query: String,
+    year: Option<i16>,
 }
 
 #[derive(Debug, thiserror::Error, Serialize)]
@@ -72,9 +73,13 @@ impl Tool for TMDBSearchTool {
                     "query": {
                         "type": "string",
                         "description": "The search query for TV shows"
+                    },
+                    "year": {
+                        "type": "number",
+                        "description": "The year for the search, example: 2024"
                     }
                 },
-                "required": ["query"]
+                "required": ["query", "year"]
             }),
         }
     }
@@ -86,7 +91,9 @@ impl Tool for TMDBSearchTool {
         // 使用spawn_blocking来处理阻塞操作
         let query = args.query;
         tokio::spawn(async move {
-            let cmd = TVShowSearch::new(query).with_language(Some("zh-CN".to_string()));
+            let cmd = TVShowSearch::new(query)
+                .with_language(Some("zh-CN".to_string()))
+                .with_year(args.year.map(|item| item as u16));
 
             // 使用tokio-retry实现重试逻辑
             let retry_strategy = FixedInterval::from_millis(5000).take(5);

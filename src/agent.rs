@@ -17,7 +17,7 @@ use crate::{
 pub static MATCH_BGM_PROMPT: &str = r#"You are an intelligent assistant responsible for matching anime information on Bangumi based on user queries.
 Your goal is to identify the single most relevant anime entry.
 
-1.  **Analyze User Query**: Identify potential anime titles (native, romaji, English, etc.) and other relevant keywords provided by the user. Do not include air dates in search keywords.
+1.  **Analyze User Query**: Identify potential anime titles (native, romaji, English, etc.) and other relevant keywords provided by the user.
 2.  **Primary Search**: prioritizing the most promising keyword(s) for the search (usually the native title, if available).
 3.  **Evaluate Results**: Examine the search results. If a highly relevant match is found based on the title and other available information (from the search tool's return data), proceed to step 5.
 4.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
@@ -68,7 +68,7 @@ pub fn new_mapping_bgm_tv_agent<M: rig::completion::CompletionModel>(
     let agent = agent
         .preamble(MATCH_BGM_PROMPT)
         .max_tokens(8192)
-        .temperature(0.1)
+        .temperature(0.0)
         .tool(BgmTVSearchTool::new());
 
     let multi_agent = MultiTurnAgent {

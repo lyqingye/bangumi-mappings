@@ -7,6 +7,8 @@ use tokio_retry::{Retry, strategy::FixedInterval};
 #[derive(Deserialize, Serialize)]
 pub struct BgmTVSearchArgs {
     query: String,
+    start_date: Option<String>,
+    end_date: Option<String>,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize, Default)]
@@ -110,9 +112,17 @@ impl Tool for BgmTVSearchTool {
                     "query": {
                         "type": "string",
                         "description": "The search query for bgm tv"
+                    },
+                    "start_air_year": {
+                        "type": "string",
+                        "description": "The start year for the search, example: 2024"
+                    },
+                    "end_air_year": {
+                        "type": "string",
+                        "description": "The end year for the search, example: 2026"
                     }
                 },
-                "required": ["query"]
+                "required": ["query", "start_air_year"]
             }),
         }
     }
@@ -127,6 +137,13 @@ impl Tool for BgmTVSearchTool {
         tokio::spawn(async move {
             let url = format!("{}/v0/search/subjects", base_url);
 
+            let mut date_list = vec![];
+            if let Some(start_date) = args.start_date {
+                date_list.push(format!(">={}", start_date));
+            }
+            if let Some(end_date) = args.end_date {
+                date_list.push(format!("<={}", end_date));
+            }
             // 创建搜索过滤器
             let search_query = json!({
                 "keyword": query,
@@ -134,6 +151,7 @@ impl Tool for BgmTVSearchTool {
                     "type": [2],
                     "sort": "rank",
                     "nsfw": true,
+                    "air_date": date_list,
                 }
             });
 
