@@ -227,6 +227,8 @@ impl Tool for TMDBSeasonTool {
                 group_id = Some(ep_groups.results[0].id.clone());
             }
 
+            let mut seasons = vec![];
+
             if let Some(group_id) = group_id {
                 info!("获取季度详情: {}", group_id);
                 let cmd_details = TVShowEpisodeGroupsDetails::new(group_id)
@@ -242,21 +244,19 @@ impl Tool for TMDBSeasonTool {
                 };
 
                 if !details.groups.is_empty() {
-                    return Ok(TMDBSeasonResult {
-                        data: details
-                            .groups
-                            .iter()
-                            .map(|item| Season {
-                                id: item.id.clone(),
-                                name: item.name.clone(),
-                                number: item.order as i32,
-                                first_air_date: item
-                                    .episodes
-                                    .first()
-                                    .map(|item| item.air_date.to_string()),
-                            })
-                            .collect::<Vec<Season>>(),
-                    });
+                    seasons = details
+                        .groups
+                        .iter()
+                        .map(|item| Season {
+                            id: item.id.clone(),
+                            name: item.name.clone(),
+                            number: item.order as i32,
+                            first_air_date: item
+                                .episodes
+                                .first()
+                                .map(|item| item.air_date.to_string()),
+                        })
+                        .collect::<Vec<Season>>();
                 }
             }
 
@@ -271,8 +271,8 @@ impl Tool for TMDBSeasonTool {
                 Err(e) => return Err(TMDBError::new(format!("获取TV详情失败: {}", e))),
             };
 
-            Ok(TMDBSeasonResult {
-                data: tv_details
+            seasons.extend(
+                tv_details
                     .seasons
                     .iter()
                     .map(|item| Season {
@@ -282,7 +282,9 @@ impl Tool for TMDBSeasonTool {
                         first_air_date: item.inner.air_date.map(|item| item.to_string()),
                     })
                     .collect::<Vec<Season>>(),
-            })
+            );
+
+            Ok(TMDBSeasonResult { data: seasons })
         })
         .await
         .unwrap_or(Err(TMDBError::new("season not found")))
