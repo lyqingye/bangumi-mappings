@@ -3,7 +3,12 @@ use std::sync::Arc;
 use chrono::NaiveDate;
 use reqwest::header::USER_AGENT;
 use rig::{
-    completion::{self, Completion, PromptError, ToolDefinition}, extractor::Extractor, message::{AssistantContent, Message, ToolCall, ToolFunction, ToolResultContent, UserContent}, providers, tool::Tool, OneOrMany
+    OneOrMany,
+    completion::{self, Completion, PromptError, ToolDefinition},
+    extractor::Extractor,
+    message::{AssistantContent, Message, ToolCall, ToolFunction, ToolResultContent, UserContent},
+    providers,
+    tool::Tool,
 };
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
@@ -28,8 +33,8 @@ Your goal is to identify the single most relevant anime entry.
 2.  **Primary Search**: Use the `bgm_tv_search` tool, prioritizing the most promising keyword(s) for the search (usually the native title, if available).
 3.  **Evaluate Results**: Examine the search results. If a highly relevant match is found based on the title and other available information (from the search tool's return data), proceed to step 5.
 4.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
-5.  **Select Best Match**: Choose the anime entry from the search results that has the highest similarity to the user's query.
-6.  **Format Output**: Return the final result **only** as a JSON object: `{\"id\": number, \"name\": string}`. Do not include any explanations, introductions, or other text outside the JSON structure.
+5.  **Select Confident Match**: Evaluate the similarity between the user query and each search result (considering titles, aliases, etc.). Select the entry with the **highest similarity**, **but only if this similarity meets a high confidence threshold**. If no single entry stands out as a highly confident match, consider it "not found".
+6.  **Format Output**: If a confident match is found, return the final result **only** as a JSON object: `{"id": number, "name": string}`. If no confident match is identified, return `{"id": null, "name": null}`. Do not include any explanations, introductions, or other text outside the JSON structure.
 "#;
 
 pub static EXTRACT_BGM_MATCH_RESULT_PROMPT: &str = r#"extract the id and name from the input text"#;
@@ -288,8 +293,8 @@ impl<M: rig::completion::CompletionModel> MultiTurnAgent<M> {
 
 #[derive(Deserialize, Serialize, Debug, JsonSchema)]
 pub struct MatchResult {
-    pub id: i32,
-    pub name: String,
+    pub id: Option<i32>,
+    pub name: Option<String>,
     // pub season: u64,
 }
 

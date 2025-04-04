@@ -61,15 +61,16 @@ pub async fn mapping_anilist_to_bgm(
     end: i32,
     provider: &str,
     model: &str,
+    delay: u64,
 ) -> Result<()> {
     for year in start..=end {
         info!("处理年份Mappings: {}", year);
-        mapping_anilist_to_bgm_by_year(year, provider, model).await?;
+        mapping_anilist_to_bgm_by_year(year, provider, model, delay).await?;
     }
     Ok(())
 }
 
-async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str) -> Result<()> {
+async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str, delay: u64) -> Result<()> {
     let media_list = DumpedMediaList::load_from_file(year)?;
     let mut mappings = AnimeMappings::load_from_file(year)?;
     for media in media_list.media_list {
@@ -153,7 +154,7 @@ async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str) 
                         "匹配动漫错误: {}，等待5秒后重试 ({}/{})",
                         e, attempts, max_attempts
                     );
-                    time::sleep(time::Duration::from_secs(5)).await;
+                    time::sleep(time::Duration::from_secs(delay)).await;
                 }
             }
         }
@@ -161,7 +162,7 @@ async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str) 
         match result {
             Some(result) => {
                 info!("result: {:?}", result);
-                mappings.add_mapping(media.id, Some(result.id));
+                mappings.add_mapping(media.id, result.id);
                 mappings.save_to_file(year)?;
             }
             None => {

@@ -42,6 +42,8 @@ enum Commands {
         provider: String,
         #[arg(short, long)]
         model: String,
+        #[arg(short, long)]
+        delay: u64,
     },
 }
 
@@ -68,8 +70,9 @@ async fn main() -> Result<(), anyhow::Error> {
             end,
             provider,
             model,
+            delay,
         } => {
-            mapping_anilist_to_bgm::mapping_anilist_to_bgm(start, end, &provider, &model).await?;
+            mapping_anilist_to_bgm::mapping_anilist_to_bgm(start, end, &provider, &model, delay).await?;
         }
     }
     Ok(())
