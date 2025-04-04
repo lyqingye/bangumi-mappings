@@ -117,10 +117,6 @@ impl Tool for BgmTVSearchTool {
                         "type": "string",
                         "description": "The start year for the search, example: 2024"
                     },
-                    "end_air_year": {
-                        "type": "string",
-                        "description": "The end year for the search, example: 2026"
-                    }
                 },
                 "required": ["query", "start_air_year"]
             }),
@@ -140,9 +136,6 @@ impl Tool for BgmTVSearchTool {
             let mut date_list = vec![];
             if let Some(start_date) = args.start_date {
                 date_list.push(format!(">={}", start_date));
-            }
-            if let Some(end_date) = args.end_date {
-                date_list.push(format!("<={}", end_date));
             }
             // 创建搜索过滤器
             let search_query = json!({
