@@ -74,12 +74,12 @@ impl Tool for TMDBSearchTool {
                         "type": "string",
                         "description": "The search query for TV shows"
                     },
-                    "year": {
-                        "type": "number",
-                        "description": "The year for the search, example: 2024"
-                    }
+                    // "year": {
+                    //     "type": "number",
+                    //     "description": "(Optional) The year for the search, example: 2024"
+                    // }
                 },
-                "required": ["query", "year"]
+                "required": ["query"]
             }),
         }
     }
@@ -102,9 +102,11 @@ impl Tool for TMDBSearchTool {
                 Retry::spawn(retry_strategy, || async { cmd.execute(&client).await }).await;
 
             match result {
-                Ok(result) => Ok(TMDBSearchResult {
-                    data: result.results,
-                }),
+                Ok(result) => {
+                    return Ok(TMDBSearchResult {
+                        data: result.results,
+                    });
+                }
                 Err(e) => {
                     info!("搜索失败，已重试多次: {}", e);
                     Err(TMDBError::new(format!("搜索失败，已重试多次: {}", e)))
