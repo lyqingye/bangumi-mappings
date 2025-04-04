@@ -151,6 +151,42 @@ pub fn new_gemini(
     }
 }
 
+pub fn new_openai(
+    model: &str,
+) -> AnimeMatcherAgent<providers::openai::completion::CompletionModel> {
+    let client = providers::openai::Client::from_env();
+    let bgm_search_tool = BgmTVSearchTool::new();
+    let model = model;
+
+    let agent = client
+        .agent(model)
+        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
+        // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
+        // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
+        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
+        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
+        .max_tokens(8192)
+        .temperature(0.1)
+        .tool(bgm_search_tool)
+        .build();
+
+    // 创建多轮对话agent
+    let multi_agent = MultiTurnAgent {
+        agent,
+        chat_history: Vec::new(),
+    };
+
+    let extractor = client
+        .extractor(model)
+        .preamble("extract the id and name from the input text")
+        .build();
+
+    AnimeMatcherAgent {
+        agent: multi_agent,
+        extractor,
+    }
+}
+
 struct MultiTurnAgent<M: rig::completion::CompletionModel> {
     agent: rig::agent::Agent<M>,
     chat_history: Vec<completion::Message>,

@@ -5,7 +5,7 @@ use tokio::time;
 use tracing::{error, info, warn};
 
 use crate::{
-    agent::{new_deepseek, new_gemini, new_xai},
+    agent::{new_deepseek, new_gemini, new_openai, new_xai},
     dump_anilist::DumpedMediaList,
 };
 
@@ -123,6 +123,10 @@ async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str) 
                 }
                 "deepseek" => {
                     let mut agent = new_deepseek(model);
+                    agent.match_anime(&keywords).await
+                }
+                "openai" => {
+                    let mut agent = new_openai(model);
                     agent.match_anime(&keywords).await
                 }
                 _ => {
