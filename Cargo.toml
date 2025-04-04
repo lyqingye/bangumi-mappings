@@ -19,3 +19,4 @@ dotenv = "0.15.0"
 clap = { version = "4.5.35", features = ["derive"] }
 governor = { version = "0.8", features = ["jitter", "std"] }
 chrono = "0.4.40"
+tokio-retry = "0.3.0"

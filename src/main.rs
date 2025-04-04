@@ -1,10 +1,12 @@
-use agent::new_gemini;
-
 mod agent;
 mod dump_anilist;
-mod mapping_anilist_to_bgm;
+mod mapping_anilist;
+mod run_agent;
+mod tool_bgm_tv;
+mod tool_tmdb;
 
 use clap::{Parser, Subcommand};
+use run_agent::{run_mapping_bgm_tv_agent, run_mapping_tmdb_agent};
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -24,11 +26,26 @@ enum Commands {
         end: i32,
     },
     /// 匹配动漫信息
-    #[command(name = "match")]
-    Match {
+    #[command(name = "match-bgm")]
+    MatchBgm {
         /// 搜索关键词
         #[arg(short, long)]
         query: String,
+        #[arg(short, long)]
+        provider: String,
+        #[arg(short, long)]
+        model: String,
+    },
+    /// 匹配动漫信息
+    #[command(name = "match-tmdb")]
+    MatchTmdb {
+        /// 搜索关键词
+        #[arg(short, long)]
+        query: String,
+        #[arg(short, long)]
+        provider: String,
+        #[arg(short, long)]
+        model: String,
     },
     /// 匹配动漫信息
     #[command(name = "mapping")]
@@ -60,9 +77,20 @@ async fn main() -> Result<(), anyhow::Error> {
         Commands::DumpAnilist { start, end } => {
             dump_anilist::run_dump_anilist(start, end).await?;
         }
-        Commands::Match { query } => {
-            let mut agent = new_gemini("gemini-2.0-flash");
-            let result = agent.match_anime(&query).await?;
+        Commands::MatchBgm {
+            query,
+            provider,
+            model,
+        } => {
+            let result = run_mapping_bgm_tv_agent(&query, &provider, &model, 1, 5).await?;
+            println!("{}", serde_json::to_string(&result).unwrap());
+        }
+        Commands::MatchTmdb {
+            query,
+            provider,
+            model,
+        } => {
+            let result = run_mapping_tmdb_agent(&query, &provider, &model, 1, 5).await?;
             println!("{}", serde_json::to_string(&result).unwrap());
         }
         Commands::Mapping {
@@ -72,7 +100,7 @@ async fn main() -> Result<(), anyhow::Error> {
             model,
             delay,
         } => {
-            mapping_anilist_to_bgm::mapping_anilist_to_bgm(start, end, &provider, &model, delay).await?;
+            mapping_anilist::mapping_anilist_to_bgm(start, end, &provider, &model, delay).await?;
         }
     }
     Ok(())

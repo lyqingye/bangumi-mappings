@@ -1,18 +1,19 @@
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, fs::File};
-use tokio::time;
-use tracing::{error, info, warn};
+use tracing::{error, info};
 
 use crate::{
-    agent::{new_deepseek, new_gemini, new_openai, new_openrouter, new_xai},
     dump_anilist::DumpedMediaList,
+    run_agent::{run_mapping_bgm_tv_agent, run_mapping_tmdb_agent},
 };
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct MappingItem {
     pub anilist_id: i32,
     pub bgm_id: Option<i32>,
+    pub tmdb_id: Option<i32>,
+    pub tmdb_season: Option<u64>,
 }
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct AnimeMappings {
@@ -46,9 +47,34 @@ impl AnimeMappings {
         Ok(())
     }
 
-    pub fn add_mapping(&mut self, anilist_id: i32, bgm_id: Option<i32>) {
-        self.mappings
-            .insert(anilist_id, MappingItem { anilist_id, bgm_id });
+    pub fn add_mapping(
+        &mut self,
+        anilist_id: i32,
+        bgm_id: Option<i32>,
+        tmdb_id: Option<i32>,
+        tmdb_season: Option<u64>,
+    ) {
+        if let Some(mapping) = self.mappings.get_mut(&anilist_id) {
+            if bgm_id.is_some() {
+                mapping.bgm_id = bgm_id;
+            }
+            if tmdb_id.is_some() {
+                mapping.tmdb_id = tmdb_id;
+            }
+            if tmdb_season.is_some() {
+                mapping.tmdb_season = tmdb_season;
+            }
+        } else {
+            self.mappings.insert(
+                anilist_id,
+                MappingItem {
+                    anilist_id,
+                    bgm_id,
+                    tmdb_id,
+                    tmdb_season,
+                },
+            );
+        }
     }
 
     pub fn get_mapping(&self, anilist_id: i32) -> Option<&MappingItem> {
@@ -70,16 +96,25 @@ pub async fn mapping_anilist_to_bgm(
     Ok(())
 }
 
-async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str, delay: u64) -> Result<()> {
+async fn mapping_anilist_to_bgm_by_year(
+    year: i32,
+    provider: &str,
+    model: &str,
+    delay: u64,
+) -> Result<()> {
     let media_list = DumpedMediaList::load_from_file(year)?;
     let mut mappings = AnimeMappings::load_from_file(year)?;
     for media in media_list.media_list {
         let exists = mappings.get_mapping(media.id);
+        let mut mapping_bgm = true;
+        let mut mapping_tmdb = true;
         if let Some(exists) = exists {
             if exists.bgm_id.is_some() && exists.bgm_id.unwrap() != 0 {
-                continue;
+                mapping_bgm = false;
             }
-            continue;
+            if exists.tmdb_id.is_some() && exists.tmdb_id.unwrap() != 0 {
+                mapping_tmdb = false;
+            }
         }
         let mut keywords = "match anime: ".to_string();
 
@@ -106,68 +141,39 @@ async fn mapping_anilist_to_bgm_by_year(year: i32, provider: &str, model: &str, 
         if let Some(day) = media.start_date.day {
             keywords = format!("{} day: {}", keywords, day);
         }
-        info!("mapping {} to bgm, keywords: {}", media.id, keywords);
 
-        let mut attempts = 0;
-        let max_attempts = 3;
-        let mut result = None;
+        if mapping_bgm {
+            info!("mapping {} to bgm, keywords: {}", media.id, keywords);
 
-        while attempts < max_attempts {
-            let r = match provider {
-                "xai" => {
-                    let mut agent = new_xai(model);
-                    agent.match_anime(&keywords).await
-                }
-                "gemini" => {
-                    let mut agent = new_gemini(model);
-                    agent.match_anime(&keywords).await
-                }
-                "deepseek" => {
-                    let mut agent = new_deepseek(model);
-                    agent.match_anime(&keywords).await
-                }
-                "openai" => {
-                    let mut agent = new_openai(model);
-                    agent.match_anime(&keywords).await
-                }
-                "openrouter" => {
-                    let mut agent = new_openrouter(model);
-                    agent.match_anime(&keywords).await
-                }
-                _ => {
-                    return Err(anyhow::anyhow!("不支持的provider: {}", provider));
-                }
-            };
+            let result = run_mapping_bgm_tv_agent(&keywords, provider, model, 3, delay).await;
 
-            match r {
-                Ok(res) => {
-                    result = Some(res);
-                    break;
+            match result {
+                Ok(result) => {
+                    info!("result: {:?}", result);
+                    mappings.add_mapping(media.id, result.id, None, None);
+                    mappings.save_to_file(year)?;
                 }
                 Err(e) => {
-                    attempts += 1;
-                    if attempts >= max_attempts {
-                        warn!("匹配动漫失败，已重试{}次: {}", attempts, e);
-                        break;
-                    }
-                    error!(
-                        "匹配动漫错误: {}，等待5秒后重试 ({}/{})",
-                        e, attempts, max_attempts
-                    );
-                    time::sleep(time::Duration::from_secs(delay)).await;
+                    error!("匹配动漫: {} 失败, error: {:?}", media.id, e);
+                    mappings.add_mapping(media.id, None, None, None);
                 }
-            }
+            };
         }
 
-        match result {
-            Some(result) => {
-                info!("result: {:?}", result);
-                mappings.add_mapping(media.id, result.id);
-                mappings.save_to_file(year)?;
-            }
-            None => {
-                error!("匹配动漫: {} 失败", media.id);
-                mappings.add_mapping(media.id, None);
+        if mapping_tmdb {
+            info!("mapping {} to tmdb, keywords: {}", media.id, keywords);
+            let result = run_mapping_tmdb_agent(&keywords, provider, model, 3, delay).await;
+
+            match result {
+                Ok(result) => {
+                    info!("result: {:?}", result);
+                    mappings.add_mapping(media.id, None, result.id, result.season);
+                    mappings.save_to_file(year)?;
+                }
+                Err(e) => {
+                    error!("匹配动漫: {} 失败, error: {:?}", media.id, e);
+                    mappings.add_mapping(media.id, None, None, None);
+                }
             }
         }
     }
