@@ -75,10 +75,7 @@ impl BgmTVSearchTool {
     pub fn new() -> Self {
         let base_url = std::env::var("BGM_API_URL").unwrap_or("https://api.bgm.tv".to_string());
         let client = reqwest::Client::new();
-        Self {
-            client,
-            base_url,
-        }
+        Self { client, base_url }
     }
 }
 
@@ -126,7 +123,11 @@ impl Tool for BgmTVSearchTool {
 
     async fn call(&self, args: Self::Args) -> Result<Self::Output, Self::Error> {
         // 保存参数为本地变量
-        let query = args.query;
+        let query = args
+            .query
+            .split_whitespace()
+            .collect::<Vec<&str>>()
+            .join("+");
         let base_url = self.base_url.clone();
         let client = self.client.clone();
 
