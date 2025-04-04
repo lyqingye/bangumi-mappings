@@ -28,7 +28,7 @@ Your goal is to identify the single most relevant anime entry.
 2.  **Primary Search**: Use the `bgm_tv_search` tool, prioritizing the most promising keyword(s) for the search (usually the native title, if available).
 3.  **Evaluate Results**: Examine the search results. If a highly relevant match is found based on the title and other available information (from the search tool's return data), proceed to step 5.
 4.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
-5.  **Select Best Match**: Choose the anime entry from the search results that has the highest similarity to the user's query, primarily judging by name.
+5.  **Select Best Match**: Choose the anime entry from the search results that has the highest similarity to the user's query.
 6.  **Format Output**: Return the final result **only** as a JSON object: `{\"id\": number, \"name\": string}`. Do not include any explanations, introductions, or other text outside the JSON structure.
 "#;
 
