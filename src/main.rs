@@ -1,4 +1,4 @@
-use agent::new_xai;
+use agent::new_gemini;
 
 mod agent;
 mod dump_anilist;
@@ -59,7 +59,7 @@ async fn main() -> Result<(), anyhow::Error> {
             dump_anilist::run_dump_anilist(start, end).await?;
         }
         Commands::Match { query } => {
-            let mut agent = new_xai("grok-2-1212");
+            let mut agent = new_gemini("gemini-2.0-flash");
             let result = agent.match_anime(&query).await?;
             println!("{}", serde_json::to_string(&result).unwrap());
         }

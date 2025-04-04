@@ -7,7 +7,7 @@ use rig::{
     completion::{self, Completion, PromptError, ToolDefinition},
     extractor::Extractor,
     message::{AssistantContent, Message, ToolCall, ToolFunction, ToolResultContent, UserContent},
-    providers,
+    providers::{self, gemini::completion::gemini_api_types::GenerationConfig},
     tool::Tool,
 };
 use schemars::JsonSchema;
@@ -25,6 +25,19 @@ use tmdb_api::{
 };
 
 use tracing::info;
+
+pub static MATCH_BGM_PROMPT: &str = r#"You are an intelligent assistant responsible for matching anime information on Bangumi based on user queries.
+Your goal is to identify the single most relevant anime entry.
+
+1.  **Analyze User Query**: Identify potential anime titles (native, romaji, English, etc.) and other relevant keywords provided by the user. Do not include air dates in search keywords.
+2.  **Primary Search**: Use the `bgm_tv_search` tool, prioritizing the most promising keyword(s) for the search (usually the native title, if available).
+3.  **Evaluate Results**: Examine the search results. If a highly relevant match is found based on the title and other available information (from the search tool's return data), proceed to step 5.
+4.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
+5.  **Select Best Match**: Choose the anime entry from the search results that has the highest similarity to the user's query, primarily judging by name.
+6.  **Format Output**: Return the final result **only** as a JSON object: `{\"id\": number, \"name\": string}`. Do not include any explanations, introductions, or other text outside the JSON structure.
+"#;
+
+pub static EXTRACT_BGM_MATCH_RESULT_PROMPT: &str = r#"extract the id and name from the input text"#;
 
 pub struct AnimeMatcherAgent<M: rig::completion::CompletionModel> {
     agent: MultiTurnAgent<M>,
@@ -54,11 +67,7 @@ pub fn new_deepseek(
 
     let agent = client
         .agent(model)
-        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
-        // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
-        // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
-        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
+        .preamble(MATCH_BGM_PROMPT)
         .max_tokens(8192)
         .temperature(0.1)
         .tool(bgm_search_tool)
@@ -72,7 +81,7 @@ pub fn new_deepseek(
 
     let extractor = client
         .extractor(model)
-        .preamble("extract the id and name from the input text")
+        .preamble(EXTRACT_BGM_MATCH_RESULT_PROMPT)
         .build();
 
     AnimeMatcherAgent {
@@ -88,11 +97,9 @@ pub fn new_xai(model: &str) -> AnimeMatcherAgent<providers::xai::completion::Com
 
     let agent = client
         .agent(model)
-        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
+        .preamble(MATCH_BGM_PROMPT)
         // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
         // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
-        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
         .max_tokens(8192)
         .temperature(0.1)
         .tool(bgm_search_tool)
@@ -106,7 +113,7 @@ pub fn new_xai(model: &str) -> AnimeMatcherAgent<providers::xai::completion::Com
 
     let extractor = client
         .extractor(model)
-        .preamble("extract the id and name from the input text")
+        .preamble(EXTRACT_BGM_MATCH_RESULT_PROMPT)
         .build();
 
     AnimeMatcherAgent {
@@ -124,11 +131,7 @@ pub fn new_gemini(
 
     let agent = client
         .agent(model)
-        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
-        // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
-        // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
-        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
+        .preamble(MATCH_BGM_PROMPT)
         .max_tokens(8192)
         .temperature(0.1)
         .tool(bgm_search_tool)
@@ -142,7 +145,7 @@ pub fn new_gemini(
 
     let extractor = client
         .extractor(model)
-        .preamble("extract the id and name from the input text")
+        .preamble(EXTRACT_BGM_MATCH_RESULT_PROMPT)
         .build();
 
     AnimeMatcherAgent {
@@ -160,11 +163,9 @@ pub fn new_openai(
 
     let agent = client
         .agent(model)
-        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
+        .preamble(MATCH_BGM_PROMPT)
         // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
         // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
-        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
         .max_tokens(8192)
         .temperature(0.1)
         .tool(bgm_search_tool)
@@ -178,7 +179,7 @@ pub fn new_openai(
 
     let extractor = client
         .extractor(model)
-        .preamble("extract the id and name from the input text")
+        .preamble(EXTRACT_BGM_MATCH_RESULT_PROMPT)
         .build();
 
     AnimeMatcherAgent {
@@ -187,20 +188,16 @@ pub fn new_openai(
     }
 }
 
-pub fn new_openrouter(
-    model: &str,
-) -> AnimeMatcherAgent<providers::openrouter::CompletionModel> {
+pub fn new_openrouter(model: &str) -> AnimeMatcherAgent<providers::openrouter::CompletionModel> {
     let client = providers::openrouter::Client::from_env();
     let bgm_search_tool = BgmTVSearchTool::new();
     let model = model;
 
     let agent = client
         .agent(model)
-        .preamble("You are an intelligent assistant matching anime information based on user queries. Users will input anime-related information, titles in various languages, and broadcast dates. Your goal is to find the anime most similar to the user's query.")
+        .preamble(MATCH_BGM_PROMPT)
         // .append_preamble("1. 使用tmdb_search_tv_show工具搜索动漫, 你可能需要进行多次搜索，然后找到相似度最高的动漫")
         // .append_preamble("2. 使用tmdb_season工具获取季度信息，信息中包含季度信息，你需要匹配对应的季度信息")
-        .append_preamble("1. You need to use the bgm_tv_search tool to search for anime, which may require multiple searches. For search keywords, you can use native titles, romaji titles, English titles, etc. Prioritize using native titles, or extract keywords from titles for searching. Note: don't include broadcast dates in keywords, as this search tool only supports keywords. Finally, find the anime with the highest similarity.")
-        .append_preamble("2. Return data in JSON format: {\"id\": number, \"name\": string}, without including any other information unrelated to JSON.")
         .max_tokens(8192)
         .temperature(0.1)
         .tool(bgm_search_tool)
@@ -214,7 +211,7 @@ pub fn new_openrouter(
 
     let extractor = client
         .extractor(model)
-        .preamble("extract the id and name from the input text")
+        .preamble(EXTRACT_BGM_MATCH_RESULT_PROMPT)
         .build();
 
     AnimeMatcherAgent {
