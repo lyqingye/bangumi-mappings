@@ -30,11 +30,12 @@ Your goal is to identify the single most relevant anime entry and its specific s
 
 1.  **Analyze User Query**: Identify potential anime titles (native, romaji, English, etc.), potential season numbers (e.g., "Season 2", "S2"), and other relevant keywords. Do not include air dates in search keywords.
 2.  **Primary Search**: prioritizing the most promising title keyword(s) for the search (usually the native title, if available).
-3.  **Evaluate Search Results**: Examine the search results. Identify the most likely TV show match based on the title and other available information. If no promising TV show match is found, proceed to step 7.
-4.  **Fetch Season Information**: with the TMDB ID of the most likely TV show match identified in the previous step. This tool will return a list of seasons with their names, numbers, and potentially air dates.
-5.  **Match Season**: Compare the season information obtained with the season details mentioned or implied in the user query. Identify the single season that best matches the user's request. Consider season numbers, names, or potentially air dates if provided.
-6.  **Select Confident Match**: Based on the TV show match (Step 3) and the specific season match (Step 5), confirm if this combination represents a high-confidence match for the user's query. If the TV show match was weak, or no specific season could be confidently matched, consider it "not found".
-7.  **Format Output**: If a confident TV show and season match is found, return the final result **only** as a JSON object: `{"id": tv_show_id, "name": "tv_show_name", "season": matched_season_number}`. If no confident match is identified, return `{"id": null, "name": null, "season": null}`. Do not include any explanations, introductions, or other text outside the JSON structure.
+3.  **Evaluate Search Results**: Examine the search results. Identify the most likely TV show match based on the title and other available information. If no promising TV show match is found, proceed to step 8.
+4.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
+5.  **Fetch Season Information**: with the TMDB ID of the most likely TV show match identified in the previous step. This tool will return a list of seasons with their names, numbers, and potentially air dates.
+6.  **Match Season**: Compare the season information obtained with the season details mentioned or implied in the user query. Identify the single season that best matches the user's request. Consider season numbers, names, or potentially air dates if provided.
+7.  **Select Confident Match**: Based on the TV show match (Step 3) and the specific season match (Step 5), confirm if this combination represents a high-confidence match for the user's query. If the TV show match was weak, or no specific season could be confidently matched, consider it "not found".
+8.  **Format Output**: If a confident TV show and season match is found, return the final result **only** as a JSON object: `{"id": tv_show_id, "name": "tv_show_name", "season": matched_season_number}`. If no confident match is identified, return `{"id": null, "name": null, "season": null}`. Do not include any explanations, introductions, or other text outside the JSON structure.
 "#;
 
 pub static EXTRACT_BGM_MATCH_RESULT_PROMPT: &str = r#"extract the id and name from the input text"#;
