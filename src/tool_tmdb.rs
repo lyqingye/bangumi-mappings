@@ -23,8 +23,7 @@ pub struct TMDBSearchTool {
 
 impl TMDBSearchTool {
     pub fn new() -> Self {
-        let api_key = std::env::var("TMDB_API_KEY").expect("TMDB_API_KEY not set");
-        let client = Client::new(api_key);
+        let client = new_tmdb_client();
         Self {
             client: Arc::new(client),
         }
@@ -115,14 +114,39 @@ pub struct TMDBSeasonArgs {
     tv_id: u64,
 }
 
+fn new_tmdb_client() -> Client<ReqwestExecutor> {
+    let api_key = std::env::var("TMDB_API_KEY").expect("TMDB_API_KEY not set");
+    let http_proxy = std::env::var("HTTP_PROXY");
+    let https_proxy = std::env::var("HTTPS_PROXY");
+
+    let mut client_builder = reqwest::Client::builder();
+
+    if let Ok(http_proxy) = http_proxy {
+        client_builder = client_builder.proxy(reqwest::Proxy::http(http_proxy).unwrap());
+    }
+
+    if let Ok(https_proxy) = https_proxy {
+        client_builder = client_builder.proxy(reqwest::Proxy::https(https_proxy).unwrap());
+    }
+
+    let client = client_builder.build().unwrap();
+
+    let reqwest_executor = ReqwestExecutor::from(client);
+    tmdb_api::Client::builder()
+        .with_api_key(api_key)
+        .with_base_url("https://api.themoviedb.org/3")
+        .with_executor(reqwest_executor)
+        .build()
+        .unwrap()
+}
+
 pub struct TMDBSeasonTool {
     client: Arc<Client<ReqwestExecutor>>,
 }
 
 impl TMDBSeasonTool {
     pub fn new() -> Self {
-        let api_key = std::env::var("TMDB_API_KEY").expect("TMDB_API_KEY not set");
-        let client = Client::new(api_key);
+        let client = new_tmdb_client();
         Self {
             client: Arc::new(client),
         }
@@ -197,6 +221,7 @@ impl Tool for TMDBSeasonTool {
             }
 
             if let Some(group_id) = group_id {
+                info!("获取季度详情: {}", group_id);
                 let cmd_details = TVShowEpisodeGroupsDetails::new(group_id)
                     .with_language(Some("zh-CN".to_string()));
 

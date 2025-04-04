@@ -1,7 +1,7 @@
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
 use std::{collections::HashMap, fs::File};
-use tracing::{error, info};
+use tracing::{error, info, warn};
 
 use crate::{
     dump_anilist::DumpedMediaList,
@@ -118,15 +118,15 @@ async fn mapping_anilist_to_bgm_by_year(
         }
         let mut keywords = "match anime: ".to_string();
 
-        if let Some(native) = media.title.native {
+        if let Some(native) = &media.title.native {
             keywords = format!("{} native title: {}", keywords, native);
         }
 
-        if let Some(romaji) = media.title.romaji {
+        if let Some(romaji) = &media.title.romaji {
             keywords = format!("{} romaji title: {}", keywords, romaji);
         }
 
-        if let Some(english) = media.title.english {
+        if let Some(english) = &media.title.english {
             keywords = format!("{} english title: {}", keywords, english);
         }
 
@@ -149,7 +149,11 @@ async fn mapping_anilist_to_bgm_by_year(
 
             match result {
                 Ok(result) => {
-                    info!("result: {:?}", result);
+                    if result.id.is_none() || result.season.is_none() {
+                        warn!("匹配动漫: {:?} 失败, result: {:?}", media.title.native, result);
+                    } else {
+                        info!("匹配动漫: {:?} 成功, result: {:?}", media.title.native, result);
+                    }
                     mappings.add_mapping(media.id, result.id, None, None);
                     mappings.save_to_file(year)?;
                 }
@@ -166,12 +170,17 @@ async fn mapping_anilist_to_bgm_by_year(
 
             match result {
                 Ok(result) => {
-                    info!("result: {:?}", result);
+                    if result.id.is_none() || result.season.is_none() {
+                        warn!("匹配动漫: {:?} 失败, result: {:?}", media.title.native, result);
+                    } else {
+                        info!("匹配动漫: {:?} 成功, result: {:?}", media.title.native, result);
+                    }
+
                     mappings.add_mapping(media.id, None, result.id, result.season);
                     mappings.save_to_file(year)?;
                 }
                 Err(e) => {
-                    error!("匹配动漫: {} 失败, error: {:?}", media.id, e);
+                    error!("匹配动漫: {:?} 失败, error: {:?}", media.title.native, e);
                     mappings.add_mapping(media.id, None, None, None);
                 }
             }
