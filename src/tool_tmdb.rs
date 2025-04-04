@@ -50,12 +50,18 @@ impl TMDBError {
     }
 }
 
+#[derive(Deserialize, Serialize)]
+pub struct TMDBSearchResult {
+    #[serde(default)]
+    pub data: Vec<TVShowShort>,
+}
+
 impl Tool for TMDBSearchTool {
     const NAME: &'static str = "tmdb_search_tv_show";
 
     type Error = TMDBError;
     type Args = TMDBSearchArgs;
-    type Output = Vec<TVShowShort>;
+    type Output = TMDBSearchResult;
 
     async fn definition(&self, _prompt: String) -> ToolDefinition {
         ToolDefinition {
@@ -90,7 +96,9 @@ impl Tool for TMDBSearchTool {
                 Retry::spawn(retry_strategy, || async { cmd.execute(&client).await }).await;
 
             match result {
-                Ok(result) => Ok(result.results),
+                Ok(result) => Ok(TMDBSearchResult {
+                    data: result.results,
+                }),
                 Err(e) => {
                     info!("搜索失败，已重试多次: {}", e);
                     Err(TMDBError::new(format!("搜索失败，已重试多次: {}", e)))
@@ -125,8 +133,14 @@ impl TMDBSeasonTool {
 pub struct Season {
     pub id: String,
     pub name: String,
-    pub number: u64,
+    pub number: i32,
     pub first_air_date: Option<String>,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct TMDBSeasonResult {
+    #[serde(default)]
+    pub data: Vec<Season>,
 }
 
 impl Tool for TMDBSeasonTool {
@@ -134,7 +148,7 @@ impl Tool for TMDBSeasonTool {
 
     type Error = TMDBError;
     type Args = TMDBSeasonArgs;
-    type Output = Vec<Season>;
+    type Output = TMDBSeasonResult;
 
     async fn definition(&self, _prompt: String) -> ToolDefinition {
         ToolDefinition {
@@ -195,16 +209,21 @@ impl Tool for TMDBSeasonTool {
                     Err(e) => return Err(TMDBError::new(format!("获取季度详情失败: {}", e))),
                 };
 
-                return Ok(details
-                    .groups
-                    .iter()
-                    .map(|item| Season {
-                        id: item.id.clone(),
-                        name: item.name.clone(),
-                        number: item.order,
-                        first_air_date: item.episodes.first().map(|item| item.air_date.to_string()),
-                    })
-                    .collect::<Vec<Season>>());
+                return Ok(TMDBSeasonResult {
+                    data: details
+                        .groups
+                        .iter()
+                        .map(|item| Season {
+                            id: item.id.clone(),
+                            name: item.name.clone(),
+                            number: item.order as i32,
+                            first_air_date: item
+                                .episodes
+                                .first()
+                                .map(|item| item.air_date.to_string()),
+                        })
+                        .collect::<Vec<Season>>(),
+                });
             }
 
             let cmd_details = TVShowDetails::new(tv_id).with_language(Some("zh-CN".to_string()));
@@ -218,16 +237,18 @@ impl Tool for TMDBSeasonTool {
                 Err(e) => return Err(TMDBError::new(format!("获取TV详情失败: {}", e))),
             };
 
-            Ok(tv_details
-                .seasons
-                .iter()
-                .map(|item| Season {
-                    id: item.inner.id.to_string(),
-                    name: item.inner.name.clone(),
-                    number: item.inner.season_number,
-                    first_air_date: item.inner.air_date.map(|item| item.to_string()),
-                })
-                .collect::<Vec<Season>>())
+            Ok(TMDBSeasonResult {
+                data: tv_details
+                    .seasons
+                    .iter()
+                    .map(|item| Season {
+                        id: item.inner.id.to_string(),
+                        name: item.inner.name.clone(),
+                        number: item.inner.season_number as i32,
+                        first_air_date: item.inner.air_date.map(|item| item.to_string()),
+                    })
+                    .collect::<Vec<Season>>(),
+            })
         })
         .await
         .unwrap_or(Err(TMDBError::new("season not found")))

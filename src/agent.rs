@@ -182,5 +182,5 @@ impl<M: rig::completion::CompletionModel> MultiTurnAgent<M> {
 pub struct MatchResult {
     pub id: Option<i32>,
     pub name: Option<String>,
-    pub season: Option<u64>,
+    pub season: Option<i32>,
 }

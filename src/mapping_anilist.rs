@@ -13,7 +13,7 @@ pub struct MappingItem {
     pub anilist_id: i32,
     pub bgm_id: Option<i32>,
     pub tmdb_id: Option<i32>,
-    pub tmdb_season: Option<u64>,
+    pub tmdb_season: Option<i32>,
 }
 #[derive(Debug, Deserialize, Serialize, Clone)]
 pub struct AnimeMappings {
@@ -52,7 +52,7 @@ impl AnimeMappings {
         anilist_id: i32,
         bgm_id: Option<i32>,
         tmdb_id: Option<i32>,
-        tmdb_season: Option<u64>,
+        tmdb_season: Option<i32>,
     ) {
         if let Some(mapping) = self.mappings.get_mut(&anilist_id) {
             if bgm_id.is_some() {
