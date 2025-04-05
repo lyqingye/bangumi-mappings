@@ -23,8 +23,8 @@ Your goal is to identify the single most relevant anime entry.
 2.  **Primary Search**: prioritizing the most promising keyword(s) for the search (usually the native title, if available).
 3.  **Evaluate Results**: Examine the search results. If a highly relevant match is found based on the title and other available information (from the search tool's return data), proceed to step 5.
 4.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
-5.  **Select Confident Match**: Evaluate the similarity between the user query and each search result (considering titles, aliases, air dates, etc.). Select the entry with the **highest similarity**, **but only if this similarity meets a high confidence threshold**. If no single entry stands out as a highly confident match, consider it "not found".
-6.  **Submit Result**: submit the matched id and name
+5.  **Select Confident Match**: Evaluate the similarity between the user query and each search result (considering titles, aliases, air dates, etc.). Select the entry with the **highest similarity**, **but only if this similarity meets a high confidence threshold**. 
+6.  **Submit Result**: if found confident match, submit the matched id and name, otherwise submit empty result.
 "#;
 
 pub static MATCH_TMDB_PROMPT: &str = r#"You are an intelligent assistant responsible for matching anime information on TMDB based on user queries, including identifying the correct season.
@@ -36,8 +36,8 @@ Your goal is to identify the single most relevant anime entry and its specific s
 4.  **Fetch Season Information**: with the TMDB ID of the most likely TV show match identified in the previous step. This tool will return a list of seasons with their names, numbers, and potentially air dates.
 5.  **Match Season**: Compare the season information obtained with the season details mentioned or implied in the user query. Identify the single season that best matches the user's request. Consider season numbers, names, or potentially air dates if provided.
 6.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
-7.  **Select Confident Match**: Based on the TV show match (Step 3) and the specific season match (Step 5), confirm if this combination represents a high-confidence match for the user's query. If the TV show match was weak, or no specific season could be confidently matched, consider it "not found". if found best result
-8.  **Submit Result**: submit the matched tv_id and name and season number
+7.  **Select Confident Match**: Based on the TV show match (Step 3) and the specific season match (Step 5), confirm if this combination represents a high-confidence match for the user's query. 
+8.  **Submit Result**: if found confident match, submit the matched tv_id and name and season number, otherwise submit empty result.
 "#;
 
 pub static EXTRACT_BGM_MATCH_RESULT_PROMPT: &str = r#"extract the id and name from the input text"#;
