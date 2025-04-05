@@ -3,6 +3,7 @@ mod dump_anilist;
 mod mapping_anilist;
 mod run_agent;
 mod tool_bgm_tv;
+mod tool_submit;
 mod tool_tmdb;
 
 use clap::{Parser, Subcommand};
