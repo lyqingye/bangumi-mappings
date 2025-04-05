@@ -143,7 +143,7 @@ impl Tool for BgmTVSearchTool {
             let search_query = json!({
                 "keyword": query,
                 "filter": {
-                    "type": [2],
+                    // "type": [2],
                     "sort": "rank",
                     "nsfw": true,
                     "air_date": date_list,
