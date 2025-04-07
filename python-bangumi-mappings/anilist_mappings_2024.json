@@ -1,0 +1,2462 @@
+[
+  {
+    "anilist_id": 107372,
+    "bgm_id": 265391,
+    "tmdb_id": 99088,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 109731,
+    "bgm_id": 283643,
+    "tmdb_id": 71914,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 111314,
+    "bgm_id": 289854,
+    "tmdb_id": 45804,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 130590,
+    "bgm_id": 473410,
+    "tmdb_id": 97617,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 136804,
+    "bgm_id": 342667,
+    "tmdb_id": 232049,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 137908,
+    "bgm_id": 346426,
+    "tmdb_id": 131365,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 138522,
+    "bgm_id": null,
+    "tmdb_id": 67345,
+    "tmdb_season": 4
+  },
+  {
+    "anilist_id": 139095,
+    "bgm_id": 349093,
+    "tmdb_id": 248947,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 139518,
+    "bgm_id": 350235,
+    "tmdb_id": 111819,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 139825,
+    "bgm_id": 351349,
+    "tmdb_id": 101972,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 141182,
+    "bgm_id": 355803,
+    "tmdb_id": 113808,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 141821,
+    "bgm_id": 357962,
+    "tmdb_id": 139060,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 143271,
+    "bgm_id": 364522,
+    "tmdb_id": 60833,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 143866,
+    "bgm_id": 365572,
+    "tmdb_id": 99083,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 144176,
+    "bgm_id": 365952,
+    "tmdb_id": 156057,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 145728,
+    "bgm_id": 372010,
+    "tmdb_id": 229676,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 146066,
+    "bgm_id": 373266,
+    "tmdb_id": 72517,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 146867,
+    "bgm_id": 357960,
+    "tmdb_id": 196287,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 147850,
+    "bgm_id": 378797,
+    "tmdb_id": 232865,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 150085,
+    "bgm_id": 382584,
+    "tmdb_id": 244435,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 150103,
+    "bgm_id": 383338,
+    "tmdb_id": 202282,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 151380,
+    "bgm_id": 389466,
+    "tmdb_id": 46004,
+    "tmdb_season": 5
+  },
+  {
+    "anilist_id": 151514,
+    "bgm_id": 389156,
+    "tmdb_id": 204635,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 151639,
+    "bgm_id": 383251,
+    "tmdb_id": 202284,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 151807,
+    "bgm_id": 390353,
+    "tmdb_id": 127532,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 152137,
+    "bgm_id": 391496,
+    "tmdb_id": 205743,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 152302,
+    "bgm_id": 391866,
+    "tmdb_id": 206033,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 152681,
+    "bgm_id": 393037,
+    "tmdb_id": 206629,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 152682,
+    "bgm_id": 393038,
+    "tmdb_id": 206630,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 153288,
+    "bgm_id": 394623,
+    "tmdb_id": 207468,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 153406,
+    "bgm_id": 394996,
+    "tmdb_id": 97860,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 153518,
+    "bgm_id": 395378,
+    "tmdb_id": 207784,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 153818,
+    "bgm_id": 396595,
+    "tmdb_id": 208445,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 154195,
+    "bgm_id": 448613,
+    "tmdb_id": 232022,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 154473,
+    "bgm_id": 400576,
+    "tmdb_id": 86034,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 154673,
+    "bgm_id": 235634,
+    "tmdb_id": 210355,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 154963,
+    "bgm_id": 397604,
+    "tmdb_id": 210875,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 155227,
+    "bgm_id": 403503,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 155502,
+    "bgm_id": 404480,
+    "tmdb_id": 106055,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 155645,
+    "bgm_id": 413635,
+    "tmdb_id": 154524,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 155657,
+    "bgm_id": 404809,
+    "tmdb_id": 212273,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 155890,
+    "bgm_id": 405660,
+    "tmdb_id": 225168,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 155908,
+    "bgm_id": 405785,
+    "tmdb_id": 76075,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 155963,
+    "bgm_id": 406119,
+    "tmdb_id": 213181,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 156023,
+    "bgm_id": 406251,
+    "tmdb_id": 238848,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 156131,
+    "bgm_id": 406628,
+    "tmdb_id": 113256,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 156415,
+    "bgm_id": 407133,
+    "tmdb_id": 213830,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 156822,
+    "bgm_id": 407573,
+    "tmdb_id": 82684,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 156891,
+    "bgm_id": 407697,
+    "tmdb_id": 214310,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 157371,
+    "bgm_id": 408195,
+    "tmdb_id": 214587,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 158028,
+    "bgm_id": 409441,
+    "tmdb_id": 236144,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 158417,
+    "bgm_id": 407234,
+    "tmdb_id": 215799,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 158559,
+    "bgm_id": 410346,
+    "tmdb_id": 216074,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 158709,
+    "bgm_id": 410939,
+    "tmdb_id": 216272,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 158898,
+    "bgm_id": 411276,
+    "tmdb_id": 216467,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 158931,
+    "bgm_id": 411450,
+    "tmdb_id": 38464,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 159039,
+    "bgm_id": 411974,
+    "tmdb_id": 216760,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 160090,
+    "bgm_id": 414987,
+    "tmdb_id": 218146,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 160181,
+    "bgm_id": 415166,
+    "tmdb_id": 218291,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 160389,
+    "bgm_id": 415772,
+    "tmdb_id": 218493,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 160488,
+    "bgm_id": 416320,
+    "tmdb_id": 229743,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 160589,
+    "bgm_id": 416777,
+    "tmdb_id": 218833,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 161476,
+    "bgm_id": 420084,
+    "tmdb_id": 220286,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162002,
+    "bgm_id": 421677,
+    "tmdb_id": 222784,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162144,
+    "bgm_id": 422153,
+    "tmdb_id": 221310,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162780,
+    "bgm_id": 424663,
+    "tmdb_id": 236338,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162785,
+    "bgm_id": 424680,
+    "tmdb_id": 257603,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162796,
+    "bgm_id": 424853,
+    "tmdb_id": 236000,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162804,
+    "bgm_id": 424883,
+    "tmdb_id": 235758,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162842,
+    "bgm_id": 425129,
+    "tmdb_id": 156688,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162889,
+    "bgm_id": 425222,
+    "tmdb_id": 248086,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162896,
+    "bgm_id": 424573,
+    "tmdb_id": 222623,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 162985,
+    "bgm_id": 425595,
+    "tmdb_id": 222787,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163076,
+    "bgm_id": 425910,
+    "tmdb_id": 222930,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163077,
+    "bgm_id": 425890,
+    "tmdb_id": 222925,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163078,
+    "bgm_id": 425909,
+    "tmdb_id": 222923,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163133,
+    "bgm_id": 425988,
+    "tmdb_id": 239761,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163134,
+    "bgm_id": 425998,
+    "tmdb_id": 65942,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 163135,
+    "bgm_id": 425991,
+    "tmdb_id": 234538,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163139,
+    "bgm_id": 425587,
+    "tmdb_id": 65930,
+    "tmdb_season": 7
+  },
+  {
+    "anilist_id": 163141,
+    "bgm_id": 425978,
+    "tmdb_id": 240399,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163146,
+    "bgm_id": 426123,
+    "tmdb_id": 131041,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 163151,
+    "bgm_id": 426156,
+    "tmdb_id": 194665,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 163270,
+    "bgm_id": 426947,
+    "tmdb_id": 223500,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163292,
+    "bgm_id": 427059,
+    "tmdb_id": 250598,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 163623,
+    "bgm_id": 428823,
+    "tmdb_id": 224753,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 164172,
+    "bgm_id": 431370,
+    "tmdb_id": 234910,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 164204,
+    "bgm_id": 440878,
+    "tmdb_id": 106301,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 164212,
+    "bgm_id": 431767,
+    "tmdb_id": 241928,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 164244,
+    "bgm_id": 431839,
+    "tmdb_id": 231357,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 164299,
+    "bgm_id": 432597,
+    "tmdb_id": 244624,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 164440,
+    "bgm_id": 433072,
+    "tmdb_id": 243140,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 164702,
+    "bgm_id": 434144,
+    "tmdb_id": 237150,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 165254,
+    "bgm_id": 436745,
+    "tmdb_id": 226905,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 165314,
+    "bgm_id": 437206,
+    "tmdb_id": 234176,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 165598,
+    "bgm_id": 438187,
+    "tmdb_id": 238846,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 165681,
+    "bgm_id": 440879,
+    "tmdb_id": 106301,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 165790,
+    "bgm_id": 429305,
+    "tmdb_id": 230189,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 165810,
+    "bgm_id": 439197,
+    "tmdb_id": 205493,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 165855,
+    "bgm_id": 439850,
+    "tmdb_id": 239214,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166093,
+    "bgm_id": 441084,
+    "tmdb_id": 236930,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166216,
+    "bgm_id": 441795,
+    "tmdb_id": 207250,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 166240,
+    "bgm_id": 441939,
+    "tmdb_id": 85937,
+    "tmdb_season": 5
+  },
+  {
+    "anilist_id": 166372,
+    "bgm_id": 442176,
+    "tmdb_id": 229108,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166477,
+    "bgm_id": 442673,
+    "tmdb_id": 209707,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 166522,
+    "bgm_id": 443112,
+    "tmdb_id": 229443,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166531,
+    "bgm_id": 443428,
+    "tmdb_id": 203737,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 166610,
+    "bgm_id": 443493,
+    "tmdb_id": 204832,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 166611,
+    "bgm_id": 443676,
+    "tmdb_id": 69500,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166700,
+    "bgm_id": 443931,
+    "tmdb_id": 249409,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166710,
+    "bgm_id": 444046,
+    "tmdb_id": 229926,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166715,
+    "bgm_id": 444049,
+    "tmdb_id": 50712,
+    "tmdb_season": 4
+  },
+  {
+    "anilist_id": 166794,
+    "bgm_id": 444334,
+    "tmdb_id": 230059,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166828,
+    "bgm_id": 444403,
+    "tmdb_id": 236392,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 166873,
+    "bgm_id": 444557,
+    "tmdb_id": 94664,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 166910,
+    "bgm_id": 444339,
+    "tmdb_id": 238843,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167087,
+    "bgm_id": 445708,
+    "tmdb_id": 237045,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167141,
+    "bgm_id": 445821,
+    "tmdb_id": 78204,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167144,
+    "bgm_id": 445722,
+    "tmdb_id": 230697,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167146,
+    "bgm_id": 445836,
+    "tmdb_id": 230823,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167419,
+    "bgm_id": 446615,
+    "tmdb_id": 244672,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167420,
+    "bgm_id": 446618,
+    "tmdb_id": 158373,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167927,
+    "bgm_id": 448478,
+    "tmdb_id": 231873,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167991,
+    "bgm_id": 448879,
+    "tmdb_id": 232252,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168138,
+    "bgm_id": 449562,
+    "tmdb_id": 239853,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168139,
+    "bgm_id": 449567,
+    "tmdb_id": 248817,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168194,
+    "bgm_id": 488197,
+    "tmdb_id": 234995,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168345,
+    "bgm_id": 450586,
+    "tmdb_id": 250597,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168374,
+    "bgm_id": 450695,
+    "tmdb_id": 232926,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168500,
+    "bgm_id": 451119,
+    "tmdb_id": 88044,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168537,
+    "bgm_id": 451426,
+    "tmdb_id": 244592,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168623,
+    "bgm_id": 446175,
+    "tmdb_id": 233523,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169258,
+    "bgm_id": 454630,
+    "tmdb_id": 234776,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169315,
+    "bgm_id": 454787,
+    "tmdb_id": 240125,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169417,
+    "bgm_id": 455345,
+    "tmdb_id": 235389,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169418,
+    "bgm_id": 455355,
+    "tmdb_id": 236142,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169559,
+    "bgm_id": 456042,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 169584,
+    "bgm_id": 455835,
+    "tmdb_id": 117992,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 169698,
+    "bgm_id": 456619,
+    "tmdb_id": 235978,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169755,
+    "bgm_id": 457326,
+    "tmdb_id": 30984,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169927,
+    "bgm_id": 457945,
+    "tmdb_id": 236533,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169935,
+    "bgm_id": 458047,
+    "tmdb_id": 236532,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170083,
+    "bgm_id": 459435,
+    "tmdb_id": 236994,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170130,
+    "bgm_id": 459725,
+    "tmdb_id": 237233,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170468,
+    "bgm_id": 460657,
+    "tmdb_id": 259787,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170503,
+    "bgm_id": 461338,
+    "tmdb_id": 243141,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170604,
+    "bgm_id": 462608,
+    "tmdb_id": 238903,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170695,
+    "bgm_id": 463389,
+    "tmdb_id": 238892,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170890,
+    "bgm_id": 464563,
+    "tmdb_id": 239161,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170891,
+    "bgm_id": 464561,
+    "tmdb_id": 239158,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170998,
+    "bgm_id": 467243,
+    "tmdb_id": 241628,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171018,
+    "bgm_id": 467461,
+    "tmdb_id": 240411,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171025,
+    "bgm_id": 467641,
+    "tmdb_id": 240576,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171030,
+    "bgm_id": 467784,
+    "tmdb_id": 243216,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171031,
+    "bgm_id": 467811,
+    "tmdb_id": 240633,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171038,
+    "bgm_id": 467616,
+    "tmdb_id": 240641,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171040,
+    "bgm_id": 467919,
+    "tmdb_id": 240682,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171080,
+    "bgm_id": 468758,
+    "tmdb_id": 245204,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171144,
+    "bgm_id": 469437,
+    "tmdb_id": 99787,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171400,
+    "bgm_id": 470045,
+    "tmdb_id": 241811,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171457,
+    "bgm_id": 464376,
+    "tmdb_id": 241535,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171545,
+    "bgm_id": 470294,
+    "tmdb_id": 259788,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171637,
+    "bgm_id": 470599,
+    "tmdb_id": 210879,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171642,
+    "bgm_id": 470738,
+    "tmdb_id": 154526,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 171748,
+    "bgm_id": 470874,
+    "tmdb_id": 211709,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 172187,
+    "bgm_id": 471769,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172190,
+    "bgm_id": 471839,
+    "tmdb_id": 242143,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 172199,
+    "bgm_id": 467803,
+    "tmdb_id": 222798,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 172355,
+    "bgm_id": 472331,
+    "tmdb_id": 216523,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 172395,
+    "bgm_id": 472386,
+    "tmdb_id": 245884,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 172416,
+    "bgm_id": 472554,
+    "tmdb_id": 244620,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173263,
+    "bgm_id": 474801,
+    "tmdb_id": 243452,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173295,
+    "bgm_id": 474906,
+    "tmdb_id": 243501,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173584,
+    "bgm_id": 475933,
+    "tmdb_id": 248951,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173694,
+    "bgm_id": 476418,
+    "tmdb_id": 245285,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174043,
+    "bgm_id": 472673,
+    "tmdb_id": 244625,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174044,
+    "bgm_id": 477207,
+    "tmdb_id": 244617,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174070,
+    "bgm_id": 477204,
+    "tmdb_id": 244652,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174576,
+    "bgm_id": 479477,
+    "tmdb_id": 245842,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174653,
+    "bgm_id": 479921,
+    "tmdb_id": 246029,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174913,
+    "bgm_id": 480716,
+    "tmdb_id": 259789,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 175019,
+    "bgm_id": 481410,
+    "tmdb_id": 258579,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 175533,
+    "bgm_id": 483362,
+    "tmdb_id": 248086,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 175868,
+    "bgm_id": 478684,
+    "tmdb_id": 255492,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176053,
+    "bgm_id": 484981,
+    "tmdb_id": 259786,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176158,
+    "bgm_id": 485469,
+    "tmdb_id": 249545,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176292,
+    "bgm_id": 486102,
+    "tmdb_id": 218843,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 176311,
+    "bgm_id": 486345,
+    "tmdb_id": 38464,
+    "tmdb_season": 4
+  },
+  {
+    "anilist_id": 176508,
+    "bgm_id": 487684,
+    "tmdb_id": 205050,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 176660,
+    "bgm_id": 488197,
+    "tmdb_id": 234995,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177581,
+    "bgm_id": 494302,
+    "tmdb_id": 270659,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 178434,
+    "bgm_id": 500855,
+    "tmdb_id": 237150,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 178533,
+    "bgm_id": 489820,
+    "tmdb_id": 259140,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 178729,
+    "bgm_id": 501737,
+    "tmdb_id": 243140,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 179919,
+    "bgm_id": 505895,
+    "tmdb_id": 260689,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 181776,
+    "bgm_id": 513948,
+    "tmdb_id": 272055,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 182434,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 183423,
+    "bgm_id": 518603,
+    "tmdb_id": 37854,
+    "tmdb_season": 14
+  },
+  {
+    "anilist_id": 184812,
+    "bgm_id": 485122,
+    "tmdb_id": 257046,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 185644,
+    "bgm_id": null,
+    "tmdb_id": 96117,
+    "tmdb_season": 8
+  },
+  {
+    "anilist_id": 185729,
+    "bgm_id": 366897,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 169098,
+    "bgm_id": 437532,
+    "tmdb_id": 261839,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169291,
+    "bgm_id": 454505,
+    "tmdb_id": 234868,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170631,
+    "bgm_id": null,
+    "tmdb_id": 229302,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170893,
+    "bgm_id": 464594,
+    "tmdb_id": 233408,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 170938,
+    "bgm_id": 465884,
+    "tmdb_id": 239764,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170953,
+    "bgm_id": 465694,
+    "tmdb_id": 56559,
+    "tmdb_season": 12
+  },
+  {
+    "anilist_id": 171019,
+    "bgm_id": 467083,
+    "tmdb_id": 241021,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171689,
+    "bgm_id": 470777,
+    "tmdb_id": 221165,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 172242,
+    "bgm_id": 471926,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172852,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172966,
+    "bgm_id": 414866,
+    "tmdb_id": 241476,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173216,
+    "bgm_id": 473811,
+    "tmdb_id": 243345,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173249,
+    "bgm_id": 501203,
+    "tmdb_id": 242747,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173250,
+    "bgm_id": null,
+    "tmdb_id": 242755,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173388,
+    "bgm_id": 475367,
+    "tmdb_id": 243743,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173647,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 174390,
+    "bgm_id": 476969,
+    "tmdb_id": 270657,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174666,
+    "bgm_id": 478666,
+    "tmdb_id": 262301,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 175869,
+    "bgm_id": 484191,
+    "tmdb_id": 221725,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 176191,
+    "bgm_id": 484624,
+    "tmdb_id": 248707,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176283,
+    "bgm_id": 486083,
+    "tmdb_id": 234868,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 176577,
+    "bgm_id": 541037,
+    "tmdb_id": 246676,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176635,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177097,
+    "bgm_id": 490824,
+    "tmdb_id": 256797,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177160,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177603,
+    "bgm_id": 492951,
+    "tmdb_id": 253504,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177798,
+    "bgm_id": null,
+    "tmdb_id": 255084,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177879,
+    "bgm_id": 497620,
+    "tmdb_id": 256164,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177922,
+    "bgm_id": 498178,
+    "tmdb_id": 56559,
+    "tmdb_season": 13
+  },
+  {
+    "anilist_id": 178395,
+    "bgm_id": 501203,
+    "tmdb_id": 242747,
+    "tmdb_season": 2
+  },
+  {
+    "anilist_id": 178421,
+    "bgm_id": 491923,
+    "tmdb_id": 255223,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 179212,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 179292,
+    "bgm_id": 513375,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 179408,
+    "bgm_id": null,
+    "tmdb_id": 256166,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 179954,
+    "bgm_id": 499038,
+    "tmdb_id": 256798,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 180923,
+    "bgm_id": 507433,
+    "tmdb_id": 261135,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 181835,
+    "bgm_id": 541037,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 182157,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 182159,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 182301,
+    "bgm_id": 113514,
+    "tmdb_id": 271237,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 182772,
+    "bgm_id": 437206,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 183383,
+    "bgm_id": null,
+    "tmdb_id": 130794,
+    "tmdb_season": 3
+  },
+  {
+    "anilist_id": 183744,
+    "bgm_id": 447530,
+    "tmdb_id": 275695,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 184998,
+    "bgm_id": 505080,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 186200,
+    "bgm_id": 78523,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 186756,
+    "bgm_id": 235702,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 188063,
+    "bgm_id": null,
+    "tmdb_id": 70975,
+    "tmdb_season": 7
+  },
+  {
+    "anilist_id": 188805,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 124343,
+    "bgm_id": 389657,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 131791,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 133845,
+    "bgm_id": 335390,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 134761,
+    "bgm_id": 337586,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 143560,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 144770,
+    "bgm_id": 366257,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 146609,
+    "bgm_id": 375425,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 148080,
+    "bgm_id": 485154,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 149025,
+    "bgm_id": 321915,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 151017,
+    "bgm_id": 387972,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 151117,
+    "bgm_id": 388469,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 153658,
+    "bgm_id": 394621,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 156727,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 158166,
+    "bgm_id": 409576,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 158641,
+    "bgm_id": 441447,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 162987,
+    "bgm_id": 425605,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 163147,
+    "bgm_id": 426124,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 163785,
+    "bgm_id": 433672,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 163786,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 165253,
+    "bgm_id": 436738,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 166476,
+    "bgm_id": 442614,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 166511,
+    "bgm_id": 422351,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 166976,
+    "bgm_id": 444359,
+    "tmdb_id": 2371,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167984,
+    "bgm_id": 448655,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 168013,
+    "bgm_id": 449154,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 168251,
+    "bgm_id": 449341,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 168998,
+    "bgm_id": 452392,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 169403,
+    "bgm_id": 485315,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 169754,
+    "bgm_id": 429644,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 169766,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 169778,
+    "bgm_id": 469357,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 171026,
+    "bgm_id": 467732,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 171099,
+    "bgm_id": 459642,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 171109,
+    "bgm_id": 469033,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 171145,
+    "bgm_id": 469483,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 171291,
+    "bgm_id": 469877,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 171608,
+    "bgm_id": 284235,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172016,
+    "bgm_id": 239180,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172420,
+    "bgm_id": 472620,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172965,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172976,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 173174,
+    "bgm_id": 473832,
+    "tmdb_id": 224207,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 173884,
+    "bgm_id": 476683,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 173935,
+    "bgm_id": 476808,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 174383,
+    "bgm_id": 448657,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 174788,
+    "bgm_id": 480441,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 175138,
+    "bgm_id": 481866,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 175199,
+    "bgm_id": 452627,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 175573,
+    "bgm_id": 480096,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176218,
+    "bgm_id": 452432,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176245,
+    "bgm_id": 485868,
+    "tmdb_id": 18357,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176275,
+    "bgm_id": 486477,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176299,
+    "bgm_id": 486264,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176319,
+    "bgm_id": 486571,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176470,
+    "bgm_id": 487209,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177680,
+    "bgm_id": 495674,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178353,
+    "bgm_id": 315779,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178354,
+    "bgm_id": null,
+    "tmdb_id": 260840,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 178355,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178356,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178357,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178387,
+    "bgm_id": 7995,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178388,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178389,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178390,
+    "bgm_id": null,
+    "tmdb_id": 74363,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 178391,
+    "bgm_id": 137286,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178392,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178436,
+    "bgm_id": 500060,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178774,
+    "bgm_id": 501859,
+    "tmdb_id": 132249,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 178782,
+    "bgm_id": 501937,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 179214,
+    "bgm_id": 424563,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 180804,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 180806,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 181179,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 181970,
+    "bgm_id": 454045,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 182241,
+    "bgm_id": 473833,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 183824,
+    "bgm_id": 190889,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 184369,
+    "bgm_id": 467955,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 184694,
+    "bgm_id": 513314,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 185117,
+    "bgm_id": 446288,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 185613,
+    "bgm_id": 370188,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 186764,
+    "bgm_id": 476718,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 186790,
+    "bgm_id": 486238,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 172967,
+    "bgm_id": 473818,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 175783,
+    "bgm_id": 484023,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176300,
+    "bgm_id": 486238,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176303,
+    "bgm_id": 486101,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176317,
+    "bgm_id": 450343,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176634,
+    "bgm_id": 487755,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177008,
+    "bgm_id": 283643,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177046,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177177,
+    "bgm_id": 492205,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177191,
+    "bgm_id": 492352,
+    "tmdb_id": 84669,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177240,
+    "bgm_id": 491976,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177439,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178126,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 178396,
+    "bgm_id": 471926,
+    "tmdb_id": 230289,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 178402,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 179978,
+    "bgm_id": 506074,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 180332,
+    "bgm_id": 475354,
+    "tmdb_id": 60669,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 180871,
+    "bgm_id": 511768,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 180947,
+    "bgm_id": 512613,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 182469,
+    "bgm_id": 518519,
+    "tmdb_id": 37854,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 182561,
+    "bgm_id": 457326,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 183651,
+    "bgm_id": 522359,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 183797,
+    "bgm_id": 416534,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 185793,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 185940,
+    "bgm_id": 531216,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 185970,
+    "bgm_id": 496973,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 186496,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 144779,
+    "bgm_id": 366256,
+    "tmdb_id": 223705,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 155154,
+    "bgm_id": null,
+    "tmdb_id": 247041,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 167140,
+    "bgm_id": 350523,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 167486,
+    "bgm_id": 471804,
+    "tmdb_id": 196944,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 168947,
+    "bgm_id": null,
+    "tmdb_id": 237536,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 169202,
+    "bgm_id": null,
+    "tmdb_id": 246914,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170297,
+    "bgm_id": null,
+    "tmdb_id": 247333,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170514,
+    "bgm_id": null,
+    "tmdb_id": 241178,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170593,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 170599,
+    "bgm_id": null,
+    "tmdb_id": 241179,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 170969,
+    "bgm_id": null,
+    "tmdb_id": 241177,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171016,
+    "bgm_id": 217842,
+    "tmdb_id": 241181,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171395,
+    "bgm_id": null,
+    "tmdb_id": 244424,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 171397,
+    "bgm_id": 386947,
+    "tmdb_id": 252116,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 172218,
+    "bgm_id": 408351,
+    "tmdb_id": 272955,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 172398,
+    "bgm_id": 48873,
+    "tmdb_id": 244422,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 172399,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 174181,
+    "bgm_id": null,
+    "tmdb_id": 246703,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174184,
+    "bgm_id": 333962,
+    "tmdb_id": 249108,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174186,
+    "bgm_id": null,
+    "tmdb_id": 244576,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174187,
+    "bgm_id": null,
+    "tmdb_id": 244575,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174189,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 174633,
+    "bgm_id": null,
+    "tmdb_id": 246186,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174634,
+    "bgm_id": 548538,
+    "tmdb_id": 261333,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 174749,
+    "bgm_id": 486571,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 175248,
+    "bgm_id": null,
+    "tmdb_id": 252113,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 175250,
+    "bgm_id": null,
+    "tmdb_id": 252115,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 175499,
+    "bgm_id": null,
+    "tmdb_id": 248606,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176328,
+    "bgm_id": null,
+    "tmdb_id": 252117,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176395,
+    "bgm_id": 432597,
+    "tmdb_id": 254683,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176396,
+    "bgm_id": null,
+    "tmdb_id": 254682,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176489,
+    "bgm_id": null,
+    "tmdb_id": 106882,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 176663,
+    "bgm_id": 208827,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176707,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 176907,
+    "bgm_id": null,
+    "tmdb_id": 260789,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177007,
+    "bgm_id": 405785,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177149,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177255,
+    "bgm_id": null,
+    "tmdb_id": 253651,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177456,
+    "bgm_id": 541814,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177707,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 177789,
+    "bgm_id": 473818,
+    "tmdb_id": 259214,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 177856,
+    "bgm_id": null,
+    "tmdb_id": 261335,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 178557,
+    "bgm_id": null,
+    "tmdb_id": 261336,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 179368,
+    "bgm_id": null,
+    "tmdb_id": 261338,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 179677,
+    "bgm_id": null,
+    "tmdb_id": 261644,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 179722,
+    "bgm_id": 235634,
+    "tmdb_id": 261339,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 179820,
+    "bgm_id": null,
+    "tmdb_id": 261642,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 180533,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 180704,
+    "bgm_id": null,
+    "tmdb_id": null,
+    "tmdb_season": null
+  },
+  {
+    "anilist_id": 180832,
+    "bgm_id": null,
+    "tmdb_id": 271230,
+    "tmdb_season": 1
+  },
+  {
+    "anilist_id": 182104,
+    "bgm_id": 7365,
+    "tmdb_id": 274726,
+    "tmdb_season": 1
+  }
+]

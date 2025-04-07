@@ -22,7 +22,10 @@ pub struct AnimeMappings {
 
 impl AnimeMappings {
     pub fn load_from_file(year: i32) -> Result<Self> {
-        match File::open(format!("anilist_mappings_{}.json", year)) {
+        match File::open(format!(
+            "./python-bangumi-mappings/anilist_mappings_{}.json",
+            year
+        )) {
             Ok(file) => {
                 let mappings: Vec<MappingItem> = serde_json::from_reader(file)?;
                 Ok(Self {
@@ -32,9 +35,12 @@ impl AnimeMappings {
                         .collect(),
                 })
             }
-            Err(_) => Ok(Self {
-                mappings: HashMap::new(),
-            }),
+            Err(e) => {
+                info!("load_from_file error: {}", e);
+                Ok(Self {
+                    mappings: HashMap::new(),
+                })
+            }
         }
     }
 

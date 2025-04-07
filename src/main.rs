@@ -1,7 +1,12 @@
 mod agent;
+mod api;
+mod db;
 mod dump_anilist;
+mod import;
 mod mapping_anilist;
+mod router;
 mod run_agent;
+mod server;
 mod tool_bgm_tv;
 mod tool_submit;
 mod tool_tmdb;
@@ -63,6 +68,25 @@ enum Commands {
         #[arg(short, long)]
         delay: u64,
     },
+    /// 启动服务器
+    #[command(name = "server")]
+    Server,
+    /// 导入AniList数据
+    #[command(name = "import-anilist-animes")]
+    ImportAnilistAnimes {
+        #[arg(short, long)]
+        start: i32,
+        #[arg(short, long)]
+        end: i32,
+    },
+    /// 导入AniList数据
+    #[command(name = "import-mappings")]
+    ImportMappings {
+        #[arg(short, long)]
+        start: i32,
+        #[arg(short, long)]
+        end: i32,
+    },
 }
 
 #[tokio::main]
@@ -102,6 +126,22 @@ async fn main() -> Result<(), anyhow::Error> {
             delay,
         } => {
             mapping_anilist::mapping_anilist_to_bgm(start, end, &provider, &model, delay).await?;
+        }
+        Commands::Server => {
+            let server = server::Server::new().await?;
+            server.serve().await?;
+        }
+        Commands::ImportAnilistAnimes { start, end } => {
+            let db = db::Db::new_from_env().await?;
+            for year in start..=end {
+                import::import_anilist_animes(&db, year).await?;
+            }
+        }
+        Commands::ImportMappings { start, end } => {
+            let db = db::Db::new_from_env().await?;
+            for year in start..=end {
+                import::import_mappings(&db, year).await?;
+            }
         }
     }
     Ok(())
