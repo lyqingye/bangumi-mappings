@@ -8,6 +8,7 @@ pub struct SubmitArgs {
     id: Option<i32>,
     name: Option<String>,
     season: Option<i32>,
+    confidence_score: Option<i32>,
 }
 
 pub struct SubmitTool {}
@@ -50,8 +51,12 @@ impl Tool for SubmitTool {
                         "type": "number",
                         "description": "The season number of the anime"
                     },
+                    "confidence_score": {
+                        "type": "number",
+                        "description": "The confidence score of the match, value range from 0 to 100"
+                    },
                 },
-                "required": []
+                "required": ["confidence_score"]
             }),
         }
     }
@@ -85,8 +90,12 @@ impl Tool for SubmitBGMTool {
                         "type": "string",
                         "description": "The name of the anime"
                     },
+                    "confidence_score": {
+                        "type": "number",
+                        "description": "The confidence score of the match, value range from 0 to 100"
+                    },
                 },
-                "required": []
+                "required": ["confidence_score"]
             }),
         }
     }

@@ -6,6 +6,7 @@ use serde_json::json;
 use tmdb_api::{
     Client,
     client::reqwest::ReqwestExecutor,
+    movie::{MovieShort, search::MovieSearch},
     prelude::Command,
     tvshow::{
         TVShowShort,
@@ -149,6 +150,94 @@ fn new_tmdb_client() -> Client<ReqwestExecutor> {
         .unwrap()
 }
 
+pub struct TMDBMovieSearchTool {
+    client: Arc<Client<ReqwestExecutor>>,
+}
+
+impl TMDBMovieSearchTool {
+    pub fn new() -> Self {
+        let client = new_tmdb_client();
+        Self {
+            client: Arc::new(client),
+        }
+    }
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct TMDBMovieSearchResult {
+    #[serde(default)]
+    pub data: Vec<MovieShort>,
+}
+
+#[derive(Deserialize, Serialize)]
+pub struct TMDBMovieSearchArgs {
+    query: String,
+    year: Option<i16>,
+}
+
+impl Tool for TMDBMovieSearchTool {
+    const NAME: &'static str = "tmdb_search_movie";
+
+    type Error = TMDBError;
+    type Args = TMDBMovieSearchArgs;
+    type Output = TMDBMovieSearchResult;
+
+    async fn definition(&self, _prompt: String) -> ToolDefinition {
+        ToolDefinition {
+            name: "tmdb_search_movie".to_string(),
+            description: "Search for movies on TMDB".to_string(),
+            parameters: json!({
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query for movies"
+                    },
+                    // "year": {
+                    //     "type": "number",
+                    //     "description": "(Optional) The year for the search, example: 2024"
+                    // }
+                },
+                "required": ["query"]
+            }),
+        }
+    }
+
+    async fn call(&self, args: Self::Args) -> Result<Self::Output, Self::Error> {
+        // 在每次调用时创建新的client实例
+        let client = self.client.clone();
+
+        // 使用spawn_blocking来处理阻塞操作
+        let query = args.query;
+        tokio::spawn(async move {
+            let cmd = MovieSearch::new(query)
+                .with_language(Some("zh-CN".to_string()))
+                .with_year(args.year.map(|item| item as u16));
+
+            // 使用tokio-retry实现重试逻辑
+            let retry_strategy = FixedInterval::from_millis(5000).take(5);
+
+            let result =
+                Retry::spawn(retry_strategy, || async { cmd.execute(&client).await }).await;
+
+            match result {
+                Ok(result) => {
+                    return Ok(TMDBMovieSearchResult {
+                        data: result.results,
+                    });
+                }
+                Err(e) => {
+                    info!("搜索失败，已重试多次: {}", e);
+                    Err(TMDBError::new(format!("搜索失败，已重试多次: {}", e)))
+                }
+            }
+        })
+        .await
+        .unwrap_or(Err(TMDBError::new("search not found")))
+    }
+}
+
+/// ------------------------------------------------
 pub struct TMDBSeasonTool {
     client: Arc<Client<ReqwestExecutor>>,
 }

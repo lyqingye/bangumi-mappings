@@ -13,7 +13,7 @@ use tracing::info;
 use crate::{
     tool_bgm_tv::BgmTVSearchTool,
     tool_submit::{SubmitBGMTool, SubmitTool},
-    tool_tmdb::{TMDBSearchTool, TMDBSeasonTool},
+    tool_tmdb::{TMDBMovieSearchTool, TMDBSearchTool, TMDBSeasonTool},
 };
 
 pub static MATCH_BGM_PROMPT: &str = r#"You are an intelligent assistant responsible for matching anime information on Bangumi based on user queries.
@@ -24,20 +24,20 @@ Your goal is to identify the single most relevant anime entry.
 3.  **Evaluate Results**: Examine the search results. If a highly relevant match is found based on the title and other available information (from the search tool's return data), proceed to step 5.
 4.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
 5.  **Select Confident Match**: Evaluate the similarity between the user query and each search result (considering titles, aliases, air dates, etc.). Select the entry with the **highest similarity**, **but only if this similarity meets a high confidence threshold**. 
-6.  **Submit Result**: if found confident match, submit the matched id and name, otherwise submit empty result.
+6.  **Submit Result**: if found confident match, submit the matched id and name, and confidence-score, otherwise submit empty result.
 "#;
 
-pub static MATCH_TMDB_PROMPT: &str = r#"You are an intelligent assistant responsible for matching anime information on TMDB based on user queries, including identifying the correct season.
+pub static MATCH_TMDB_PROMPT: &str = r#"You are an intelligent assistant responsible for matching anime information on TMDB based on user queries, including identifying the correct season(TV show Only).
 Your goal is to identify the single most relevant anime entry and its specific season.
 
 1.  **Analyze User Query**: Identify potential anime titles (native, romaji, English, etc.). **Critically, extract the *main title* of the anime, separating it from any season-specific identifiers or subtitles (e.g., "Season 2", "Part 3", "Arc X"). Identify these season identifiers and other relevant keywords separately.**
 2.  **Primary Search**: Construct a search query prioritizing the most promising *extracted main title* (usually the native title, if available). **Do NOT include the identified season identifiers or subtitles (like "Season 2", "第二季") in this initial search query.**
-3.  **Evaluate Search Results**: Examine the search results. Identify the most likely TV show match based on the title and other available information. If no promising TV show match is found, proceed to step 8.
+3.  **Evaluate Search Results**: Calculate the confidence score of the each search result(considering the title, air date, overview, etc.).  If no promising TV show match is found, proceed to step 8.
 4.  **Fetch Season Information**: with the TMDB ID of the most likely TV show match identified in the previous step. This tool will return a list of seasons with their names, numbers, and potentially air dates.
 5.  **Match Season**: Compare the season information obtained with the season details mentioned or implied in the user query. Identify the single season that best matches the user's request. Consider season numbers, names, or potentially air dates if provided.
 6.  **Refine Search (If Necessary)**: If the initial search results are ambiguous or low quality, you may try searching again using alternative titles (e.g., romaji, English) or extracted keywords. **Only perform additional searches if the first attempt failed to yield a likely match.**
 7.  **Select Confident Match**: Based on the TV show match (Step 3) and the specific season match (Step 5), confirm if this combination represents a high-confidence match for the user's query. 
-8.  **Submit Result**: if found confident match, submit the matched tv_id and name and season number, otherwise submit empty result.
+8.  **Submit Result**: if found confident match, submit the matched tv_id and name and season number, and confidence-score, otherwise submit empty result.
 "#;
 
 pub static EXTRACT_BGM_MATCH_RESULT_PROMPT: &str = r#"extract the id and name from the input text"#;
@@ -95,6 +95,7 @@ pub fn new_mapping_tmdb_agent<M: rig::completion::CompletionModel>(
         .preamble(MATCH_TMDB_PROMPT)
         .max_tokens(8192)
         .temperature(0.2)
+        .tool(TMDBMovieSearchTool::new())
         .tool(TMDBSearchTool::new())
         .tool(TMDBSeasonTool::new())
         .tool(SubmitTool::new());
@@ -200,4 +201,5 @@ pub struct MatchResult {
     pub id: Option<i32>,
     pub name: Option<String>,
     pub season: Option<i32>,
+    pub confidence_score: Option<i32>,
 }

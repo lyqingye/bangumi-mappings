@@ -12,7 +12,9 @@ use crate::{
 pub struct MappingItem {
     pub anilist_id: i32,
     pub bgm_id: Option<i32>,
+    pub bgm_confidence_score: Option<i32>,
     pub tmdb_id: Option<i32>,
+    pub tmdb_confidence_score: Option<i32>,
     pub tmdb_season: Option<i32>,
 }
 #[derive(Debug, Deserialize, Serialize, Clone)]
@@ -57,8 +59,10 @@ impl AnimeMappings {
         &mut self,
         anilist_id: i32,
         bgm_id: Option<i32>,
+        bgm_confidence_score: Option<i32>,
         tmdb_id: Option<i32>,
         tmdb_season: Option<i32>,
+        tmdb_confidence_score: Option<i32>,
     ) {
         if let Some(mapping) = self.mappings.get_mut(&anilist_id) {
             if bgm_id.is_some() {
@@ -70,14 +74,22 @@ impl AnimeMappings {
             if tmdb_season.is_some() {
                 mapping.tmdb_season = tmdb_season;
             }
+            if bgm_confidence_score.is_some() {
+                mapping.bgm_confidence_score = bgm_confidence_score;
+            }
+            if tmdb_confidence_score.is_some() {
+                mapping.tmdb_confidence_score = tmdb_confidence_score;
+            }
         } else {
             self.mappings.insert(
                 anilist_id,
                 MappingItem {
                     anilist_id,
                     bgm_id,
+                    bgm_confidence_score,
                     tmdb_id,
                     tmdb_season,
+                    tmdb_confidence_score,
                 },
             );
         }
@@ -167,12 +179,19 @@ async fn mapping_anilist_to_bgm_by_year(
                             media.title.native, result
                         );
                     }
-                    mappings.add_mapping(media.id, result.id, None, None);
+                    mappings.add_mapping(
+                        media.id,
+                        result.id,
+                        result.confidence_score,
+                        None,
+                        None,
+                        None,
+                    );
                     mappings.save_to_file(year)?;
                 }
                 Err(e) => {
                     error!("匹配动漫: {} 失败, error: {:?}", media.id, e);
-                    mappings.add_mapping(media.id, None, None, None);
+                    mappings.add_mapping(media.id, None, None, None, None, None);
                 }
             };
         }
@@ -195,12 +214,19 @@ async fn mapping_anilist_to_bgm_by_year(
                         );
                     }
 
-                    mappings.add_mapping(media.id, None, result.id, result.season);
+                    mappings.add_mapping(
+                        media.id,
+                        None,
+                        None,
+                        result.id,
+                        result.season,
+                        result.confidence_score,
+                    );
                     mappings.save_to_file(year)?;
                 }
                 Err(e) => {
                     error!("匹配动漫: {:?} 失败, error: {:?}", media.title.native, e);
-                    mappings.add_mapping(media.id, None, None, None);
+                    mappings.add_mapping(media.id, None, None, None, None, None);
                 }
             }
         }
