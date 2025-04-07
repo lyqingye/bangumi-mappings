@@ -1,0 +1,5343 @@
+[
+  {
+    "anilist_id": 2040,
+    "bgm_id": 11731,
+    "titles": [
+      "魔法のエンジェル スイートミント",
+      "Magical Angel Sweet Mint",
+      "Mahou no Angel Sweet Mint"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-02",
+    "episode_count": 47,
+    "seasonNumber": 1,
+    "episodeNumber": 2,
+    "absoluteEpisodeNumber": 2,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "magical-angel-sweet-mint",
+      "kitsu_id": 1839,
+      "mal_id": 2040,
+      "anilist_id": 2040,
+      "anisearch_id": 829,
+      "anidb_id": 2332,
+      "notifymoe_id": "qXoLcKmig",
+      "livechart_id": 8307,
+      "thetvdb_id": 292085,
+      "imdb_id": "tt0291632",
+      "themoviedb_id": "20208"
+    }
+  },
+  {
+    "anilist_id": 1251,
+    "bgm_id": 1981,
+    "titles": [
+      "ふしぎの海のナディア",
+      "Nadia: The Secret of Blue Water",
+      "Fushigi no Umi no Nadia",
+      "冒險少女娜汀亞"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-13",
+    "episode_count": 69,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "nadia-secret-of-blue-water",
+      "kitsu_id": 1126,
+      "mal_id": 1251,
+      "anilist_id": 1251,
+      "anisearch_id": 355,
+      "anidb_id": 40,
+      "notifymoe_id": "d_0bcKmmR",
+      "livechart_id": 4995,
+      "thetvdb_id": 81789,
+      "imdb_id": "tt0096591",
+      "themoviedb_id": "24710"
+    }
+  },
+  {
+    "anilist_id": 951,
+    "bgm_id": 28165,
+    "titles": [
+      "ちびまる子ちゃん",
+      "Little Miss Maruko",
+      "Chibi Maruko-chan",
+      "樱桃小丸子(1990)",
+      "櫻桃小丸子"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-07",
+    "episode_count": 145,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "chibi-maruko-chan",
+      "kitsu_id": 843,
+      "mal_id": 951,
+      "anilist_id": 951,
+      "anisearch_id": 2680,
+      "anidb_id": 1841,
+      "notifymoe_id": "2sI1cFiig",
+      "livechart_id": 8279,
+      "thetvdb_id": 167131,
+      "imdb_id": "tt0220204",
+      "themoviedb_id": "57775"
+    }
+  },
+  {
+    "anilist_id": 1261,
+    "bgm_id": 81577,
+    "titles": [
+      "キャッ党忍伝てやんでえ",
+      "Samurai Pizza Cats",
+      "Cat Ninden Teyandee"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-01",
+    "episode_count": 55,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "samurai-pizza-cats",
+      "kitsu_id": 1136,
+      "mal_id": 1261,
+      "anilist_id": 1261,
+      "anisearch_id": 196,
+      "anidb_id": 2382,
+      "notifymoe_id": "9Dxx5FimR",
+      "livechart_id": 7047,
+      "thetvdb_id": 77089,
+      "imdb_id": "tt0122834",
+      "themoviedb_id": "10797"
+    }
+  },
+  {
+    "anilist_id": 1375,
+    "bgm_id": 28111,
+    "titles": [
+      "私のあしながおじさん",
+      "My Daddy Long Legs",
+      "Watashi no Ashinaga Oji-san"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-14",
+    "episode_count": 40,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "daddy-long-legs",
+      "kitsu_id": 1229,
+      "mal_id": 1375,
+      "anilist_id": 1375,
+      "anisearch_id": 1732,
+      "anidb_id": 1955,
+      "notifymoe_id": "5VqbcFmmR",
+      "livechart_id": 6909,
+      "thetvdb_id": 381914,
+      "imdb_id": "tt0168436",
+      "themoviedb_id": "8727"
+    }
+  },
+  {
+    "anilist_id": 2084,
+    "bgm_id": 10408,
+    "titles": [
+      "NG騎士ラムネ＆４０",
+      "NG騎士ラムネ&40",
+      "NG Knight Lamune & 40",
+      "NG Kishi Ramune & 40"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-06",
+    "episode_count": 38,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "ng-knight-lamune-40",
+      "kitsu_id": 1883,
+      "mal_id": 2084,
+      "anilist_id": 2084,
+      "anisearch_id": 1048,
+      "anidb_id": 1364,
+      "notifymoe_id": "sdYYcFiiR",
+      "livechart_id": 8234,
+      "thetvdb_id": 295364,
+      "imdb_id": "tt0370220",
+      "themoviedb_id": "26110"
+    }
+  },
+  {
+    "anilist_id": 2150,
+    "bgm_id": 8622,
+    "titles": [
+      "楽しいムーミン一家",
+      "Moomin",
+      "Tanoshii Moomin Ikka",
+      "小肥肥一族"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-12",
+    "episode_count": 78,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "delightful-moomin-family",
+      "kitsu_id": 1946,
+      "mal_id": 2150,
+      "anilist_id": 2150,
+      "anisearch_id": 818,
+      "anidb_id": 1009,
+      "notifymoe_id": "we9YcKmiR",
+      "livechart_id": 5667,
+      "thetvdb_id": 85199,
+      "imdb_id": "tt0247117",
+      "themoviedb_id": "67575"
+    }
+  },
+  {
+    "anilist_id": 2243,
+    "bgm_id": 86439,
+    "titles": [
+      "カラス天狗カブト",
+      "Raven Goblin Kabuto",
+      "Karasu Tengu Kabuto"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-29",
+    "episode_count": 45,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "karasu-tengu-kabuto",
+      "kitsu_id": 2032,
+      "mal_id": 2243,
+      "anilist_id": 2243,
+      "anisearch_id": 2947,
+      "anidb_id": 2635,
+      "notifymoe_id": "kfIPcFmmg",
+      "livechart_id": null,
+      "thetvdb_id": 197971,
+      "imdb_id": "tt0144719",
+      "themoviedb_id": "83539"
+    }
+  },
+  {
+    "anilist_id": 3325,
+    "bgm_id": 37245,
+    "titles": [
+      "勇者エクスカイザー",
+      "Yuusha/Brave Series 1",
+      "Yuusha Exkaiser"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-03",
+    "episode_count": 49,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "yuusha-exkaiser",
+      "kitsu_id": 2937,
+      "mal_id": 3325,
+      "anilist_id": 3325,
+      "anisearch_id": 1872,
+      "anidb_id": 1707,
+      "notifymoe_id": "9QhQ5FmmR",
+      "livechart_id": null,
+      "thetvdb_id": 351995,
+      "imdb_id": "tt0143003",
+      "themoviedb_id": "17016"
+    }
+  },
+  {
+    "anilist_id": 2543,
+    "bgm_id": 25728,
+    "titles": [
+      "ロビンフッドの大冒険",
+      "The Great Adventures of Robin Hood",
+      "Robin Hood",
+      "Robin Hood no Daibouken",
+      "罗宾汉的大冒险"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-29",
+    "episode_count": 54,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "robin-hood",
+      "kitsu_id": 2308,
+      "mal_id": 2543,
+      "anilist_id": 2543,
+      "anisearch_id": 2670,
+      "anidb_id": 1060,
+      "notifymoe_id": "9DWs5Kmmg",
+      "livechart_id": 9515,
+      "thetvdb_id": 88251,
+      "imdb_id": "tt0305094",
+      "themoviedb_id": "37578"
+    }
+  },
+  {
+    "anilist_id": 3765,
+    "bgm_id": 48071,
+    "titles": [
+      "ピグマリオ",
+      "Pygmalio"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-05",
+    "episode_count": 39,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "pygmalio",
+      "kitsu_id": 3241,
+      "mal_id": 3765,
+      "anilist_id": 3765,
+      "anisearch_id": 3429,
+      "anidb_id": 3481,
+      "notifymoe_id": "KgTl5FimR",
+      "livechart_id": 6911,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 4807,
+    "bgm_id": 1973,
+    "titles": [
+      "魔神英雄伝ワタル2",
+      "Spirit Hero Wataru 2",
+      "Rainbow Fantasia 2",
+      "Mashin Eiyuuden Wataru 2",
+      "魔神英雄传2"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-09",
+    "episode_count": 47,
+    "seasonNumber": 2,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 46,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "mashin-eiyuuden-wataru-2",
+      "kitsu_id": 3797,
+      "mal_id": 4807,
+      "anilist_id": 4807,
+      "anisearch_id": 601,
+      "anidb_id": 3637,
+      "notifymoe_id": "x9drcFimR",
+      "livechart_id": 13015,
+      "thetvdb_id": 227501,
+      "imdb_id": "tt0462651",
+      "themoviedb_id": "19612"
+    }
+  },
+  {
+    "anilist_id": 4928,
+    "bgm_id": 11730,
+    "titles": [
+      "アイドル天使ようこそようこ",
+      "アイドル天使 ようこそようこ",
+      "Idol Angel Welcome Yoko",
+      "Idol Tenshi Youkoso Yoko",
+      "偶像天使阳子"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-02",
+    "episode_count": 43,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "idol-tenshi-youkoso-yoko",
+      "kitsu_id": 3853,
+      "mal_id": 4928,
+      "anilist_id": 4928,
+      "anisearch_id": 765,
+      "anidb_id": 3058,
+      "notifymoe_id": "gW0r5Kimg",
+      "livechart_id": 8062,
+      "thetvdb_id": 294871,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5249,
+    "bgm_id": 6605,
+    "titles": [
+      "三つ目がとおる",
+      "The Three-eyed One",
+      "Mitsume ga Tooru"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-18",
+    "episode_count": 48,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "mitsume-ga-tooru",
+      "kitsu_id": 4011,
+      "mal_id": 5249,
+      "anilist_id": 5249,
+      "anisearch_id": 1784,
+      "anidb_id": 3193,
+      "notifymoe_id": "mkMjcFiiR",
+      "livechart_id": 7879,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5274,
+    "bgm_id": 53736,
+    "titles": [
+      "まじかる☆タルるートくん",
+      "まじかる★タルるートくん",
+      "Magical Taluluto",
+      "Magical★Taruruuto-kun",
+      "小魔星"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-09",
+    "episode_count": 87,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "magical-taruruuto-kun",
+      "kitsu_id": 4027,
+      "mal_id": 5274,
+      "anilist_id": 5274,
+      "anisearch_id": 587,
+      "anidb_id": 2084,
+      "notifymoe_id": "znVj5KmmR",
+      "livechart_id": 10659,
+      "thetvdb_id": 377391,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 8065,
+    "bgm_id": 37272,
+    "titles": [
+      "からくり剣豪伝ムサシロード",
+      "Musashi, the Samurai Lord",
+      "Karakuri Kengou Den Musashi Lord"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-03",
+    "episode_count": 50,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "karakuri-kengo-den-musashi-lord",
+      "kitsu_id": 5185,
+      "mal_id": 8065,
+      "anilist_id": 8065,
+      "anisearch_id": 1738,
+      "anidb_id": 3577,
+      "notifymoe_id": "URQzpKimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9028,
+    "bgm_id": 119322,
+    "titles": [
+      "江戸っ子ボーイ がってん太助",
+      "Edokko Boy: Gatten Tasuke"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-19",
+    "episode_count": 22,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "edokko-boy-gatten-tasuke",
+      "kitsu_id": 5579,
+      "mal_id": 9028,
+      "anilist_id": 9028,
+      "anisearch_id": 4903,
+      "anidb_id": 6523,
+      "notifymoe_id": "Et2ZpFiig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9061,
+    "bgm_id": 10934,
+    "titles": [
+      "RPG伝説ヘポイ",
+      "RPG Densetsu Hepoi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-06",
+    "episode_count": 50,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "rpg-densetsu-hepoi",
+      "kitsu_id": 5590,
+      "mal_id": 9061,
+      "anilist_id": 9061,
+      "anisearch_id": 5510,
+      "anidb_id": 6518,
+      "notifymoe_id": "wF0ZpFmiR",
+      "livechart_id": 12094,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9175,
+    "bgm_id": 81578,
+    "titles": [
+      "つる姫じゃ～っ！",
+      "つる姫じゃーっ!",
+      "I`m the Crane Princess -- !",
+      "Tsuruhime Ja!"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-09",
+    "episode_count": 49,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "tsuruhime-ja",
+      "kitsu_id": 5624,
+      "mal_id": 9175,
+      "anilist_id": 9175,
+      "anisearch_id": 3181,
+      "anidb_id": 3144,
+      "notifymoe_id": "NDYZpKimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 12391,
+    "bgm_id": 87782,
+    "titles": [
+      "もーれつア太郎 (1990)",
+      "Mooretsu Atarou (1990)",
+      "猛烈太郎"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-21",
+    "episode_count": 34,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "mooretsu-atarou-1990",
+      "kitsu_id": 6719,
+      "mal_id": 12391,
+      "anilist_id": 12391,
+      "anisearch_id": 1370,
+      "anidb_id": 1898,
+      "notifymoe_id": "dZhHpKmig",
+      "livechart_id": 11700,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 19961,
+    "bgm_id": 81579,
+    "titles": [
+      "平成天才バカボン",
+      "Heisei Tensai Bakabon"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-06",
+    "episode_count": 46,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "heisei-tensai-bakabon",
+      "kitsu_id": 8996,
+      "mal_id": 19961,
+      "anilist_id": 19961,
+      "anisearch_id": 767,
+      "anidb_id": 3422,
+      "notifymoe_id": "J0_xtKimR",
+      "livechart_id": 9584,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 120873,
+    "bgm_id": 282153,
+    "titles": [
+      "三丁目の夕日 ",
+      "三丁目の夕日",
+      "Sunset on Third Street",
+      "Sanchoume no Yuuhi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-12",
+    "episode_count": 27,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "san-choume-no-yuuhi",
+      "kitsu_id": 9565,
+      "mal_id": 21483,
+      "anilist_id": 120873,
+      "anisearch_id": 6382,
+      "anidb_id": 7683,
+      "notifymoe_id": "lJRYpKimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 126321,
+    "bgm_id": 53640,
+    "titles": [
+      "PEACH COMMAND 新桃太郎伝説",
+      "PEACH COMMAND Shin Momotarou Densetsu"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-08",
+    "episode_count": 24,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "peach-command-shin-momotarou-densetsu",
+      "kitsu_id": 12396,
+      "mal_id": 33310,
+      "anilist_id": 126321,
+      "anisearch_id": 5892,
+      "anidb_id": 7057,
+      "notifymoe_id": "2Lvk2FiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 11545,
+    "bgm_id": 220042,
+    "titles": [
+      "八百八町表裏 化粧師",
+      "108 Ward Inside and Out: Make-Up Artist",
+      "Happyakuya-chou Hyouri no Kewaishi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-09",
+    "episode_count": 22,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "happyakuyachou-hyouri-kewaishi",
+      "kitsu_id": 6534,
+      "mal_id": 11545,
+      "anilist_id": 11545,
+      "anisearch_id": 4050,
+      "anidb_id": 4948,
+      "notifymoe_id": "N0xIpFmmR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 20243,
+    "bgm_id": 309551,
+    "titles": [
+      "ガタピシ",
+      "Gatapishi"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-23",
+    "episode_count": 199,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "gatapishi",
+      "kitsu_id": 8985,
+      "mal_id": 20243,
+      "anilist_id": 20243,
+      "anisearch_id": 1887,
+      "anidb_id": 3346,
+      "notifymoe_id": "8GwxtFmig",
+      "livechart_id": 11102,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 896,
+    "bgm_id": 44941,
+    "titles": [
+      "ドラゴンボールＺ 地球まるごと超決戦",
+      "DRAGON BALL Z 地球まるごと超決戦",
+      "Dragon Ball Z: The Tree of Might",
+      "Dragon Ball Z: Chikyuu Marugoto Chou Kessen"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-07",
+    "episode_count": 1,
+    "seasonNumber": 2,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 40,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "dragon-ball-z-movie-3-the-tree-of-might",
+      "kitsu_id": 796,
+      "mal_id": 896,
+      "anilist_id": 896,
+      "anisearch_id": 763,
+      "anidb_id": 762,
+      "notifymoe_id": "b96AcFmig",
+      "livechart_id": 4206,
+      "thetvdb_id": 81472,
+      "imdb_id": "tt0142233",
+      "themoviedb_id": "39101"
+    }
+  },
+  {
+    "anilist_id": 895,
+    "bgm_id": 44940,
+    "titles": [
+      "ドラゴンボールＺ この世で一番強いヤツ",
+      "DRAGON BALL Z この世で一番強いヤツ",
+      "Dragon Ball Z: The World's Strongest",
+      "Dragon Ball Z: The World`s Strongest",
+      "Dragon Ball Z: Konoyo de Ichiban Tsuyoi Yatsu"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-10",
+    "episode_count": 3,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "dragon-ball-z-movie-2-the-world-s-strongest",
+      "kitsu_id": 795,
+      "mal_id": 895,
+      "anilist_id": 895,
+      "anisearch_id": 2504,
+      "anidb_id": 1044,
+      "notifymoe_id": "3y605Fimg",
+      "livechart_id": 4152,
+      "thetvdb_id": 81472,
+      "imdb_id": "tt0142240",
+      "themoviedb_id": "39100"
+    }
+  },
+  {
+    "anilist_id": 1032,
+    "bgm_id": 25425,
+    "titles": [
+      "雲のように風のように",
+      "Like the Clouds, Like the Wind",
+      "Like The Clouds, Like The Wind",
+      "Kumo no You ni Kaze no You ni",
+      "如风如云"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "like-the-clouds-like-the-wind",
+      "kitsu_id": 922,
+      "mal_id": 1032,
+      "anilist_id": 1032,
+      "anisearch_id": 958,
+      "anidb_id": 502,
+      "notifymoe_id": "x7-JcFimg",
+      "livechart_id": 9441,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": "35589"
+    }
+  },
+  {
+    "anilist_id": 1451,
+    "bgm_id": 53676,
+    "titles": [
+      "修羅之介斬魔劍 死鎌紋の男",
+      "Sword for Truth",
+      "Shuranosuke Zanmaken: Shikamamon no Otoko"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-28",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "sword-for-truth",
+      "kitsu_id": 1301,
+      "mal_id": 1451,
+      "anilist_id": 1451,
+      "anisearch_id": 2006,
+      "anidb_id": 1262,
+      "notifymoe_id": "W1V-cKmmR",
+      "livechart_id": 7083,
+      "thetvdb_id": null,
+      "imdb_id": "tt0484371",
+      "themoviedb_id": "68922"
+    }
+  },
+  {
+    "anilist_id": 1475,
+    "bgm_id": 53932,
+    "titles": [
+      "シティーハンター ベイシティウォーズ",
+      "CITY HUNTER ベイシティウォーズ",
+      "City Hunter: Bay City Wars"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "city-hunter-bay-city-wars",
+      "kitsu_id": 1321,
+      "mal_id": 1475,
+      "anilist_id": 1475,
+      "anisearch_id": 462,
+      "anidb_id": 1567,
+      "notifymoe_id": "0ODacKmig",
+      "livechart_id": 8412,
+      "thetvdb_id": 72877,
+      "imdb_id": "tt0099272",
+      "themoviedb_id": "189068"
+    }
+  },
+  {
+    "anilist_id": 1476,
+    "bgm_id": 53933,
+    "titles": [
+      "シティーハンター 百万ドルの陰謀",
+      "CITY HUNTER 百万ドルの陰謀",
+      "City Hunter: Million Dollar Conspiracy",
+      "City Hunter: Hyakuman Doru no Inbou"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "city-hunter-million-dollar-conspiracy",
+      "kitsu_id": 1322,
+      "mal_id": 1476,
+      "anilist_id": 1476,
+      "anisearch_id": 423,
+      "anidb_id": 1568,
+      "notifymoe_id": "B2DacFimR",
+      "livechart_id": 8413,
+      "thetvdb_id": 72877,
+      "imdb_id": "tt0159362",
+      "themoviedb_id": "189071"
+    }
+  },
+  {
+    "anilist_id": 1793,
+    "bgm_id": 25424,
+    "titles": [
+      "風の名はアムネジア",
+      "A Wind Named Amnesia",
+      "Kaze no Na wa Amnesia"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-22",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "a-wind-named-amnesia",
+      "kitsu_id": 1613,
+      "mal_id": 1793,
+      "anilist_id": 1793,
+      "anisearch_id": 609,
+      "anidb_id": 200,
+      "notifymoe_id": "-V0fcFimR",
+      "livechart_id": 6872,
+      "thetvdb_id": null,
+      "imdb_id": "tt0108570",
+      "themoviedb_id": "42070"
+    }
+  },
+  {
+    "anilist_id": 2677,
+    "bgm_id": 449,
+    "titles": [
+      "ドラえもん のび太とアニマル惑星(プラネット)",
+      "ドラえもん のびたとアニマルプラネット",
+      "Doraemon: Nobita's Animal Planet",
+      "Doraemon: Nobita and the Animal Planet",
+      "Doraemon: Nobita to Animal Planet"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-03-10",
+    "episode_count": 1,
+    "seasonNumber": 12,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1061,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "doraemon-movie-11-nobita-to-animal-planet",
+      "kitsu_id": 2440,
+      "mal_id": 2677,
+      "anilist_id": 2677,
+      "anisearch_id": 3824,
+      "anidb_id": 4673,
+      "notifymoe_id": "-MYy5Kmig",
+      "livechart_id": 8906,
+      "thetvdb_id": 252696,
+      "imdb_id": "tt1147520",
+      "themoviedb_id": "161707"
+    }
+  },
+  {
+    "anilist_id": 3203,
+    "bgm_id": 28166,
+    "titles": [
+      "ちびまる子ちゃん (1990)",
+      "Chibi Maruko-chan Movie (1990)",
+      "樱桃小丸子：友情岁月"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-15",
+    "episode_count": 1,
+    "seasonNumber": 1,
+    "episodeNumber": 45,
+    "absoluteEpisodeNumber": 45,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "chibi-maruko-chan-movie",
+      "kitsu_id": 2855,
+      "mal_id": 3203,
+      "anilist_id": 3203,
+      "anisearch_id": 3093,
+      "anidb_id": 1323,
+      "notifymoe_id": "-O7wcFmmR",
+      "livechart_id": 11112,
+      "thetvdb_id": 167131,
+      "imdb_id": "tt2167725",
+      "themoviedb_id": "402732"
+    }
+  },
+  {
+    "anilist_id": 3866,
+    "bgm_id": 80177,
+    "titles": [
+      "クロがいた夏",
+      "Kuro ga Ita Natsu"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-04",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "kuro-ga-ita-natsu",
+      "kitsu_id": 3309,
+      "mal_id": 3866,
+      "anilist_id": 3866,
+      "anisearch_id": 453,
+      "anidb_id": 4133,
+      "notifymoe_id": "fPy_5Kmig",
+      "livechart_id": 7475,
+      "thetvdb_id": null,
+      "imdb_id": "tt2009504",
+      "themoviedb_id": "452949"
+    }
+  },
+  {
+    "anilist_id": 5895,
+    "bgm_id": null,
+    "titles": [
+      "チスト　みどりのおやゆび",
+      "チスト みどりのおやゆび",
+      "Tistou the Green Thumb",
+      "Tistou of the Green Thumbs",
+      "Tistou Midori no Oyayubi"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-24",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "tistou-midori-no-oyayubi",
+      "kitsu_id": 4326,
+      "mal_id": 5895,
+      "anilist_id": 5895,
+      "anisearch_id": 4314,
+      "anidb_id": 5229,
+      "notifymoe_id": "KZMqcFiig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 4640,
+    "bgm_id": 54903,
+    "titles": [
+      "MAROKO 麿子",
+      "Gosenzosama Banbanzai! the Movie",
+      "MAROKO"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-19",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "maroko",
+      "kitsu_id": 3719,
+      "mal_id": 4640,
+      "anilist_id": 4640,
+      "anisearch_id": 1161,
+      "anidb_id": 1866,
+      "notifymoe_id": "TfircFiig",
+      "livechart_id": 7630,
+      "thetvdb_id": 84348,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5922,
+    "bgm_id": 77619,
+    "titles": [
+      "天上編・宇宙皇子",
+      "天上編 宇宙皇子 (1990)",
+      "Tenjou-hen: Utsunomiko"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-22",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "tenjou-hen-utsunomiko",
+      "kitsu_id": 4339,
+      "mal_id": 5922,
+      "anilist_id": 5922,
+      "anisearch_id": 4900,
+      "anidb_id": 5938,
+      "notifymoe_id": "Me7q5Kmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5936,
+    "bgm_id": 100492,
+    "titles": [
+      "走れ! 白いオオカミ",
+      "White Fang",
+      "Run! White Wolf",
+      "Hashire! Shiroi Ookami"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-28",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "hashire-shiroi-ookami",
+      "kitsu_id": 4352,
+      "mal_id": 5936,
+      "anilist_id": 5936,
+      "anisearch_id": 1105,
+      "anidb_id": 3189,
+      "notifymoe_id": "YtI35KiiR",
+      "livechart_id": 8046,
+      "thetvdb_id": null,
+      "imdb_id": "tt0204365",
+      "themoviedb_id": "132376"
+    }
+  },
+  {
+    "anilist_id": 7169,
+    "bgm_id": 112817,
+    "titles": [
+      "いばら姫またはねむり姫",
+      "Briar-Rose or the Sleeping Beauty",
+      "Briar-Rose or The Sleeping Beauty",
+      "Ibara-Hime mata wa Nemuri-Hime"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "ibarahime-mata-wa-nemurihime",
+      "kitsu_id": 4889,
+      "mal_id": 7169,
+      "anilist_id": 7169,
+      "anisearch_id": 6008,
+      "anidb_id": 6998,
+      "notifymoe_id": "p_bRtKmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "tt0425120",
+      "themoviedb_id": "171245"
+    }
+  },
+  {
+    "anilist_id": 8227,
+    "bgm_id": 414961,
+    "titles": [
+      "悪魔くん ようこそ悪魔ランドへ!!",
+      "Devil Boy: Welcome to Devil Land!!",
+      "Akuma-kun: Youkoso Akuma Land e!!"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-03-10",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "akuma-kun-youkoso-akuma-land-e",
+      "kitsu_id": 5252,
+      "mal_id": 8227,
+      "anilist_id": 8227,
+      "anisearch_id": 2783,
+      "anidb_id": 2051,
+      "notifymoe_id": "z4iitKmiR",
+      "livechart_id": 10910,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 8522,
+    "bgm_id": 110143,
+    "titles": [
+      "緑山高校　甲子園編（劇場版）",
+      "緑山高校 甲子園編 (劇場版)",
+      "Midoriyama Koukou Koushien-hen (Movie)"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-30",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "midoriyama-koukou-koushien-hen-movie",
+      "kitsu_id": 5371,
+      "mal_id": 8522,
+      "anilist_id": 8522,
+      "anisearch_id": 5638,
+      "anidb_id": 7465,
+      "notifymoe_id": "u5xipFmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 10040,
+    "bgm_id": 89691,
+    "titles": [
+      "チンプイ エリさま活動大写真",
+      "Chinpui: Eri-sama Katsudou Daishashin"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-10",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "chinpui-eri-sama-katsudou-daishashin",
+      "kitsu_id": 6005,
+      "mal_id": 10040,
+      "anilist_id": 10040,
+      "anisearch_id": 4313,
+      "anidb_id": 5228,
+      "notifymoe_id": "wyIntFmmR",
+      "livechart_id": 10369,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 10061,
+    "bgm_id": 333899,
+    "titles": [
+      "それいけ! アンパンマン ばいきんまんの逆襲",
+      "Sore Ike! Anpanman: Baikinman no Gyakushuu"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-07",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "sore-ike-anpanman-baikinman-no-gyakushuu",
+      "kitsu_id": 6018,
+      "mal_id": 10061,
+      "anilist_id": 10061,
+      "anisearch_id": 4235,
+      "anidb_id": 7396,
+      "notifymoe_id": "UID7tKmiR",
+      "livechart_id": 11430,
+      "thetvdb_id": 167921,
+      "imdb_id": "tt1189080",
+      "themoviedb_id": "390947"
+    }
+  },
+  {
+    "anilist_id": 10964,
+    "bgm_id": 100479,
+    "titles": [
+      "ヘヴィ",
+      "Heavy"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-14",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "heavy",
+      "kitsu_id": 6427,
+      "mal_id": 10964,
+      "anilist_id": 10964,
+      "anisearch_id": 4316,
+      "anidb_id": 5230,
+      "notifymoe_id": "ZOZSpKmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 11659,
+    "bgm_id": 79934,
+    "titles": [
+      "ピンク みずドロボウあめドロボウ",
+      "Pink みずドロボウあめドロボウ",
+      "Pink: Water Thieves Rain Thieves",
+      "Pink - Water Thieves Rain Thieves",
+      "Pink Mizu Dorobou Ame Dorobou"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-07",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "pink-mizu-dorobou-ame-dorobou",
+      "kitsu_id": 6554,
+      "mal_id": 11659,
+      "anilist_id": 11659,
+      "anisearch_id": 968,
+      "anidb_id": 4042,
+      "notifymoe_id": "JiEIpFmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "tt0185607",
+      "themoviedb_id": "495197"
+    }
+  },
+  {
+    "anilist_id": 16253,
+    "bgm_id": null,
+    "titles": [
+      "海だ! 船出だ! にこにこ",
+      "海だ! 船出だ! にこにこ, ぷん",
+      "Umi Da! Funade Da! Nikoniko, Pun"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-04",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "umi-da-funade-da-nikoniko-pun",
+      "kitsu_id": 7395,
+      "mal_id": 16253,
+      "anilist_id": 16253,
+      "anisearch_id": 4307,
+      "anidb_id": 5226,
+      "notifymoe_id": "Mt1KpFmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17325,
+    "bgm_id": 100474,
+    "titles": [
+      "亜人戦士",
+      "Ajin Senshi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-17",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "ajin-senshi",
+      "kitsu_id": 8677,
+      "mal_id": 17325,
+      "anilist_id": 17325,
+      "anisearch_id": 396,
+      "anidb_id": 4182,
+      "notifymoe_id": "FzA1pFimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17489,
+    "bgm_id": null,
+    "titles": [
+      "けろけろけろっぴの大冒険 ふしぎな豆の木",
+      "Kero Kero Keroppi no Daibouken: Fushigi na Mame no Ki"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 8368,
+      "mal_id": 17489,
+      "anilist_id": 17489,
+      "anisearch_id": 6399,
+      "anidb_id": 3073,
+      "notifymoe_id": "L6k0tKmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 16458,
+    "bgm_id": 314436,
+    "titles": [
+      "劇場版 ペリーヌ物語",
+      "劇場版・ペリーヌ物語",
+      "Perrine Monogatari Movie"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-30",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "perrine-monogatari-movie",
+      "kitsu_id": 7432,
+      "mal_id": 16458,
+      "anilist_id": 16458,
+      "anisearch_id": 5906,
+      "anidb_id": 7059,
+      "notifymoe_id": "BnyKtKimR",
+      "livechart_id": null,
+      "thetvdb_id": 129741,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 18329,
+    "bgm_id": null,
+    "titles": [
+      "머털도사와 또매",
+      "Meoteoldosawa Ttomae"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": "1990-12-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "meoteoldosawa-ttomae",
+      "kitsu_id": 9757,
+      "mal_id": 18329,
+      "anilist_id": 18329,
+      "anisearch_id": 8635,
+      "anidb_id": 13997,
+      "notifymoe_id": "GqUYtFiig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17719,
+    "bgm_id": 403045,
+    "titles": [
+      "魔法使いサリー",
+      "魔法使いサリー (1990)",
+      "Magical Witch Sally",
+      "Mahoutsukai Sally (Movie)"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-10",
+    "episode_count": 1,
+    "seasonNumber": 2,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "mahou-tsukai-sally-movie",
+      "kitsu_id": 9424,
+      "mal_id": 17719,
+      "anilist_id": 17719,
+      "anisearch_id": 1635,
+      "anidb_id": 2049,
+      "notifymoe_id": "8gTfpFiig",
+      "livechart_id": 11704,
+      "thetvdb_id": 254807,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 18331,
+    "bgm_id": null,
+    "titles": [
+      "머털도사와 108 요괴",
+      "Meoteoldosawa 108 Yogoe"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": "1990-01-03",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "meoteoldosawa-108-yogoe",
+      "kitsu_id": 9756,
+      "mal_id": 18331,
+      "anilist_id": 18331,
+      "anisearch_id": 8618,
+      "anidb_id": 14005,
+      "notifymoe_id": "p_8LtKimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 19433,
+    "bgm_id": 89689,
+    "titles": [
+      "それいけ! アンパンマン おむすびまん",
+      "Sore Ike! Anpanman: Omusubiman"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-07",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "sore-ike-anpanman-omusubiman",
+      "kitsu_id": 9623,
+      "mal_id": 19433,
+      "anilist_id": 19433,
+      "anisearch_id": 6366,
+      "anidb_id": 7746,
+      "notifymoe_id": "vfSYpKiig",
+      "livechart_id": 11397,
+      "thetvdb_id": 167921,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 19941,
+    "bgm_id": 322643,
+    "titles": [
+      "キムの十字架",
+      "Kim`s Crucifix",
+      "Kimu no Juujika"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "kimu-no-juujika",
+      "kitsu_id": 9387,
+      "mal_id": 19941,
+      "anilist_id": 19941,
+      "anisearch_id": 4335,
+      "anidb_id": 5272,
+      "notifymoe_id": "KJdBpFiig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 20229,
+    "bgm_id": 36218,
+    "titles": [
+      "まっ黒なおべんとう",
+      "Charred Lunchbox",
+      "Makkuro na Obentou"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-12",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "makkuro-na-obentou",
+      "kitsu_id": 9428,
+      "mal_id": 20229,
+      "anilist_id": 20229,
+      "anisearch_id": 4306,
+      "anidb_id": 5225,
+      "notifymoe_id": "rToBpKimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 20821,
+    "bgm_id": 53935,
+    "titles": [
+      "超音戦士ボーグマン　LOVER'S　RAIN",
+      "超音戦士ボーグマン LOVERS RAIN",
+      "Sonic Soldier Borgman: Lover's Rain",
+      "Sonic Soldier Borgman: LOVERS RAIN",
+      "Chouon Senshi Borgman: LOVER'S RAIN",
+      "超音战士Borgman Lovers Rain"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-01",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "sonic-soldier-borgman-lovers-rain",
+      "kitsu_id": 3239,
+      "mal_id": 3763,
+      "anilist_id": 20821,
+      "anisearch_id": 1094,
+      "anidb_id": 3221,
+      "notifymoe_id": "kUh_cFimg",
+      "livechart_id": 11340,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 21630,
+    "bgm_id": null,
+    "titles": [
+      "おじさん改造講座",
+      "The Old Man`s Survival Guide",
+      "Oji-san Kaizou Kouza"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-24",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "ojisan-kaizou-kouza",
+      "kitsu_id": 9505,
+      "mal_id": 23865,
+      "anilist_id": 21630,
+      "anisearch_id": 1790,
+      "anidb_id": 3137,
+      "notifymoe_id": "C9UBtKmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 100533,
+    "bgm_id": null,
+    "titles": [
+      "パルサー(PULSAR)",
+      "Pulsar",
+      "PULSAR"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "pulsar",
+      "kitsu_id": 10234,
+      "mal_id": 29377,
+      "anilist_id": 100533,
+      "anisearch_id": 11615,
+      "anidb_id": 11563,
+      "notifymoe_id": "1mQytFimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 102515,
+    "bgm_id": 40189,
+    "titles": [
+      "ターザン",
+      "Tarzan"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "tarzan",
+      "kitsu_id": 10838,
+      "mal_id": 30341,
+      "anilist_id": 102515,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "SJD_tFimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 102693,
+    "bgm_id": 3400,
+    "titles": [
+      "ビーナス",
+      "Venus"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "venus",
+      "kitsu_id": 11232,
+      "mal_id": 31269,
+      "anilist_id": 102693,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "jreXtKiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 103460,
+    "bgm_id": null,
+    "titles": [
+      "個人都市",
+      "Personal City",
+      "Kojin Toshi"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "personal-city",
+      "kitsu_id": 11426,
+      "mal_id": 31587,
+      "anilist_id": 103460,
+      "anisearch_id": 16109,
+      "anidb_id": 11622,
+      "notifymoe_id": "EUq9tKmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 118080,
+    "bgm_id": null,
+    "titles": [
+      "リトルポーラベア しろくまくん、どこへ? ",
+      "リトルポーラベア しろくまくん, どこへ?",
+      "Little Polar Bear: Shirokuma-kun, Doko e?"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-28",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "little-polar-bear-where-are-you-going-shirokuma-kun",
+      "kitsu_id": 8799,
+      "mal_id": 25027,
+      "anilist_id": 118080,
+      "anisearch_id": 7995,
+      "anidb_id": 9363,
+      "notifymoe_id": "jmzxtKmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 150009,
+    "bgm_id": 89695,
+    "titles": [
+      "ハローキティのおやゆびひめ",
+      "Hello Kitty`s Thumbelina",
+      "Hello Kitty no Oyayubi-hime"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "hello-kitty-no-oyayubi-hime",
+      "kitsu_id": 13224,
+      "mal_id": 32622,
+      "anilist_id": 150009,
+      "anisearch_id": 6398,
+      "anidb_id": 7780,
+      "notifymoe_id": "gBUM2Kmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 121038,
+    "bgm_id": 57150,
+    "titles": [
+      "LINE"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "line",
+      "kitsu_id": 43467,
+      "mal_id": 42271,
+      "anilist_id": 121038,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 168868,
+    "bgm_id": 308942,
+    "titles": [
+      "ぽこぽんのゆかいな西遊記",
+      "Pokopon no Yukai na Saiyuuki"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 12400,
+      "mal_id": 32621,
+      "anilist_id": 168868,
+      "anisearch_id": 7095,
+      "anidb_id": 8411,
+      "notifymoe_id": "q4Ok2KiiR",
+      "livechart_id": 11998,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 186857,
+    "bgm_id": null,
+    "titles": [
+      "福児と弓彦 －海を渡ってきた牛飼い少年－",
+      "Fukuji to Yumihiko: Umi wo Watatte Kita Ushikai Shounen"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": null,
+    "mappings": {}
+  },
+  {
+    "anilist_id": 986,
+    "bgm_id": 18505,
+    "titles": [
+      "ドラゴンボールZ たったひとりの最終決戦〜フリーザに挑んだZ戦士 孫悟空の父〜",
+      "DRAGON BALL Z スペシャル たったひとりの最終決戦~フリーザに挑んだZ戦士孫悟空の父~",
+      "Dragon Ball Z: Bardock – The Father of Goku",
+      "Dragon Ball Z: Bardock - The Father of Goku",
+      "Dragon Ball Z: Tatta Hitori no Saishuu Kessen - Freeza ni Idonda Z Senshi Son Goku no Chi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-17",
+    "episode_count": 1,
+    "seasonNumber": 2,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 40,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "dragon-ball-z-special-1-bardock-the-father-of-goku",
+      "kitsu_id": 876,
+      "mal_id": 986,
+      "anilist_id": 986,
+      "anisearch_id": 3163,
+      "anidb_id": 2336,
+      "notifymoe_id": "Dt515Fmig",
+      "livechart_id": 4243,
+      "thetvdb_id": 81472,
+      "imdb_id": "tt0142245",
+      "themoviedb_id": "39323"
+    }
+  },
+  {
+    "anilist_id": 5036,
+    "bgm_id": 314431,
+    "titles": [
+      "バブルガムクライシス Hurricane Live! 2033",
+      "Hurricane Live! 2033"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-27",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "bubblegum-crisis-hurricane-live-2033",
+      "kitsu_id": 3896,
+      "mal_id": 5036,
+      "anilist_id": 5036,
+      "anisearch_id": 8637,
+      "anidb_id": null,
+      "notifymoe_id": "LVP9cKiig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 1421,
+    "bgm_id": 67765,
+    "titles": [
+      "ルパン三世ヘミングウェイペーパーの謎",
+      "ルパン三世 ヘミングウェイ・ペーパーの謎",
+      "Lupin the 3rd: The Hemingway Papers",
+      "Lupin III: The Hemingway Papers",
+      "Lupin III: Hemingway Paper no Nazo",
+      "鲁邦三世：海明威手稿之谜"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-20",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "lupin-the-3rd-special-2-the-hemingway-papers",
+      "kitsu_id": 1274,
+      "mal_id": 1421,
+      "anilist_id": 1421,
+      "anisearch_id": 2822,
+      "anidb_id": 2014,
+      "notifymoe_id": "doma5KiiR",
+      "livechart_id": 12099,
+      "thetvdb_id": 71863,
+      "imdb_id": "tt0834582",
+      "themoviedb_id": "80861"
+    }
+  },
+  {
+    "anilist_id": 6935,
+    "bgm_id": 168101,
+    "titles": [
+      "遠近法の箱 -博士のさがしもの",
+      "遠近法の箱-博士のさがしもの-",
+      "Perspective Box: The Researcher's Search",
+      "Perspektivenbox -Researcher`s Search-",
+      "Perspektivenbox"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "perspektivenbox",
+      "kitsu_id": 4792,
+      "mal_id": 6935,
+      "anilist_id": 6935,
+      "anisearch_id": 4257,
+      "anidb_id": 5152,
+      "notifymoe_id": "t7ngtFmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 11713,
+    "bgm_id": null,
+    "titles": [
+      "水仙月の四日",
+      "Suisenzuki no Yokka"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 6573,
+      "mal_id": 11713,
+      "anilist_id": 11713,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "GZQIpKiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 101183,
+    "bgm_id": null,
+    "titles": [
+      "宇宙戦艦ヤマト パイロットフィルム",
+      "Space Battle Ship Yamato Pilot Film",
+      "Uchuu Senkan Yamato Pilot Film"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": "1990-07-29",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "space-battleship-yamato-pilot-film",
+      "kitsu_id": 41725,
+      "mal_id": 37082,
+      "anilist_id": 101183,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": 8022,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 119345,
+    "bgm_id": 283755,
+    "titles": [
+      "笑ゥせぇるすまん スペシャル",
+      "Warau Salesman Specials"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": "1990-01-23",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "warau-salesman-specials",
+      "kitsu_id": 40695,
+      "mal_id": 35116,
+      "anilist_id": 119345,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "QkUv2FimR",
+      "livechart_id": 11262,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 119815,
+    "bgm_id": 124335,
+    "titles": [
+      "オバタリアン",
+      "Obatalian"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-03",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "obatarian",
+      "kitsu_id": 9995,
+      "mal_id": 28101,
+      "anilist_id": 119815,
+      "anisearch_id": 5562,
+      "anidb_id": 6515,
+      "notifymoe_id": "NzEPpFimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 126891,
+    "bgm_id": 139345,
+    "titles": [
+      "平成のシンデレラ 紀子さま物語",
+      "Heisei no Cinderella: Kiko-sama Monogatari"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-06-29",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "heisei-no-cinderella-kiko-sama-monogatari",
+      "kitsu_id": 8994,
+      "mal_id": 24257,
+      "anilist_id": 126891,
+      "anisearch_id": 9094,
+      "anidb_id": 10000,
+      "notifymoe_id": "eHlbtKmmR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 136490,
+    "bgm_id": 472819,
+    "titles": [
+      "コボちゃんスペシャル 秋がいっぱい",
+      "Kobo-chan Special: Aki ga Ippai"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-15",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "kobo-chan-aki-ga-ippai",
+      "kitsu_id": null,
+      "mal_id": null,
+      "anilist_id": 136490,
+      "anisearch_id": 6049,
+      "anidb_id": 7349,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 145477,
+    "bgm_id": 314426,
+    "titles": [
+      "それいけ!アンパンマン みなみの海をすくえ!",
+      "それいけ! アンパンマン みなみの海をすくえ!",
+      "Sore Ike! Anpanman: Minami no Umi wo Sukue!"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-26",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "sore-ike-anpanman-minami-no-umi-wo-sukue",
+      "kitsu_id": 9621,
+      "mal_id": 21291,
+      "anilist_id": 145477,
+      "anisearch_id": 6378,
+      "anidb_id": 7750,
+      "notifymoe_id": "C5SLtFiiR",
+      "livechart_id": 7249,
+      "thetvdb_id": 167921,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 158631,
+    "bgm_id": null,
+    "titles": [
+      "BATTLE MODE バトルモード",
+      "BATTLE MODE"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "battle-mode",
+      "kitsu_id": 44780,
+      "mal_id": 45626,
+      "anilist_id": 158631,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 168556,
+    "bgm_id": 28165,
+    "titles": [
+      "ちびまる子ちゃん パイロットフィルム",
+      "Chibi Maruko-chan Pilot Film"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "chibi-maruko-chan-pilot-film",
+      "kitsu_id": 46894,
+      "mal_id": 52307,
+      "anilist_id": 168556,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 168575,
+    "bgm_id": 28111,
+    "titles": [
+      "私のあしながおじさん パイロットフィルム",
+      "Watashi no Ashinaga Oji-san Pilot Film"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-15",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": null,
+      "anilist_id": 168575,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 207,
+    "bgm_id": 4406,
+    "titles": [
+      "ロードス島戦記",
+      "Record of Lodoss War",
+      "Lodoss-tou Senki",
+      "罗德岛战记ova"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-30",
+    "episode_count": 14,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "record-of-lodoss-war",
+      "kitsu_id": 183,
+      "mal_id": 207,
+      "anilist_id": 207,
+      "anisearch_id": 1694,
+      "anidb_id": 169,
+      "notifymoe_id": "OMk25Fmmg",
+      "livechart_id": 4293,
+      "thetvdb_id": 78777,
+      "imdb_id": "tt0100044",
+      "themoviedb_id": "42713"
+    }
+  },
+  {
+    "anilist_id": 1280,
+    "bgm_id": 78525,
+    "titles": [
+      "魔物ハンター妖子",
+      "Devil Hunter Yohko",
+      "Mamono Hunter Youko",
+      "魔物猎人妖子"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-01",
+    "episode_count": 8,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "devil-hunter-yohko",
+      "kitsu_id": 1155,
+      "mal_id": 1280,
+      "anilist_id": 1280,
+      "anisearch_id": 2828,
+      "anidb_id": 611,
+      "notifymoe_id": "uVfxcKmig",
+      "livechart_id": 8393,
+      "thetvdb_id": 84537,
+      "imdb_id": "tt0100099",
+      "themoviedb_id": "43564"
+    }
+  },
+  {
+    "anilist_id": 1244,
+    "bgm_id": 73016,
+    "titles": [
+      "暗黒神伝承 武神",
+      "暗黒神伝承 武神 Takegami",
+      "Takegami: Guardian of Darkness",
+      "Guardian of Darkness",
+      "Ankoku Shindenshou Takegami"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-23",
+    "episode_count": 4,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "guardian-of-darkness",
+      "kitsu_id": 1119,
+      "mal_id": 1244,
+      "anilist_id": 1244,
+      "anisearch_id": 380,
+      "anidb_id": 946,
+      "notifymoe_id": "JXTbcKiig",
+      "livechart_id": null,
+      "thetvdb_id": 201091,
+      "imdb_id": "tt0813396",
+      "themoviedb_id": "44608"
+    }
+  },
+  {
+    "anilist_id": 1289,
+    "bgm_id": 13552,
+    "titles": [
+      "機動警察パトレイバー NEW OVA",
+      "機動警察パトレイバー (1990)",
+      "Mobile Police Patlabor: The New Files",
+      "Mobile Police Patlabor - The New Files",
+      "Kidou Keisatsu Patlabor: NEW OVA",
+      "机动警察OVA (90)"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-22",
+    "episode_count": 16,
+    "seasonNumber": 2,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 48,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "patlabor-the-mobile-police-new-files",
+      "kitsu_id": 1163,
+      "mal_id": 1289,
+      "anilist_id": 1289,
+      "anisearch_id": 2915,
+      "anidb_id": 1195,
+      "notifymoe_id": "L2LxcKmmg",
+      "livechart_id": 5473,
+      "thetvdb_id": 80789,
+      "imdb_id": "tt0160423",
+      "themoviedb_id": "21738"
+    }
+  },
+  {
+    "anilist_id": 1295,
+    "bgm_id": 55061,
+    "titles": [
+      "A-Ko The VS",
+      "A-Ko The VS[ヴァーサス]",
+      "Project A-ko: Uncivil Wars"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-21",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "project-a-ko-uncivil-wars",
+      "kitsu_id": 1167,
+      "mal_id": 1295,
+      "anilist_id": 1295,
+      "anisearch_id": 4478,
+      "anidb_id": 7685,
+      "notifymoe_id": "3VExcKimR",
+      "livechart_id": 12017,
+      "thetvdb_id": 78232,
+      "imdb_id": "tt0100421",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 1343,
+    "bgm_id": 78078,
+    "titles": [
+      "バイオレンス ジャック 〜ヘルスウインド編〜",
+      "バイオレンスジャック / ヘルスウインド編",
+      "Violence Jack: Hell`s Wind",
+      "Violence Jack: Hell's Wind"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-09",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "violence-jack-hells-wind",
+      "kitsu_id": 1198,
+      "mal_id": 1343,
+      "anilist_id": 1343,
+      "anisearch_id": 1208,
+      "anidb_id": 3435,
+      "notifymoe_id": "_ilbcKmmR",
+      "livechart_id": 7699,
+      "thetvdb_id": null,
+      "imdb_id": "tt0265997",
+      "themoviedb_id": "96650"
+    }
+  },
+  {
+    "anilist_id": 1352,
+    "bgm_id": 36588,
+    "titles": [
+      "サイバーシティ OEDO 808",
+      "サイバーシティOEDO808",
+      "Cyber City Oedo 808",
+      "Cyber City OEDO 808"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-21",
+    "episode_count": 6,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "cyber-city-oedo-808",
+      "kitsu_id": 1207,
+      "mal_id": 1352,
+      "anilist_id": 1352,
+      "anisearch_id": 3036,
+      "anidb_id": 346,
+      "notifymoe_id": "jNub5Kmmg",
+      "livechart_id": 7635,
+      "thetvdb_id": 81931,
+      "imdb_id": "tt0220218",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 1346,
+    "bgm_id": 46952,
+    "titles": [
+      "ADポリス",
+      "A.D. Police Files",
+      "AD Police",
+      "AD.特警"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-25",
+    "episode_count": 11,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "ad-police-files",
+      "kitsu_id": 1201,
+      "mal_id": 1346,
+      "anilist_id": 1346,
+      "anisearch_id": 1413,
+      "anidb_id": 441,
+      "notifymoe_id": "Fo_x5Kmmg",
+      "livechart_id": 6023,
+      "thetvdb_id": 79223,
+      "imdb_id": "tt0189238",
+      "themoviedb_id": "31091"
+    }
+  },
+  {
+    "anilist_id": 1443,
+    "bgm_id": 49570,
+    "titles": [
+      "SOL BIANCA",
+      "太阳之船"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-21",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 1296,
+      "mal_id": 1443,
+      "anilist_id": 1443,
+      "anisearch_id": 2348,
+      "anidb_id": 1350,
+      "notifymoe_id": "HlnacKimR",
+      "livechart_id": 9161,
+      "thetvdb_id": 80443,
+      "imdb_id": "tt0272299",
+      "themoviedb_id": "43846"
+    }
+  },
+  {
+    "anilist_id": 1765,
+    "bgm_id": 72217,
+    "titles": [
+      "ヴァンパイヤー戦争",
+      "ヴァンパイヤーウォーズ",
+      "Vampire Wars",
+      "Vampire Sensou"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-01",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "vampire-wars",
+      "kitsu_id": 1585,
+      "mal_id": 1765,
+      "anilist_id": 1765,
+      "anisearch_id": 1281,
+      "anidb_id": 1263,
+      "notifymoe_id": "BmhfcKmmR",
+      "livechart_id": 7257,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 1795,
+    "bgm_id": 66394,
+    "titles": [
+      "ダーティペア 謀略の005便",
+      "Dirty Pair: Flight 005 Conspiracy",
+      "Dirty Pair: Bouryaku no 005-bin",
+      "银河女警花 005班机阴谋"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-25",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "dirty-pair-flight-005-conspiracy",
+      "kitsu_id": 1615,
+      "mal_id": 1795,
+      "anilist_id": 1795,
+      "anisearch_id": 104,
+      "anidb_id": 1174,
+      "notifymoe_id": "dT0B5FiiR",
+      "livechart_id": 7262,
+      "thetvdb_id": 72442,
+      "imdb_id": null,
+      "themoviedb_id": "68367"
+    }
+  },
+  {
+    "anilist_id": 1939,
+    "bgm_id": 131171,
+    "titles": [
+      "SDガンダム外伝",
+      "機動戦士SDガンダム外伝",
+      "SD Gundam Sidestory",
+      "SD Gundam Gaiden"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-25",
+    "episode_count": 4,
+    "seasonNumber": 0,
+    "episodeNumber": 19,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "sd-gundam-sidestory",
+      "kitsu_id": 1748,
+      "mal_id": 1939,
+      "anilist_id": 1939,
+      "anisearch_id": 2046,
+      "anidb_id": 3343,
+      "notifymoe_id": "P_iYcFiiR",
+      "livechart_id": 6906,
+      "thetvdb_id": 157211,
+      "imdb_id": "tt0382477",
+      "themoviedb_id": "9157"
+    }
+  },
+  {
+    "anilist_id": 1966,
+    "bgm_id": 73435,
+    "titles": [
+      "暗黒神話",
+      "The Dark Myth",
+      "Ankoku Shinwa",
+      "暗黑神话"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-26",
+    "episode_count": 2,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "the-dark-myth",
+      "kitsu_id": 1771,
+      "mal_id": 1966,
+      "anilist_id": 1966,
+      "anisearch_id": 1469,
+      "anidb_id": 2920,
+      "notifymoe_id": "rVVL5FiiR",
+      "livechart_id": 6223,
+      "thetvdb_id": 250974,
+      "imdb_id": "tt0159394",
+      "themoviedb_id": "132253"
+    }
+  },
+  {
+    "anilist_id": 1822,
+    "bgm_id": 63332,
+    "titles": [
+      "THE 八犬伝",
+      "The Hakkenden: Legend of the Dog Warriors",
+      "The Hakkenden"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-25",
+    "episode_count": 6,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "the-legend-of-the-dog-warriors-the-hakkenden",
+      "kitsu_id": 1639,
+      "mal_id": 1822,
+      "anilist_id": 1822,
+      "anisearch_id": 1458,
+      "anidb_id": 362,
+      "notifymoe_id": "oj-B5Fiig",
+      "livechart_id": 11839,
+      "thetvdb_id": 72848,
+      "imdb_id": "tt0107069",
+      "themoviedb_id": "28954"
+    }
+  },
+  {
+    "anilist_id": 2054,
+    "bgm_id": 38312,
+    "titles": [
+      "CAROL",
+      "Carol",
+      "Carol: A Day in a Girl`s Life"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "carol",
+      "kitsu_id": 1853,
+      "mal_id": 2054,
+      "anilist_id": 2054,
+      "anisearch_id": 2229,
+      "anidb_id": 4001,
+      "notifymoe_id": "pB1L5KimR",
+      "livechart_id": 6943,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 2069,
+    "bgm_id": 92937,
+    "titles": [
+      "女戦士エフェ&ジーラ グーデの紋章",
+      "Gude Crest: The Emblem of Gude",
+      "Gude Crest - The Emblem of Gude",
+      "Onna Senshi Efe & Jira: Gude no Monshou",
+      "女战士艾菲拉和吉利欧拉 古德的纹章"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-23",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "gude-crest-the-emblem-of-gude",
+      "kitsu_id": 1868,
+      "mal_id": 2069,
+      "anilist_id": 2069,
+      "anisearch_id": 753,
+      "anidb_id": 2790,
+      "notifymoe_id": "s0aYcFmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "tt0318517",
+      "themoviedb_id": "411217"
+    }
+  },
+  {
+    "anilist_id": 2059,
+    "bgm_id": 77598,
+    "titles": [
+      "毎日が日曜日",
+      "Everyday Is Sunday",
+      "Mainichi ga Nichiyoubi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-10",
+    "episode_count": 6,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "mainichi-ga-nichiyoubi",
+      "kitsu_id": 1858,
+      "mal_id": 2059,
+      "anilist_id": 2059,
+      "anisearch_id": 306,
+      "anidb_id": 936,
+      "notifymoe_id": "SDxY5Fiig",
+      "livechart_id": 7091,
+      "thetvdb_id": 273225,
+      "imdb_id": "tt0099521",
+      "themoviedb_id": "132173"
+    }
+  },
+  {
+    "anilist_id": 2073,
+    "bgm_id": 7369,
+    "titles": [
+      "変幻退魔夜行 カルラ舞う！ 仙台小芥子怨歌",
+      "変幻退魔夜行 カルラ舞う! 仙台小芥子怨歌",
+      "Hengen Taima Yakou Karura Mau! Sendai Kokeshi Onka"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-14",
+    "episode_count": 6,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "hengen-taima-yakou-karura-mau-sendai-kokeshi-enka",
+      "kitsu_id": 1872,
+      "mal_id": 2073,
+      "anilist_id": 2073,
+      "anisearch_id": 5173,
+      "anidb_id": 4320,
+      "notifymoe_id": "yr-Y5FmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 2219,
+    "bgm_id": 7359,
+    "titles": [
+      "緑野原迷宮 〜Sparkling Phantom〜",
+      "緑野原迷宮",
+      "Ryokunohara Labyrinth - Sparkling Phantom",
+      "Ryokunohara Labyrinth: Sparkling Phantom"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": "1990-05-25",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "ryokunohara-labyrinth",
+      "kitsu_id": 2010,
+      "mal_id": 2219,
+      "anilist_id": 2219,
+      "anisearch_id": 3280,
+      "anidb_id": 1270,
+      "notifymoe_id": "pQGPcKimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": "383331"
+    }
+  },
+  {
+    "anilist_id": 2239,
+    "bgm_id": null,
+    "titles": [
+      "聖ミカエラ学園漂流記",
+      "Sei Michaela Gakuen Hyouriyuuki"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-25",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "sei-michaela-gakuen-hyouryuuki",
+      "kitsu_id": null,
+      "mal_id": 2239,
+      "anilist_id": 2239,
+      "anisearch_id": 2983,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 2304,
+    "bgm_id": 131171,
+    "titles": [
+      "機動戦士SDガンダム Mk-IV",
+      "Super Deformed Gundam MkIV",
+      "Kidou Senshi SD Gundam Mk-IV"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-25",
+    "episode_count": 3,
+    "seasonNumber": 0,
+    "episodeNumber": 13,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "mobile-suit-sd-gundam-mk-iv",
+      "kitsu_id": 2086,
+      "mal_id": 2304,
+      "anilist_id": 2304,
+      "anisearch_id": 1216,
+      "anidb_id": 1101,
+      "notifymoe_id": "pYhE5KiiR",
+      "livechart_id": 7582,
+      "thetvdb_id": 157211,
+      "imdb_id": "tt0382477",
+      "themoviedb_id": "9157"
+    }
+  },
+  {
+    "anilist_id": 2338,
+    "bgm_id": 57607,
+    "titles": [
+      "妖獣教室",
+      "Demon Beast Invasion",
+      "Youjuu Kyoushitsu"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-25",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 2338,
+      "anilist_id": 2338,
+      "anisearch_id": 2520,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 2305,
+    "bgm_id": 131171,
+    "titles": [
+      "機動戦士SDガンダム Mk-III",
+      "Mobile Suit SD Gundam Mk III",
+      "Kidou Senshi SD Gundam Mk-III"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-23",
+    "episode_count": 6,
+    "seasonNumber": 0,
+    "episodeNumber": 7,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "mobile-suit-sd-gundam-mk-iii",
+      "kitsu_id": 2087,
+      "mal_id": 2305,
+      "anilist_id": 2305,
+      "anisearch_id": 2541,
+      "anidb_id": 3060,
+      "notifymoe_id": "Iw2P5FmmR",
+      "livechart_id": 7514,
+      "thetvdb_id": 157211,
+      "imdb_id": "tt0382477",
+      "themoviedb_id": "9157"
+    }
+  },
+  {
+    "anilist_id": 2292,
+    "bgm_id": 32492,
+    "titles": [
+      "冒険！イクサー３",
+      "冒険!イクサー3",
+      "Iczer Reborn",
+      "Bouken! Iczer 3"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-25",
+    "episode_count": 6,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "iczer-reborn",
+      "kitsu_id": 2077,
+      "mal_id": 2292,
+      "anilist_id": 2292,
+      "anisearch_id": 2668,
+      "anidb_id": 1275,
+      "notifymoe_id": "YopPcFiig",
+      "livechart_id": 11840,
+      "thetvdb_id": 113131,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 2342,
+    "bgm_id": null,
+    "titles": [
+      "真・超神伝説うろつき童子 魔胎伝",
+      "The True Legend of the Demon God Urotsukidouji: Connections with the Devil",
+      "Shin Choujin Densetsu Urotsukidouji Mataiden"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-12-01",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 2342,
+      "anilist_id": 2342,
+      "anisearch_id": 3506,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 2468,
+    "bgm_id": 72814,
+    "titles": [
+      "NINETEEN 19"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-27",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "nineteen-19",
+      "kitsu_id": 2242,
+      "mal_id": 2468,
+      "anilist_id": 2468,
+      "anisearch_id": 2406,
+      "anidb_id": 3607,
+      "notifymoe_id": "1wuE5Kmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "tt0330699",
+      "themoviedb_id": "73797"
+    }
+  },
+  {
+    "anilist_id": 2355,
+    "bgm_id": 24154,
+    "titles": [
+      "デビルマン 妖鳥シレーヌ編",
+      "Devilman: The Demon Bird",
+      "Devilman: Youchou Sirene-hen",
+      "恶魔人：妖鸟死丽濡篇"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "devilman-the-demon-bird",
+      "kitsu_id": 2134,
+      "mal_id": 2355,
+      "anilist_id": 2355,
+      "anisearch_id": 188,
+      "anidb_id": 1659,
+      "notifymoe_id": "yNbEcKmmR",
+      "livechart_id": 7906,
+      "thetvdb_id": 94701,
+      "imdb_id": "tt0288355",
+      "themoviedb_id": "68586"
+    }
+  },
+  {
+    "anilist_id": 2679,
+    "bgm_id": 8379,
+    "titles": [
+      "敵は海賊　～猫たちの饗宴～",
+      "敵は海賊 ~猫たちの饗宴~",
+      "Galactic Pirates",
+      "The Enemy`s the Pirates!",
+      "Teki wa Kaizoku: Neko-tachi no Kyouen",
+      "敌人是海盗 猫们的飨宴"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-01",
+    "episode_count": 6,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "TV",
+    "mappings": {
+      "animeplanet_id": "the-enemys-the-pirates",
+      "kitsu_id": 2442,
+      "mal_id": 2679,
+      "anilist_id": 2679,
+      "anisearch_id": 2461,
+      "anidb_id": 2150,
+      "notifymoe_id": "fhYscKiiR",
+      "livechart_id": 6812,
+      "thetvdb_id": 205511,
+      "imdb_id": null,
+      "themoviedb_id": "49288"
+    }
+  },
+  {
+    "anilist_id": 2712,
+    "bgm_id": 137779,
+    "titles": [
+      "白鳥麗子でございます！",
+      "白鳥麗子でございます!",
+      "I am THE Shiratori Reiko!",
+      "I`m Reiko Shiratori",
+      "Shiratori Reiko de Gozaimasu!",
+      "白鸟丽子"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "shiratori-reiko-de-gozaimasu",
+      "kitsu_id": 2473,
+      "mal_id": 2712,
+      "anilist_id": 2712,
+      "anisearch_id": 3133,
+      "anidb_id": 3997,
+      "notifymoe_id": "vows5Fmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": "762694"
+    }
+  },
+  {
+    "anilist_id": 2730,
+    "bgm_id": null,
+    "titles": [
+      "１＋２＝パラダイス",
+      "1+2=パラダイス",
+      "1+2=Paradise",
+      "优介的双妻乐园"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-23",
+    "episode_count": 2,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "1-2-paradise",
+      "kitsu_id": 2490,
+      "mal_id": 2730,
+      "anilist_id": 2730,
+      "anisearch_id": 212,
+      "anidb_id": 3978,
+      "notifymoe_id": "gaXycKiiR",
+      "livechart_id": 5693,
+      "thetvdb_id": 162041,
+      "imdb_id": "tt0331810",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 3448,
+    "bgm_id": 27882,
+    "titles": [
+      "マッド★ブル３４",
+      "MAD★BULL 34",
+      "Mad Bull 34",
+      "Mad★Bull 34"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-21",
+    "episode_count": 4,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "mad-bull-34",
+      "kitsu_id": 3017,
+      "mal_id": 3448,
+      "anilist_id": 3448,
+      "anisearch_id": 30,
+      "anidb_id": 1477,
+      "notifymoe_id": "DHywcFmmg",
+      "livechart_id": 7821,
+      "thetvdb_id": 160641,
+      "imdb_id": "tt0160503",
+      "themoviedb_id": "45287"
+    }
+  },
+  {
+    "anilist_id": 3596,
+    "bgm_id": 325237,
+    "titles": [
+      "ライトニングトラップ レイナ＆ライカ",
+      "ライトニングトラップ レイナ&ライカ",
+      "Lightning Trap: Leina & Laika"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-23",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "lightning-trap-leina-and-laika",
+      "kitsu_id": 3132,
+      "mal_id": 3596,
+      "anilist_id": 3596,
+      "anisearch_id": 1489,
+      "anidb_id": 2796,
+      "notifymoe_id": "cVi_5Fiig",
+      "livechart_id": 12127,
+      "thetvdb_id": null,
+      "imdb_id": "tt0141545",
+      "themoviedb_id": "221180"
+    }
+  },
+  {
+    "anilist_id": 3633,
+    "bgm_id": 1851,
+    "titles": [
+      "エンジェル",
+      "Angel"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-25",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 3633,
+      "anilist_id": 3633,
+      "anisearch_id": 2902,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 3511,
+    "bgm_id": 74520,
+    "titles": [
+      "力王 2 滅びの子",
+      "Riki-Oh 2: Child of Destruction",
+      "Riki-Oh 2: Horobi no Ko"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-24",
+    "episode_count": 1,
+    "seasonNumber": 1,
+    "episodeNumber": 2,
+    "absoluteEpisodeNumber": 2,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "riki-oh-2",
+      "kitsu_id": 3062,
+      "mal_id": 3511,
+      "anilist_id": 3511,
+      "anisearch_id": 2275,
+      "anidb_id": 3995,
+      "notifymoe_id": "QdCQcKmmR",
+      "livechart_id": null,
+      "thetvdb_id": 251941,
+      "imdb_id": "tt0203074",
+      "themoviedb_id": "308810"
+    }
+  },
+  {
+    "anilist_id": 4164,
+    "bgm_id": null,
+    "titles": [
+      "校内写生",
+      "Tales of Titillation",
+      "Kounai Shasei"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-25",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 4164,
+      "anilist_id": 4164,
+      "anisearch_id": 7,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 4537,
+    "bgm_id": 73436,
+    "titles": [
+      "八神くんの家庭の事情",
+      "Yagami`s Family Affairs",
+      "Yagami-kun no Katei no Jijou"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-25",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "yagami-kuns-family-affairs",
+      "kitsu_id": 3670,
+      "mal_id": 4537,
+      "anilist_id": 4537,
+      "anisearch_id": 711,
+      "anidb_id": 4163,
+      "notifymoe_id": "BDqXcFmiR",
+      "livechart_id": 7174,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 4855,
+    "bgm_id": 37026,
+    "titles": [
+      "風魔の小次郎 聖剣戦争篇",
+      "Fuuma no Kojirou: Seiken Sensou-hen"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-21",
+    "episode_count": 6,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "fuma-no-kojirou-seiken-sensou-hen",
+      "kitsu_id": 3827,
+      "mal_id": 4855,
+      "anilist_id": 4855,
+      "anisearch_id": 2044,
+      "anidb_id": 3099,
+      "notifymoe_id": "8tcrcKmmR",
+      "livechart_id": 12412,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5554,
+    "bgm_id": 139347,
+    "titles": [
+      "江口寿史のNANTOKA NARUDESHO!",
+      "Eguchi Hisashi no NANTOKA NARUDESHO!"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-05",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "eguchi-hisashi-no-nantoka-narudesho",
+      "kitsu_id": 4157,
+      "mal_id": 5554,
+      "anilist_id": 5554,
+      "anisearch_id": 1274,
+      "anidb_id": 3138,
+      "notifymoe_id": "KAaj5KimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": "673325"
+    }
+  },
+  {
+    "anilist_id": 5585,
+    "bgm_id": 67959,
+    "titles": [
+      "NEW DREAM HUNTER 麗夢 夢の騎士達",
+      "NEW DREAM HUNTER Rem: Yume no Kishitachi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-16",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "new-dream-hunter-rem-yume-no-kishitachi",
+      "kitsu_id": 4182,
+      "mal_id": 5585,
+      "anilist_id": 5585,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "c7Bj5FiiR",
+      "livechart_id": 7738,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5923,
+    "bgm_id": 77619,
+    "titles": [
+      "宇宙皇子 天上篇",
+      "天上編 宇宙皇子",
+      "Heavenly Chronicles",
+      "Utsunomiko: Tenjou-hen"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-24",
+    "episode_count": 13,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "utsunomiko-heaven-chapter",
+      "kitsu_id": 4340,
+      "mal_id": 5923,
+      "anilist_id": 5923,
+      "anisearch_id": 730,
+      "anidb_id": 2799,
+      "notifymoe_id": "QiVq5KmmR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5931,
+    "bgm_id": 88293,
+    "titles": [
+      "愛と剣のキャメロット まんが家マリナ タイムスリップ事件",
+      "Camelot",
+      "Marina the Manga Artist Goes to Camelot",
+      "Ai to Ken no Camelot: Mangaka Marina Time Slip Jiken",
+      "圣剑风云"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "ai-to-ken-no-camelot-mangaka-marina-time-slip-jiken",
+      "kitsu_id": 4348,
+      "mal_id": 5931,
+      "anilist_id": 5931,
+      "anisearch_id": 860,
+      "anidb_id": 4006,
+      "notifymoe_id": "ujV35Fiig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": "763776"
+    }
+  },
+  {
+    "anilist_id": 6031,
+    "bgm_id": 77600,
+    "titles": [
+      "押忍!!空手部",
+      "押忍!! 空手部",
+      "Osu! Karate Club",
+      "Osu!! Karate Bu",
+      "押忍！！空手部"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-21",
+    "episode_count": 4,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "osu-karate-bu",
+      "kitsu_id": 4392,
+      "mal_id": 6031,
+      "anilist_id": 6031,
+      "anisearch_id": 4422,
+      "anidb_id": 5388,
+      "notifymoe_id": "Imt3cKmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 6038,
+    "bgm_id": 296307,
+    "titles": [
+      "トランスフォーマーＺ[ゾーン]",
+      "トランスフォーマーZ[ゾーン]",
+      "Transformers: Zone",
+      "Transformers Zone"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "transformers-zone",
+      "kitsu_id": 4395,
+      "mal_id": 6038,
+      "anilist_id": 6038,
+      "anisearch_id": 2763,
+      "anidb_id": 2103,
+      "notifymoe_id": "d1p35FimR",
+      "livechart_id": null,
+      "thetvdb_id": 101511,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 6065,
+    "bgm_id": null,
+    "titles": [
+      "レモンエンジェル（ＹＪ版）",
+      "YJ版 レモンエンジェル",
+      "Lemon Angel YJ Ban"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-06",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "lemon-angel-yj-ban",
+      "kitsu_id": 4407,
+      "mal_id": 6065,
+      "anilist_id": 6065,
+      "anisearch_id": 4201,
+      "anidb_id": 5307,
+      "notifymoe_id": "USoq5Kimg",
+      "livechart_id": 12066,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 5986,
+    "bgm_id": 79978,
+    "titles": [
+      "天外魔境 自来也おぼろ変",
+      "Tengai Makyou: Ziria Oboro-hen"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-27",
+    "episode_count": 2,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "tengai-makyou-ziria-oboro-hen",
+      "kitsu_id": 4372,
+      "mal_id": 5986,
+      "anilist_id": 5986,
+      "anisearch_id": 8588,
+      "anidb_id": 4413,
+      "notifymoe_id": "U1d35Fimg",
+      "livechart_id": null,
+      "thetvdb_id": 435143,
+      "imdb_id": "tt6058126",
+      "themoviedb_id": "124313"
+    }
+  },
+  {
+    "anilist_id": 6076,
+    "bgm_id": 75239,
+    "titles": [
+      "「エイジ」",
+      "\"Eiji\""
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "MOVIE",
+    "mappings": {
+      "animeplanet_id": "eiji",
+      "kitsu_id": 4416,
+      "mal_id": 6076,
+      "anilist_id": 6076,
+      "anisearch_id": 6068,
+      "anidb_id": 4317,
+      "notifymoe_id": "lcAq5Fmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 6276,
+    "bgm_id": 77581,
+    "titles": [
+      "楳図かずおの呪い",
+      "The Curse of Kazuo Umezu",
+      "Umezu Kazuo no Noroi"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-01",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "umezu-kazuo-no-noroi",
+      "kitsu_id": 4503,
+      "mal_id": 6276,
+      "anilist_id": 6276,
+      "anisearch_id": 4310,
+      "anidb_id": 5258,
+      "notifymoe_id": "7i935KimR",
+      "livechart_id": 5882,
+      "thetvdb_id": null,
+      "imdb_id": "tt2323340",
+      "themoviedb_id": "172133"
+    }
+  },
+  {
+    "anilist_id": 6713,
+    "bgm_id": 72754,
+    "titles": [
+      "らんま1/2 熱闘歌合戦",
+      "Ranma 1/2: Hot Song Contest",
+      "Ranma 1/2: Nettou Uta Gassen"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-07",
+    "episode_count": 2,
+    "seasonNumber": 4,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 65,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "ranma-nettou-uta-gassen",
+      "kitsu_id": 4681,
+      "mal_id": 6713,
+      "anilist_id": 6713,
+      "anisearch_id": 5031,
+      "anidb_id": 6393,
+      "notifymoe_id": "ggY65Kmmg",
+      "livechart_id": 6126,
+      "thetvdb_id": 76932,
+      "imdb_id": "tt0096686",
+      "themoviedb_id": "57706"
+    }
+  },
+  {
+    "anilist_id": 6792,
+    "bgm_id": null,
+    "titles": [
+      "機動戦士SDガンダム Mk-V",
+      "Mobile Suit SD Gundam Mk V",
+      "Kidou Senshi SD Gundam Mk-V"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-25",
+    "episode_count": 6,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "mobile-suit-sd-gundam-mk-v",
+      "kitsu_id": 4716,
+      "mal_id": 6792,
+      "anilist_id": 6792,
+      "anisearch_id": 2344,
+      "anidb_id": 3341,
+      "notifymoe_id": "F-l6cKmiR",
+      "livechart_id": 7662,
+      "thetvdb_id": 157211,
+      "imdb_id": "tt0382477",
+      "themoviedb_id": "9157"
+    }
+  },
+  {
+    "anilist_id": 7090,
+    "bgm_id": 25423,
+    "titles": [
+      "魔動王グランゾート 最後のマジカル大戦",
+      "Mado King Granzort: Last Magical War",
+      "Madou King Granzort: Saigo no Magical Taisen"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-10",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "mado-king-granzort-the-final-magical-battle",
+      "kitsu_id": 4864,
+      "mal_id": 7090,
+      "anilist_id": 7090,
+      "anisearch_id": 3476,
+      "anidb_id": 2353,
+      "notifymoe_id": "93ogtFimR",
+      "livechart_id": 12625,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 7139,
+    "bgm_id": 89722,
+    "titles": [
+      "ガデュリン",
+      "Gdleen"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-01",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "gdleen",
+      "kitsu_id": 4877,
+      "mal_id": 7139,
+      "anilist_id": 7139,
+      "anisearch_id": 4115,
+      "anidb_id": 5014,
+      "notifymoe_id": "boJgtKimg",
+      "livechart_id": 6641,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 7374,
+    "bgm_id": 77613,
+    "titles": [
+      "１００％",
+      "100%[A Hundred Percents]",
+      "A Hundred Percents",
+      "100%"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-07",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "a-hundred-percents",
+      "kitsu_id": 4954,
+      "mal_id": 7374,
+      "anilist_id": 7374,
+      "anisearch_id": 4357,
+      "anidb_id": 5308,
+      "notifymoe_id": "Q0_RtFmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 7836,
+    "bgm_id": 97946,
+    "titles": [
+      "のたり松太郎",
+      "Notari Matsutarou"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-22",
+    "episode_count": 10,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "notari-matsutaro",
+      "kitsu_id": 5136,
+      "mal_id": 7836,
+      "anilist_id": 7836,
+      "anisearch_id": 4420,
+      "anidb_id": 5389,
+      "notifymoe_id": "oiaktKiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 7914,
+    "bgm_id": null,
+    "titles": [
+      "究極のシェフは美味しんぼパパ",
+      "Kyuukyoku no Chef wa Oishinbo Papa"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-12-01",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 7914,
+      "anilist_id": 7914,
+      "anisearch_id": 3957,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 8967,
+    "bgm_id": 89723,
+    "titles": [
+      "左のオクロック!!",
+      "Hidari no O'Clock!!",
+      "逆时针环游"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-05",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "hidari-no-oclock",
+      "kitsu_id": 5558,
+      "mal_id": 8967,
+      "anilist_id": 8967,
+      "anisearch_id": 4324,
+      "anidb_id": 5255,
+      "notifymoe_id": "beFWtFmmR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9043,
+    "bgm_id": 74298,
+    "titles": [
+      "魔獣戦線",
+      "Demon Beast Phalanx",
+      "Majuu Sensen",
+      "魔兽战线"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-01",
+    "episode_count": 3,
+    "seasonNumber": 0,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "majuu-sensen",
+      "kitsu_id": 5584,
+      "mal_id": 9043,
+      "anilist_id": 9043,
+      "anisearch_id": 1813,
+      "anidb_id": 4232,
+      "notifymoe_id": "1coZpKimR",
+      "livechart_id": 11975,
+      "thetvdb_id": 259842,
+      "imdb_id": null,
+      "themoviedb_id": "101219"
+    }
+  },
+  {
+    "anilist_id": 9177,
+    "bgm_id": 103965,
+    "titles": [
+      "Ｂ・Ｂ BURNING BLOOD",
+      "B・B BURNING BLOOD",
+      "B.B BURNING BLOOD"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-25",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "burning-blood",
+      "kitsu_id": 5625,
+      "mal_id": 9177,
+      "anilist_id": 9177,
+      "anisearch_id": 3077,
+      "anidb_id": 4180,
+      "notifymoe_id": "ctLZpKmmR",
+      "livechart_id": 12368,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9404,
+    "bgm_id": 75191,
+    "titles": [
+      "しあわせのかたち",
+      "The Shape of Happiness",
+      "Shiawase no Katachi"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-05",
+    "episode_count": 4,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "shiawase-no-katachi",
+      "kitsu_id": 5723,
+      "mal_id": 9404,
+      "anilist_id": 9404,
+      "anisearch_id": 4379,
+      "anidb_id": 5327,
+      "notifymoe_id": "ODzMpFmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9645,
+    "bgm_id": 207565,
+    "titles": [
+      "ビー・バップ・ハイスクール",
+      "BE-BOP HIGHSCHOOL ビー・バップ・ハイスクール",
+      "Be-Bop High School"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-01-26",
+    "episode_count": 7,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "be-bop",
+      "kitsu_id": 5817,
+      "mal_id": 9645,
+      "anilist_id": 9645,
+      "anisearch_id": 1319,
+      "anidb_id": 4235,
+      "notifymoe_id": "eucGpKiig",
+      "livechart_id": 9129,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9646,
+    "bgm_id": 99244,
+    "titles": [
+      "ガッデム",
+      "Goddamn"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-27",
+    "episode_count": 2,
+    "seasonNumber": 1,
+    "episodeNumber": 1,
+    "absoluteEpisodeNumber": 1,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "goddamn",
+      "kitsu_id": 5818,
+      "mal_id": 9646,
+      "anilist_id": 9646,
+      "anisearch_id": 574,
+      "anidb_id": 3490,
+      "notifymoe_id": "gRpMpKimg",
+      "livechart_id": null,
+      "thetvdb_id": 273151,
+      "imdb_id": "tt4297116",
+      "themoviedb_id": "80197"
+    }
+  },
+  {
+    "anilist_id": 9792,
+    "bgm_id": 139358,
+    "titles": [
+      "Licca ふしぎな不思議なユーニア物語",
+      "Licca リカちゃん ふしぎな不思議なユーニア物語",
+      "Licca-chan - Wondrous Yunia Story",
+      "Licca-chan Fushigi na Fushigi na Yunia Monogatari"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-23",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "licca-chan-fushigi-na-fushigi-na-yunia-monogatari",
+      "kitsu_id": 5870,
+      "mal_id": 9792,
+      "anilist_id": 9792,
+      "anisearch_id": 3695,
+      "anidb_id": 4428,
+      "notifymoe_id": "u9fGtFimR",
+      "livechart_id": null,
+      "thetvdb_id": 345113,
+      "imdb_id": "tt0252025",
+      "themoviedb_id": "21268"
+    }
+  },
+  {
+    "anilist_id": 9825,
+    "bgm_id": 302,
+    "titles": [
+      "となりのトコロ",
+      "所ビデオ",
+      "Tonari no Tokoro"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "tonari-no-tokoro",
+      "kitsu_id": 5891,
+      "mal_id": 9825,
+      "anilist_id": 9825,
+      "anisearch_id": 6583,
+      "anidb_id": 4357,
+      "notifymoe_id": "HbsGtFimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 9887,
+    "bgm_id": 236901,
+    "titles": [
+      "MoMoKo"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-05",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 9887,
+      "anilist_id": 9887,
+      "anisearch_id": 1718,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 10304,
+    "bgm_id": 111929,
+    "titles": [
+      "新・カラテ地獄変",
+      "新カラテ地獄変",
+      "Shin Karate Jigokuhen"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-01",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "shin-karate-jigokuhen",
+      "kitsu_id": 6121,
+      "mal_id": 10304,
+      "anilist_id": 10304,
+      "anisearch_id": 4317,
+      "anidb_id": 5231,
+      "notifymoe_id": "rtwntKmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 10564,
+    "bgm_id": null,
+    "titles": [
+      "ころがし涼太",
+      "Korogashi Ryouta"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-11-21",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "korogashi-ryouta",
+      "kitsu_id": 6243,
+      "mal_id": 10564,
+      "anilist_id": 10564,
+      "anisearch_id": 5647,
+      "anidb_id": 7691,
+      "notifymoe_id": "BYv4pFmmR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 10967,
+    "bgm_id": 140633,
+    "titles": [
+      "サーキットの狼II モデナの剣",
+      "Circuit no Ookami II: Modena no Ken"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "circuit-no-ookami-ii-modena-no-ken",
+      "kitsu_id": 6429,
+      "mal_id": 10967,
+      "anilist_id": 10967,
+      "anisearch_id": 4925,
+      "anidb_id": 5942,
+      "notifymoe_id": "QJZIpFimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 11695,
+    "bgm_id": 536905,
+    "titles": [
+      "ウルトラマングラフィティ",
+      "Ultraman Graffiti"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-25",
+    "episode_count": 6,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "ultraman-graffiti",
+      "kitsu_id": 6566,
+      "mal_id": 11695,
+      "anilist_id": 11695,
+      "anisearch_id": 1799,
+      "anidb_id": 4102,
+      "notifymoe_id": "syyItKmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 16247,
+    "bgm_id": 87395,
+    "titles": [
+      "殺人切符はハート色",
+      "Satsujin Kippu wa Heart-iro"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-03",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "satsujin-kippu-wa-heart-iro",
+      "kitsu_id": 7393,
+      "mal_id": 16247,
+      "anilist_id": 16247,
+      "anisearch_id": 3988,
+      "anidb_id": 4864,
+      "notifymoe_id": "xnJKtFmmR",
+      "livechart_id": 6143,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": "421930"
+    }
+  },
+  {
+    "anilist_id": 16788,
+    "bgm_id": 37397,
+    "titles": [
+      "戦国武将列伝 爆風童子ヒッサツマン",
+      "Sengoku Bushou Retsuden Bakufuu Douji Hissatsuman"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-22",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "sengoku-bushou-retsuden-bakufuu-douji-hissatsuman",
+      "kitsu_id": 7518,
+      "mal_id": 16788,
+      "anilist_id": 16788,
+      "anisearch_id": 4003,
+      "anidb_id": 5306,
+      "notifymoe_id": "LGGcpFmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 16954,
+    "bgm_id": 109572,
+    "titles": [
+      "ミルキィパッション 道玄坂 愛の城",
+      "Milky Passion: Dougenzaka - Ai no Shiro"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-23",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "milky-passion-dougenzaka-ai-no-shiro",
+      "kitsu_id": 7558,
+      "mal_id": 16954,
+      "anilist_id": 16954,
+      "anisearch_id": 4223,
+      "anidb_id": 6491,
+      "notifymoe_id": "And5tKimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": "789395"
+    }
+  },
+  {
+    "anilist_id": 17223,
+    "bgm_id": 218210,
+    "titles": [
+      "花のあすか組! 2 ロンリーキャッツ・バトルロイヤル",
+      "Hana no Asukagumi! 2: Lonely Cats Battle Royale"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-03-23",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "hana-no-asukagumi-2-lonely-cats-battle-royale",
+      "kitsu_id": 7612,
+      "mal_id": 17223,
+      "anilist_id": 17223,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "riJ5pFimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17823,
+    "bgm_id": 398922,
+    "titles": [
+      "イケナイBOY",
+      "Ikenai BOY"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-27",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 17823,
+      "anilist_id": 17823,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17825,
+    "bgm_id": 398922,
+    "titles": [
+      "イケナイＢＯＹ イカす（秘）ハンドパワー",
+      "Ikenai BOY: Ikasu Maruhi Hand Power"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-28",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 17825,
+      "anilist_id": 17825,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17903,
+    "bgm_id": 79966,
+    "titles": [
+      "男樹",
+      "Otokogi"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-14",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "otokogi",
+      "kitsu_id": 9089,
+      "mal_id": 17903,
+      "anilist_id": 17903,
+      "anisearch_id": 5890,
+      "anidb_id": 7094,
+      "notifymoe_id": "rtMapFmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17989,
+    "bgm_id": 214660,
+    "titles": [
+      "麻雀バトルスクランブル 混乱的戦斗麻雀 (スーパーリアル麻雀／麻雀バトルスクランブル)",
+      "Super Real Mahjong: Mahjong Battle Scramble - Konran-teki Sento Mahjong"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-12-21",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 9645,
+      "mal_id": 17989,
+      "anilist_id": 17989,
+      "anisearch_id": 8175,
+      "anidb_id": null,
+      "notifymoe_id": "G5dYpFmiR",
+      "livechart_id": 7112,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 17991,
+    "bgm_id": 214660,
+    "titles": [
+      "スーパーリアル麻雀 ミキ・カスミ・ショーコのはじめまして (スーパーリアル麻雀／かすみ・ミキ・ショー子のはじめまして)",
+      "Super Real Mahjong: Kasumi Miki Shouko no Hajimemashite"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-25",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 9644,
+      "mal_id": 17991,
+      "anilist_id": 17991,
+      "anisearch_id": 4322,
+      "anidb_id": null,
+      "notifymoe_id": "nHOYtKiiR",
+      "livechart_id": 7568,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 18481,
+    "bgm_id": null,
+    "titles": [
+      "ごっくんドール 超次元ピッコちゃん登場!!",
+      "Bishoujo Animerama: Gokkun Doll - Choujigen Pico-chan Toujou!!"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-24",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 18481,
+      "anilist_id": 18481,
+      "anisearch_id": 5902,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 18483,
+    "bgm_id": null,
+    "titles": [
+      "まなみの未知との遭入!?",
+      "Bishoujo Animerama: Manami no Michi to no Sounyuu!?"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 18483,
+      "anilist_id": 18483,
+      "anisearch_id": 6012,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 18567,
+    "bgm_id": 105907,
+    "titles": [
+      "たいまんぶるうず レディース編 真由美",
+      "たいまんぶるうす レディース編",
+      "Taiman Blues Ladies Chapter",
+      "Taiman Blues: Ladies-hen - Mayumi"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-05",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "taiman-blues-ladies-hen-mayumi",
+      "kitsu_id": 9652,
+      "mal_id": 18567,
+      "anilist_id": 18567,
+      "anisearch_id": 88,
+      "anidb_id": 2976,
+      "notifymoe_id": "NSFYtKmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 18575,
+    "bgm_id": 314429,
+    "titles": [
+      "ぬ～ぼ～ きえたメダル",
+      "ぬ~ぼ~ 消えたメダル",
+      "Noobow: Kieta Medal"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-28",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "noobow-kieta-medal",
+      "kitsu_id": 9496,
+      "mal_id": 18575,
+      "anilist_id": 18575,
+      "anisearch_id": 9054,
+      "anidb_id": 9865,
+      "notifymoe_id": "1lyBpFmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 18603,
+    "bgm_id": 98872,
+    "titles": [
+      "剣之介さま",
+      "Kennosuke-sama"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-07",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "kennosuke-sama",
+      "kitsu_id": 9375,
+      "mal_id": 18603,
+      "anilist_id": 18603,
+      "anisearch_id": 251,
+      "anidb_id": 4118,
+      "notifymoe_id": "3WvBtKiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "tt0185397",
+      "themoviedb_id": "553167"
+    }
+  },
+  {
+    "anilist_id": 19515,
+    "bgm_id": 103186,
+    "titles": [
+      "拳闘士",
+      "Fighter",
+      "Kentoushi"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-05",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 9377,
+      "mal_id": 19515,
+      "anilist_id": 19515,
+      "anisearch_id": 3330,
+      "anidb_id": 3429,
+      "notifymoe_id": "FKvftFiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 19533,
+    "bgm_id": 104562,
+    "titles": [
+      "藤子不二雄Aの夢魔子",
+      "Fujiko Fujio A no Mumako"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-07-03",
+    "episode_count": 4,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "SPECIAL",
+    "mappings": {
+      "animeplanet_id": "fujiko-fujio-a-no-mumako",
+      "kitsu_id": 9743,
+      "mal_id": 19533,
+      "anilist_id": 19533,
+      "anisearch_id": 7813,
+      "anidb_id": 9172,
+      "notifymoe_id": "NNyLtKiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 19747,
+    "bgm_id": null,
+    "titles": [
+      "抱かれたい女",
+      "Dakaretai Onna"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-27",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": 19747,
+      "anilist_id": 19747,
+      "anisearch_id": 5826,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 19899,
+    "bgm_id": 99950,
+    "titles": [
+      "藤子・F・不二雄のSF短編シアター",
+      "藤子·F·不二雄 SF[すこしふしぎ]短編シアター",
+      "Fujiko F. Fujio no Sukoshi Fushigi Tanpen Theater",
+      "藤子・F・不二雄的科幻短篇剧场"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-03-16",
+    "episode_count": 11,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "fujiko-f-fujio-sukoshi-fushigi-tanpen-theater",
+      "kitsu_id": 9742,
+      "mal_id": 19899,
+      "anilist_id": 19899,
+      "anisearch_id": 7243,
+      "anidb_id": 7071,
+      "notifymoe_id": "FMsLpFimg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 20463,
+    "bgm_id": 114373,
+    "titles": [
+      "本気(マジ)!",
+      "マジ!",
+      "Maji",
+      "For Real",
+      "Honki!"
+    ],
+    "year": 1990,
+    "season": "WINTER",
+    "start_date": "1990-02-03",
+    "episode_count": 3,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "maji",
+      "kitsu_id": 9425,
+      "mal_id": 20499,
+      "anilist_id": 20463,
+      "anisearch_id": 1286,
+      "anidb_id": 4007,
+      "notifymoe_id": "EGoBpKmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 20095,
+    "bgm_id": 326201,
+    "titles": [
+      "フリテンくん",
+      "フリテンくん (1990)",
+      "Furiten-kun (1990)"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-06-21",
+    "episode_count": 2,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "furiten-kun-1990",
+      "kitsu_id": 9267,
+      "mal_id": 20095,
+      "anilist_id": 20095,
+      "anisearch_id": 4343,
+      "anidb_id": 5284,
+      "notifymoe_id": "zjXatKmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 103377,
+    "bgm_id": 324281,
+    "titles": [
+      "傷だらけの天使たち",
+      "Heartbroken Angels",
+      "Kizu darake no Tenshi-tachi"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": "1990-01-22",
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 9393,
+      "mal_id": 25061,
+      "anilist_id": 103377,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "mvFBtFmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 104070,
+    "bgm_id": 154122,
+    "titles": [
+      "アリーズ -神話の星座宮-",
+      "Aries: Shinwa no Seizakyuu",
+      "星座宫神话"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-10-01",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "aries-shinwa-no-seizakyuu",
+      "kitsu_id": 9199,
+      "mal_id": 22271,
+      "anilist_id": 104070,
+      "anisearch_id": 4377,
+      "anidb_id": 5324,
+      "notifymoe_id": "pb-apKimR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 105196,
+    "bgm_id": 101497,
+    "titles": [
+      "気ままにアイドル",
+      "Willful Idol",
+      "Kimama ni Idol"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": "1990-02-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "kimama-ni-idol",
+      "kitsu_id": 9384,
+      "mal_id": 21749,
+      "anilist_id": 105196,
+      "anisearch_id": 592,
+      "anidb_id": 2409,
+      "notifymoe_id": "undftKmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": "1031947"
+    }
+  },
+  {
+    "anilist_id": 108054,
+    "bgm_id": 187190,
+    "titles": [
+      "ふくやま劇場 なつのひみつ",
+      "ふくやま劇場",
+      "Fukuyama Gekijou: Natsu no Himitsu"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-27",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "fukuyama-gekijou-natsu-no-himitsu",
+      "kitsu_id": 9265,
+      "mal_id": 23975,
+      "anilist_id": 108054,
+      "anisearch_id": 4367,
+      "anidb_id": 5318,
+      "notifymoe_id": "IYuatFmig",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 121881,
+    "bgm_id": null,
+    "titles": [
+      "きずな　～にんげんの詩パート２～",
+      "Ningen no Uta Part 2"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 11084,
+      "mal_id": 31000,
+      "anilist_id": 121881,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": "-xOXpFiiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 130527,
+    "bgm_id": 53954,
+    "titles": [
+      "OL改造講座",
+      "Survival in the Office",
+      "OL Kaizou Kouza",
+      "OL改造讲座"
+    ],
+    "year": 1990,
+    "season": "FALL",
+    "start_date": "1990-09-01",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "ol-kaizou-kouza",
+      "kitsu_id": 9510,
+      "mal_id": 22275,
+      "anilist_id": 130527,
+      "anisearch_id": 521,
+      "anidb_id": 3136,
+      "notifymoe_id": "I0QBpKmmR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": "884005"
+    }
+  },
+  {
+    "anilist_id": 145407,
+    "bgm_id": null,
+    "titles": [
+      "空とぶうさぎの誘拐防止 ぼく いやだよ!",
+      "Sora Tobu Usagi no Yuukai Boushi: Boku Iya da yo!"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-05-21",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "soratobu-usagi-no-yuukai-boushi-boku-iya-da-yo",
+      "kitsu_id": 9601,
+      "mal_id": 21517,
+      "anilist_id": 145407,
+      "anisearch_id": 9017,
+      "anidb_id": 10167,
+      "notifymoe_id": "J3GLtFmmg",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 151638,
+    "bgm_id": 223651,
+    "titles": [
+      "おそ松くん イヤミはひとり風の中",
+      "Osomatsu-kun: Iyami wa Hitori Kaze no Naka"
+    ],
+    "year": 1990,
+    "season": "SUMMER",
+    "start_date": "1990-08-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": 11544,
+      "mal_id": 32088,
+      "anilist_id": 151638,
+      "anisearch_id": 13956,
+      "anidb_id": 14217,
+      "notifymoe_id": "Gr1jtFmmR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 177069,
+    "bgm_id": 92493,
+    "titles": [
+      "鬼丸 戦場に駆ける五つの青春",
+      "Onimaru: Senjou ni Kakeru Itsutsu no Seishun"
+    ],
+    "year": 1990,
+    "season": "SPRING",
+    "start_date": "1990-04-25",
+    "episode_count": 1,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": "onimaru-senjou-ni-kakeru-itsutsu-no-seishun",
+      "kitsu_id": 9765,
+      "mal_id": 23819,
+      "anilist_id": 177069,
+      "anisearch_id": 4323,
+      "anidb_id": 5260,
+      "notifymoe_id": "s9wLtKmiR",
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": "unknown",
+      "themoviedb_id": null
+    }
+  },
+  {
+    "anilist_id": 182156,
+    "bgm_id": null,
+    "titles": [
+      "TOKUMAアニメビデオえほん はないちもんめ",
+      "TOKUMA Anime Video Ehon: Hana Ichi Monme"
+    ],
+    "year": 1990,
+    "season": null,
+    "start_date": null,
+    "episode_count": 0,
+    "seasonNumber": null,
+    "episodeNumber": null,
+    "absoluteEpisodeNumber": null,
+    "type": "OVA",
+    "mappings": {
+      "animeplanet_id": null,
+      "kitsu_id": null,
+      "mal_id": null,
+      "anilist_id": 182156,
+      "anisearch_id": null,
+      "anidb_id": null,
+      "notifymoe_id": null,
+      "livechart_id": null,
+      "thetvdb_id": null,
+      "imdb_id": null,
+      "themoviedb_id": null
+    }
+  }
+]

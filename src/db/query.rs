@@ -27,6 +27,22 @@ impl Db {
         Ok(mapping)
     }
 
+    pub async fn list_tobe_match(&self, limit: u64, year: u32) -> Result<Vec<Mapping>> {
+        let mappings = Mappings::find()
+            .filter(
+                Column::BgmTvVerifyStatus
+                    .eq(VerificationStatus::UnMatched)
+                    .or(Column::BgmTvVerifyStatus.eq(VerificationStatus::Rejected))
+                    .or(Column::TmdbVerifyStatus.eq(VerificationStatus::UnMatched))
+                    .or(Column::TmdbVerifyStatus.eq(VerificationStatus::Rejected)),
+            )
+            .filter(Column::AirYear.eq(year))
+            .limit(limit)
+            .all(self.conn())
+            .await?;
+        Ok(mappings)
+    }
+
     pub async fn query_mappings(
         &self,
         query_params: &QueryMappings,
