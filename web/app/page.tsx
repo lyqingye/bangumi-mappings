@@ -298,7 +298,7 @@ export default function Home() {
                             <SelectItem value={Provider.Xai}>Xai</SelectItem>
                             <SelectItem value={Provider.Deepseek}>Deepseek</SelectItem>
                             <SelectItem value={Provider.Gemini}>Gemini</SelectItem>
-                            <SelectItem value={Provider.openai_api}>OpenAi API</SelectItem>
+                            <SelectItem value={Provider.openai}>OpenAi</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
