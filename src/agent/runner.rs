@@ -42,6 +42,12 @@ pub async fn run_mapping_bgm_tv_agent(
                     new_mapping_bgm_tv_agent(client.agent(model), client.extractor(model));
                 agent.match_anime(&keywords).await
             }
+            "openai_api" => {
+                let client = openai::Client::from_url("API-KEY", "OPENAI_BASE_URL");
+                let mut agent =
+                    new_mapping_bgm_tv_agent(client.agent(model), client.extractor(model));
+                agent.match_anime(&keywords).await
+            }
             "openrouter" => {
                 let client = openrouter::Client::from_env();
                 let mut agent =
@@ -116,6 +122,12 @@ pub async fn run_mapping_tmdb_agent(
                 let client = openai::Client::from_env();
                 let mut agent =
                     new_mapping_tmdb_agent(client.agent(model), client.extractor(model));
+                agent.match_anime(&keywords).await
+            }
+            "openai_api" => {
+                let client = openai::Client::from_url("API-KEY", "OPENAI_BASE_URL");
+                let mut agent =
+                    new_mapping_bgm_tv_agent(client.agent(model), client.extractor(model));
                 agent.match_anime(&keywords).await
             }
             "openrouter" => {
