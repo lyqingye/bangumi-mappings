@@ -45,12 +45,14 @@ export enum Provider {
   Xai = "xai",
   Deepseek = "deepseek",
   Gemini = "gemini",
+  OpenAI = "openai",
 }
 
 export const ProviderModelMap = {
   [Provider.Xai]: "grok-2-1212",
   [Provider.Deepseek]: "deepseek-chat",
   [Provider.Gemini]: "gemini-2.0-flash",
+  [Provider.OpenAI]: "gpt-4o-mini,
 }
 
 export enum JobStatus {

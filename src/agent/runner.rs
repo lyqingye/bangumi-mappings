@@ -37,7 +37,9 @@ pub async fn run_mapping_bgm_tv_agent(
                 agent.match_anime(&keywords).await
             }
             "openai" => {
-                let client = openai::Client::from_env();
+                let api_key = std::env::var("OPENAI_API_KEY").unwrap_or_else(|_| "".to_string());
+                let api_base = std::env::var("OPENAI_API_CUSTOM_BASE").unwrap_or_else(|_| "https://api.openai.com/v1".to_string());
+                let client = openai::Client::from_url(&api_key, &api_base);
                 let mut agent =
                     new_mapping_bgm_tv_agent(client.agent(model), client.extractor(model));
                 agent.match_anime(&keywords).await
@@ -113,7 +115,9 @@ pub async fn run_mapping_tmdb_agent(
                 agent.match_anime(&keywords).await
             }
             "openai" => {
-                let client = openai::Client::from_env();
+                let api_key = std::env::var("OPENAI_API_KEY").unwrap_or_else(|_| "".to_string());
+                let api_base = std::env::var("OPENAI_API_CUSTOM_BASE").unwrap_or_else(|_| "https://api.openai.com/v1".to_string());
+                let client = openai::Client::from_url(&api_key, &api_base);
                 let mut agent =
                     new_mapping_tmdb_agent(client.agent(model), client.extractor(model));
                 agent.match_anime(&keywords).await
