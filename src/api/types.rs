@@ -64,3 +64,57 @@ pub struct Mapping {
     pub platform: Platform,
     pub score: u8,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct CompactMapping {
+    pub id: Option<String>,
+    pub platform: Platform,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct CompactAnime {
+    pub anilist_id: i32,
+    pub titles: Vec<String>,
+    pub year: i32,
+    pub start_date: Option<String>,
+    pub season_number: Option<i32>,
+    pub mappings: Vec<CompactMapping>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct ManualMappingRequest {
+    pub anilist_id: i32,
+    pub platform: Platform,
+    pub platform_id: String,
+    pub season_number: Option<i32>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Summary {
+    pub total_animes: usize,
+    pub total_tmdb_matched: usize,
+    pub total_tmdb_unmatched: usize,
+    pub total_tmdb_dropped: usize,
+    pub total_bgmtv_matched: usize,
+    pub total_bgmtv_unmatched: usize,
+    pub total_bgmtv_dropped: usize,
+}
+
+/// 单个年份的统计数据
+#[derive(Debug, Serialize, Deserialize)]
+pub struct YearStatistic {
+    pub year: i32,
+    pub total_animes: usize,
+    pub tmdb_matched: usize,
+    pub tmdb_unmatched: usize,
+    pub tmdb_dropped: usize,
+    pub bgmtv_matched: usize,
+    pub bgmtv_unmatched: usize,
+    pub bgmtv_dropped: usize,
+}
+
+/// 所有年份统计数据的集合
+#[derive(Debug, Serialize, Deserialize)]
+pub struct YearStatistics {
+    pub statistics: Vec<YearStatistic>,
+}

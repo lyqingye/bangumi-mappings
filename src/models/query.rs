@@ -3,6 +3,7 @@ use super::enums::Platform;
 use super::enums::ReviewStatus;
 use crate::api::types::Pagination;
 use crate::api::types::QueryAnimes;
+use crate::api::types::Summary;
 use crate::models::anime::Column as AnimeColumn;
 use crate::models::anime::Entity as AnimeEntity;
 use crate::models::anime::Model as Anime;
@@ -14,6 +15,7 @@ use chrono::Utc;
 use sea_orm::ColumnTrait;
 use sea_orm::JoinType;
 use sea_orm::Order;
+use sea_orm::PaginatorTrait;
 use sea_orm::QueryFilter;
 use sea_orm::QueryOrder;
 use sea_orm::QuerySelect;
@@ -220,6 +222,207 @@ impl DB {
             total,
             data: result,
         })
+    }
+
+    pub async fn summary(&self) -> Result<Summary> {
+        // 获取动漫总数
+        let total_animes = AnimeEntity::find().count(self.conn()).await? as usize;
+
+        // 获取各平台不同状态的映射数量
+        // TMDB平台 - 已匹配（Ready + Accepted + Rejected）
+        let total_tmdb_matched = AnimeMappingEntity::find()
+            .filter(AnimeMappingColumn::Platform.eq(Platform::Tmdb))
+            .filter(AnimeMappingColumn::ReviewStatus.is_in([
+                ReviewStatus::Ready,
+                ReviewStatus::Accepted,
+                ReviewStatus::Rejected,
+            ]))
+            .count(self.conn())
+            .await? as usize;
+
+        // TMDB平台 - 未匹配
+        let total_tmdb_unmatched = AnimeMappingEntity::find()
+            .filter(AnimeMappingColumn::Platform.eq(Platform::Tmdb))
+            .filter(AnimeMappingColumn::ReviewStatus.eq(ReviewStatus::UnMatched))
+            .count(self.conn())
+            .await? as usize;
+
+        // TMDB平台 - 已放弃
+        let total_tmdb_dropped = AnimeMappingEntity::find()
+            .filter(AnimeMappingColumn::Platform.eq(Platform::Tmdb))
+            .filter(AnimeMappingColumn::ReviewStatus.eq(ReviewStatus::Dropped))
+            .count(self.conn())
+            .await? as usize;
+
+        // BgmTv平台 - 已匹配（Ready + Accepted + Rejected）
+        let total_bgmtv_matched = AnimeMappingEntity::find()
+            .filter(AnimeMappingColumn::Platform.eq(Platform::BgmTv))
+            .filter(AnimeMappingColumn::ReviewStatus.is_in([
+                ReviewStatus::Ready,
+                ReviewStatus::Accepted,
+                ReviewStatus::Rejected,
+            ]))
+            .count(self.conn())
+            .await? as usize;
+
+        // BgmTv平台 - 未匹配
+        let total_bgmtv_unmatched = AnimeMappingEntity::find()
+            .filter(AnimeMappingColumn::Platform.eq(Platform::BgmTv))
+            .filter(AnimeMappingColumn::ReviewStatus.eq(ReviewStatus::UnMatched))
+            .count(self.conn())
+            .await? as usize;
+
+        // BgmTv平台 - 已放弃
+        let total_bgmtv_dropped = AnimeMappingEntity::find()
+            .filter(AnimeMappingColumn::Platform.eq(Platform::BgmTv))
+            .filter(AnimeMappingColumn::ReviewStatus.eq(ReviewStatus::Dropped))
+            .count(self.conn())
+            .await? as usize;
+
+        Ok(Summary {
+            total_animes,
+            total_tmdb_matched,
+            total_tmdb_unmatched,
+            total_tmdb_dropped,
+            total_bgmtv_matched,
+            total_bgmtv_unmatched,
+            total_bgmtv_dropped,
+        })
+    }
+
+    /// 按年份统计番剧的匹配情况（优化版本）
+    pub async fn get_year_statistics(&self) -> Result<crate::api::types::YearStatistics> {
+        use crate::api::types::{YearStatistic, YearStatistics};
+        use sea_orm::{ColumnTrait, QueryFilter, QueryOrder, QuerySelect};
+        use std::collections::HashMap;
+
+        // 获取所有年份列表（降序排列）
+        let years = AnimeEntity::find()
+            .select_only()
+            .column(AnimeColumn::Year)
+            .distinct()
+            .order_by(AnimeColumn::Year, Order::Desc)
+            .into_tuple::<i32>()
+            .all(self.conn())
+            .await?;
+
+        if years.is_empty() {
+            return Ok(YearStatistics { statistics: vec![] });
+        }
+
+        // 获取每个年份的动漫总数
+        let anime_counts: Vec<(i32, i64)> = AnimeEntity::find()
+            .select_only()
+            .column(AnimeColumn::Year)
+            .column_as(AnimeColumn::AnilistId.count(), "total")
+            .group_by(AnimeColumn::Year)
+            .order_by(AnimeColumn::Year, Order::Desc)
+            .into_tuple()
+            .all(self.conn())
+            .await?;
+
+        // 构建年份->数量的映射
+        let mut year_to_count: HashMap<i32, usize> = HashMap::new();
+        for (year, count) in anime_counts {
+            year_to_count.insert(year, count as usize);
+        }
+
+        // 构建结果
+        let mut year_stats: HashMap<i32, YearStatistic> = HashMap::new();
+
+        // 初始化所有年份的统计对象
+        for &year in &years {
+            let total = year_to_count.get(&year).copied().unwrap_or(0);
+            year_stats.insert(
+                year,
+                YearStatistic {
+                    year,
+                    total_animes: total,
+                    tmdb_matched: 0,
+                    tmdb_unmatched: 0,
+                    tmdb_dropped: 0,
+                    bgmtv_matched: 0,
+                    bgmtv_unmatched: 0,
+                    bgmtv_dropped: 0,
+                },
+            );
+        }
+
+        // 获取TMDB平台各状态的统计数据
+        let tmdb_stats: Vec<(i32, ReviewStatus, i64)> = AnimeMappingEntity::find()
+            .select_only()
+            .column(AnimeColumn::Year)
+            .column(AnimeMappingColumn::ReviewStatus)
+            .column_as(AnimeMappingColumn::AnilistId.count(), "count")
+            .join(
+                JoinType::InnerJoin,
+                AnimeMappingEntity::belongs_to(AnimeEntity)
+                    .from(AnimeMappingColumn::AnilistId)
+                    .to(AnimeColumn::AnilistId)
+                    .into(),
+            )
+            .filter(AnimeMappingColumn::Platform.eq(Platform::Tmdb))
+            .group_by(AnimeColumn::Year)
+            .group_by(AnimeMappingColumn::ReviewStatus)
+            .order_by(AnimeColumn::Year, Order::Desc)
+            .into_tuple()
+            .all(self.conn())
+            .await?;
+
+        // 更新TMDB统计数据
+        for (year, status, count) in tmdb_stats {
+            if let Some(stat) = year_stats.get_mut(&year) {
+                match status {
+                    // 所有已匹配状态都计入matched字段
+                    ReviewStatus::Ready | ReviewStatus::Accepted | ReviewStatus::Rejected => {
+                        stat.tmdb_matched += count as usize
+                    }
+                    ReviewStatus::UnMatched => stat.tmdb_unmatched = count as usize,
+                    ReviewStatus::Dropped => stat.tmdb_dropped = count as usize,
+                }
+            }
+        }
+
+        // 获取BgmTV平台各状态的统计数据
+        let bgmtv_stats: Vec<(i32, ReviewStatus, i64)> = AnimeMappingEntity::find()
+            .select_only()
+            .column(AnimeColumn::Year)
+            .column(AnimeMappingColumn::ReviewStatus)
+            .column_as(AnimeMappingColumn::AnilistId.count(), "count")
+            .join(
+                JoinType::InnerJoin,
+                AnimeMappingEntity::belongs_to(AnimeEntity)
+                    .from(AnimeMappingColumn::AnilistId)
+                    .to(AnimeColumn::AnilistId)
+                    .into(),
+            )
+            .filter(AnimeMappingColumn::Platform.eq(Platform::BgmTv))
+            .group_by(AnimeColumn::Year)
+            .group_by(AnimeMappingColumn::ReviewStatus)
+            .order_by(AnimeColumn::Year, Order::Desc)
+            .into_tuple()
+            .all(self.conn())
+            .await?;
+
+        // 更新BgmTV统计数据
+        for (year, status, count) in bgmtv_stats {
+            if let Some(stat) = year_stats.get_mut(&year) {
+                match status {
+                    // 所有已匹配状态都计入matched字段
+                    ReviewStatus::Ready | ReviewStatus::Accepted | ReviewStatus::Rejected => {
+                        stat.bgmtv_matched += count as usize
+                    }
+                    ReviewStatus::UnMatched => stat.bgmtv_unmatched = count as usize,
+                    ReviewStatus::Dropped => stat.bgmtv_dropped = count as usize,
+                }
+            }
+        }
+
+        // 转换为按年份排序的结果列表
+        let mut statistics: Vec<YearStatistic> = year_stats.into_values().collect();
+        statistics.sort_by(|a, b| b.year.cmp(&a.year)); // 降序排列
+
+        Ok(YearStatistics { statistics })
     }
 }
 

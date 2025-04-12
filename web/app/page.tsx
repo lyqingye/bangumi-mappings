@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useQueryClient } from "@tanstack/react-query"
-import { ChevronLeft, ChevronRight, RefreshCw, Search, Play, Plus, Pause, RotateCcw, Trash2 } from "lucide-react"
+import { ChevronLeft, ChevronRight, RefreshCw, Search, Play, Plus, Pause, RotateCcw, Trash2, Download, Upload, Minimize, BarChart } from "lucide-react"
 
 // 组件导入
 import { AnimeCard } from "@/components/anime-card"
@@ -17,8 +17,30 @@ import { containerVariants, itemVariants, statsVariants, statItemVariants } from
 import { hoverTransition } from "@/animations/transitions"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { createJob, listJobs, runJob, pauseJob, resumeJob, removeJob } from "@/lib/api/animes"
-import { JobDetails, Platform, Provider, ProviderModelMap, JobStatus } from "@/lib/types"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { 
+  createJob, 
+  getSummary, 
+  getYearStatistics,
+  listJobs, 
+  runJob, 
+  pauseJob, 
+  resumeJob, 
+  removeJob, 
+  exportAnimes, 
+  importAnimes, 
+  compactAnimes 
+} from "@/lib/api/animes"
+import { 
+  JobDetails, 
+  Platform, 
+  Provider, 
+  ProviderModelMap, 
+  JobStatus, 
+  Summary, 
+  YearStatistic,
+  YearStatistics
+} from "@/lib/types"
 import { 
   AlertDialog,
   AlertDialogAction,
@@ -31,19 +53,14 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 
-// 统计数据
-const statsData = [
-  { id: "total-entries", value: "1,245", label: "Total Entries", sublabel: "Database" },
-  { id: "matched-entries", value: "1,078", label: "Matched", sublabel: "Entries" },
-  { id: "unmatched-entries", value: "167", label: "Unmatched", sublabel: "Entries" },
-  { id: "tmdb-sources", value: "986", label: "TMDB", sublabel: "Sources" },
-  { id: "bgmtv-sources", value: "892", label: "BgmTV", sublabel: "Sources" },
-]
-
 // 在组件内，statsData下方添加一个常量
 export default function Home() {
   const [jobs, setJobs] = useState<JobDetails[]>([])
+  const [summary, setSummary] = useState<Summary | null>(null)
+  const [yearStats, setYearStats] = useState<YearStatistic[]>([])
   const [isLoading, setIsLoading] = useState(false)
+  const [isSummaryLoading, setIsSummaryLoading] = useState(false)
+  const [isYearStatsLoading, setIsYearStatsLoading] = useState(false)
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false)
   const [jobToRemove, setJobToRemove] = useState<{platform: Platform, year: number} | null>(null)
   const [jobForm, setJobForm] = useState({
@@ -51,10 +68,45 @@ export default function Home() {
     year: new Date().getFullYear(),
     provider: Provider.Deepseek,
   })
+  
+  // 数据导出/导入状态
+  const [isExportDialogOpen, setIsExportDialogOpen] = useState(false)
+  const [isImportDialogOpen, setIsImportDialogOpen] = useState(false)
+  const [dataYear, setDataYear] = useState<number>(new Date().getFullYear())
+  const [dataProcessing, setDataProcessing] = useState(false)
+  
+  // 统计数据显示状态
+  const [statsView, setStatsView] = useState<"summary" | "yearly">("summary")
 
   // 用于表格的布局常量
-  const TABLE_ROW_HEIGHT = "64px"; // 行高固定
-  const TABLE_MIN_HEIGHT = "50px"; // 表格最小高度
+  const TABLE_ROW_HEIGHT = "64px" // 行高固定
+  const TABLE_MIN_HEIGHT = "50px" // 表格最小高度
+
+  // 获取统计数据
+  const fetchSummary = async () => {
+    setIsSummaryLoading(true)
+    try {
+      const data = await getSummary()
+      setSummary(data)
+    } catch (error) {
+      console.error("Failed to fetch summary:", error)
+    } finally {
+      setIsSummaryLoading(false)
+    }
+  }
+  
+  // 获取年份统计数据
+  const fetchYearStatistics = async () => {
+    setIsYearStatsLoading(true)
+    try {
+      const data = await getYearStatistics()
+      setYearStats(data.statistics)
+    } catch (error) {
+      console.error("Failed to fetch year statistics:", error)
+    } finally {
+      setIsYearStatsLoading(false)
+    }
+  }
 
   // 获取任务列表
   const fetchJobs = async () => {
@@ -162,9 +214,59 @@ export default function Home() {
     }
   }
 
-  // 初始加载任务列表
+  // 导出数据
+  const handleExportData = async () => {
+    try {
+      setDataProcessing(true)
+      await exportAnimes(dataYear)
+      setIsExportDialogOpen(false)
+      alert(`成功导出${dataYear}年数据`)
+      // 刷新统计数据
+      fetchSummary()
+    } catch (error) {
+      console.error("导出数据失败:", error)
+      alert(`导出数据失败: ${error}`)
+    } finally {
+      setDataProcessing(false)
+    }
+  }
+
+  // 导入数据
+  const handleImportData = async () => {
+    try {
+      setDataProcessing(true)
+      await importAnimes(dataYear)
+      setIsImportDialogOpen(false)
+      alert(`成功导入${dataYear}年数据`)
+      // 刷新统计数据
+      fetchSummary()
+    } catch (error) {
+      console.error("导入数据失败:", error)
+      alert(`导入数据失败: ${error}`)
+    } finally {
+      setDataProcessing(false)
+    }
+  }
+
+  // 压缩数据
+  const handleCompactData = async () => {
+    try {
+      setDataProcessing(true)
+      await compactAnimes()
+      alert('成功压缩数据')
+    } catch (error) {
+      console.error("压缩数据失败:", error)
+      alert(`压缩数据失败: ${error}`)
+    } finally {
+      setDataProcessing(false)
+    }
+  }
+
+  // 初始加载任务列表和统计数据
   useEffect(() => {
     fetchJobs()
+    fetchSummary()
+    fetchYearStatistics()
     
     // 设置3秒刷新一次的定时器
     const intervalId = setInterval(() => {
@@ -174,6 +276,39 @@ export default function Home() {
     // 组件卸载时清除定时器
     return () => clearInterval(intervalId)
   }, [])
+
+  // 构建统计卡片数据
+  const buildStatsData = () => {
+    if (!summary) {
+      return [
+        { id: "total_animes", value: "-", label: "总动漫数", sublabel: "Database" },
+        { id: "total_tmdb_matched", value: "-", label: "TMDB已匹配", sublabel: "Matched" },
+        { id: "total_tmdb_unmatched", value: "-", label: "TMDB未匹配", sublabel: "Unmatched" },
+        { id: "total_tmdb_dropped", value: "-", label: "TMDB已放弃", sublabel: "Dropped" },
+        { id: "total_bgmtv_matched", value: "-", label: "BgmTV已匹配", sublabel: "Matched" },
+        { id: "total_bgmtv_unmatched", value: "-", label: "BgmTV未匹配", sublabel: "Unmatched" },
+        { id: "total_bgmtv_dropped", value: "-", label: "BgmTV已放弃", sublabel: "Dropped" },
+      ]
+    }
+
+    return [
+      { id: "total_animes", value: summary.total_animes.toLocaleString(), label: "总动漫数", sublabel: "Database" },
+      { id: "total_tmdb_matched", value: summary.total_tmdb_matched.toLocaleString(), label: "TMDB已匹配", sublabel: "Matched" },
+      { id: "total_tmdb_unmatched", value: summary.total_tmdb_unmatched.toLocaleString(), label: "TMDB未匹配", sublabel: "Unmatched" },
+      { id: "total_tmdb_dropped", value: summary.total_tmdb_dropped.toLocaleString(), label: "TMDB已放弃", sublabel: "Dropped" },
+      { id: "total_bgmtv_matched", value: summary.total_bgmtv_matched.toLocaleString(), label: "BgmTV已匹配", sublabel: "Matched" },
+      { id: "total_bgmtv_unmatched", value: summary.total_bgmtv_unmatched.toLocaleString(), label: "BgmTV未匹配", sublabel: "Unmatched" },
+      { id: "total_bgmtv_dropped", value: summary.total_bgmtv_dropped.toLocaleString(), label: "BgmTV已放弃", sublabel: "Dropped" },
+    ]
+  }
+
+  const statsData = buildStatsData();
+
+  // 获取进度百分比的计算函数
+  const getCompletionPercent = (matched: number, unmatched: number, dropped: number, total: number) => {
+    const processedCount = matched + dropped;
+    return total > 0 ? Math.round((processedCount / total) * 100) : 0;
+  }
 
   return (
     <PageTransition>
@@ -204,41 +339,272 @@ export default function Home() {
         </motion.div>
 
         <div className="w-full px-6 py-6">
-          {/* Stats Cards */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6"
-            variants={statsVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {statsData.map((stat) => (
+          {/* 统计视图切换标签 */}
+          <div className="mb-4 flex justify-between items-center">
+            <Tabs value={statsView} onValueChange={(v) => setStatsView(v as "summary" | "yearly")} className="w-[400px]">
+              <TabsList className="bg-[#111] border border-[#333]">
+                <TabsTrigger value="summary" className="data-[state=active]:bg-[#222]">
+                  总体统计
+                </TabsTrigger>
+                <TabsTrigger value="yearly" className="data-[state=active]:bg-[#222]">
+                  年份统计
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
+            
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="border-[#333] text-[#777] hover:text-white"
+              onClick={() => {
+                fetchSummary();
+                fetchYearStatistics();
+              }}
+            >
+              <RefreshCw className="mr-2 h-4 w-4" />
+              刷新统计
+            </Button>
+          </div>
+          
+          {/* 统计视图内容 */}
+          <AnimatePresence mode="wait">
+            {statsView === "summary" ? (
+              /* 总体统计卡片 */
               <motion.div
-                key={stat.id}
-                className="bg-[#111] border border-[#222] rounded-lg p-4"
-                variants={statItemVariants}
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-                  transition: hoverTransition,
-                }}
+                key="summary-stats"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4 mb-6"
+                variants={statsVariants}
+                initial="hidden"
+                animate="visible"
+                exit={{ opacity: 0, transition: { duration: 0.2 } }}
               >
-                <div className="text-3xl font-bold mb-1">{stat.value}</div>
-                <div className="text-sm text-[#777]">{stat.label}</div>
-                <div className="text-xs text-[#555]">{stat.sublabel}</div>
+                {statsData.map((stat) => (
+                  <motion.div
+                    key={stat.id}
+                    className="bg-[#111] border border-[#222] rounded-lg p-4"
+                    variants={statItemVariants}
+                    whileHover={{
+                      scale: 1.02,
+                      boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                      transition: hoverTransition,
+                    }}
+                  >
+                    <div className="text-3xl font-bold mb-1">{stat.value}</div>
+                    <div className="text-sm text-[#777]">{stat.label}</div>
+                    <div className="text-xs text-[#555]">{stat.sublabel}</div>
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
+            ) : (
+              /* 年份统计表格 */
+              <motion.div
+                key="yearly-stats"
+                className="bg-[#111] border border-[#222] rounded-lg overflow-hidden mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.3 }}
+              >
+                {isYearStatsLoading ? (
+                  <div className="p-8 text-center text-[#777]">加载年份统计数据中...</div>
+                ) : yearStats.length === 0 ? (
+                  <div className="p-8 text-center text-[#777]">暂无年份统计数据</div>
+                ) : (
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="border-b border-[#222] bg-[#1a1a1a]">
+                          <th className="px-4 py-3 text-left text-xs font-medium text-[#777] uppercase">年份</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-[#777] uppercase">总动漫数</th>
+                          <th className="px-4 py-3 text-center text-xs font-medium text-[#777] uppercase" colSpan={4}>TMDB</th>
+                          <th className="px-4 py-3 text-center text-xs font-medium text-[#777] uppercase" colSpan={4}>BgmTV</th>
+                        </tr>
+                        <tr className="border-b border-[#222] bg-[#1a1a1a]">
+                          <th className="px-4 py-2"></th>
+                          <th className="px-4 py-2"></th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">已匹配</th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">未匹配</th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">已放弃</th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">完成率</th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">已匹配</th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">未匹配</th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">已放弃</th>
+                          <th className="px-4 py-2 text-left text-xs font-medium text-[#777]">完成率</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {yearStats.map((stat) => {
+                          const tmdbCompletionPercent = getCompletionPercent(
+                            stat.tmdb_matched, 
+                            stat.tmdb_unmatched, 
+                            stat.tmdb_dropped,
+                            stat.total_animes
+                          );
+                          
+                          const bgmtvCompletionPercent = getCompletionPercent(
+                            stat.bgmtv_matched, 
+                            stat.bgmtv_unmatched, 
+                            stat.bgmtv_dropped,
+                            stat.total_animes
+                          );
+                          
+                          return (
+                            <motion.tr 
+                              key={stat.year}
+                              className="border-b border-[#222] hover:bg-[#1a1a1a]"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <td className="px-4 py-3 text-sm font-medium">{stat.year}</td>
+                              <td className="px-4 py-3 text-sm">{stat.total_animes}</td>
+                              
+                              {/* TMDB 统计 */}
+                              <td className="px-4 py-3 text-sm text-green-400">{stat.tmdb_matched}</td>
+                              <td className="px-4 py-3 text-sm text-yellow-400">{stat.tmdb_unmatched}</td>
+                              <td className="px-4 py-3 text-sm text-red-400">{stat.tmdb_dropped}</td>
+                              <td className="px-4 py-3 text-sm">
+                                <div className="flex items-center space-x-2">
+                                  <div className="w-full h-1.5 bg-[#222] rounded-full overflow-hidden">
+                                    <div 
+                                      className="h-full bg-blue-500 rounded-full" 
+                                      style={{ width: `${tmdbCompletionPercent}%` }}
+                                    ></div>
+                                  </div>
+                                  <span className="text-xs text-[#777]">{tmdbCompletionPercent}%</span>
+                                </div>
+                              </td>
+                              
+                              {/* BgmTV 统计 */}
+                              <td className="px-4 py-3 text-sm text-green-400">{stat.bgmtv_matched}</td>
+                              <td className="px-4 py-3 text-sm text-yellow-400">{stat.bgmtv_unmatched}</td>
+                              <td className="px-4 py-3 text-sm text-red-400">{stat.bgmtv_dropped}</td>
+                              <td className="px-4 py-3 text-sm">
+                                <div className="flex items-center space-x-2">
+                                  <div className="w-full h-1.5 bg-[#222] rounded-full overflow-hidden">
+                                    <div 
+                                      className="h-full bg-blue-500 rounded-full" 
+                                      style={{ width: `${bgmtvCompletionPercent}%` }}
+                                    ></div>
+                                  </div>
+                                  <span className="text-xs text-[#777]">{bgmtvCompletionPercent}%</span>
+                                </div>
+                              </td>
+                            </motion.tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* 任务列表 */}
           <div className="mb-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-white">任务列表</h2>
               <div className="flex gap-2">
+                {/* 数据操作按钮组 */}
+                <div className="flex gap-2 mr-4">
+                  <Dialog open={isExportDialogOpen} onOpenChange={setIsExportDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="border-[#333] text-[#777] hover:text-white"
+                        disabled={dataProcessing}
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        导出数据
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-[#111] border-[#333] text-white">
+                      <DialogHeader>
+                        <DialogTitle>导出年份数据</DialogTitle>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="grid gap-2">
+                          <label className="text-sm text-[#777]">年份</label>
+                          <Input 
+                            type="number" 
+                            value={dataYear} 
+                            onChange={(e) => setDataYear(parseInt(e.target.value))}
+                            className="bg-[#222] border-[#333] text-white"
+                          />
+                        </div>
+                        
+                        <Button 
+                          onClick={handleExportData}
+                          className="bg-[#333] hover:bg-[#444] text-white"
+                          disabled={dataProcessing}
+                        >
+                          {dataProcessing ? '处理中...' : '导出'}
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                  
+                  <Dialog open={isImportDialogOpen} onOpenChange={setIsImportDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="border-[#333] text-[#777] hover:text-white"
+                        disabled={dataProcessing}
+                      >
+                        <Upload className="mr-2 h-4 w-4" />
+                        导入数据
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="bg-[#111] border-[#333] text-white">
+                      <DialogHeader>
+                        <DialogTitle>导入年份数据</DialogTitle>
+                      </DialogHeader>
+                      <div className="grid gap-4 py-4">
+                        <div className="grid gap-2">
+                          <label className="text-sm text-[#777]">年份</label>
+                          <Input 
+                            type="number" 
+                            value={dataYear} 
+                            onChange={(e) => setDataYear(parseInt(e.target.value))}
+                            className="bg-[#222] border-[#333] text-white"
+                          />
+                        </div>
+                        
+                        <Button 
+                          onClick={handleImportData}
+                          className="bg-[#333] hover:bg-[#444] text-white"
+                          disabled={dataProcessing}
+                        >
+                          {dataProcessing ? '处理中...' : '导入'}
+                        </Button>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                  
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="border-[#333] text-[#777] hover:text-white"
+                    onClick={handleCompactData}
+                    disabled={dataProcessing}
+                  >
+                    <Minimize className="mr-2 h-4 w-4" />
+                    压缩数据
+                  </Button>
+                </div>
+                
                 <Button 
                   variant="outline" 
                   size="sm" 
                   className="border-[#333] text-[#777] hover:text-white"
-                  onClick={fetchJobs}
+                  onClick={() => {
+                    fetchJobs();
+                    fetchSummary();
+                    fetchYearStatistics();
+                  }}
                 >
                   <RefreshCw className="mr-2 h-4 w-4" />
                   刷新

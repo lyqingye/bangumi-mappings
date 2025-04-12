@@ -1,8 +1,16 @@
 import { apiClient } from "./api-client"
-import type { Anime, JobDetails, PaginatedResult, PaginationParams, Platform, Provider, ReviewStatus } from "../types"
+import type { Anime, JobDetails, PaginatedResult, PaginationParams, Platform, Provider, ReviewStatus, Summary, YearStatistics } from "../types"
 
 function fetchAnimes(params: PaginationParams): Promise<PaginatedResult<Anime>> {
     return apiClient.post<PaginatedResult<Anime>>("/api/animes/page", params)
+}
+
+function getSummary(): Promise<Summary> {
+    return apiClient.get<Summary>("/api/animes/summary")
+}
+
+function getYearStatistics(): Promise<YearStatistics> {
+    return apiClient.get<YearStatistics>("/api/animes/year-statistics")
 }
 
 function reviewAnime(anilist_id: number, platform: Platform, status: ReviewStatus): Promise<void> {
@@ -34,4 +42,17 @@ function listJobs(): Promise<JobDetails[]> {
     return apiClient.get<JobDetails[]>('/api/job/list')
 }
 
-export { fetchAnimes, reviewAnime, createJob, runJob, pauseJob, resumeJob, removeJob, listJobs }
+// 数据导出/导入相关API
+function exportAnimes(year: number): Promise<void> {
+    return apiClient.get<void>(`/api/export/animes/${year}`)
+}
+
+function importAnimes(year: number): Promise<void> {
+    return apiClient.get<void>(`/api/import/animes/${year}`)
+}
+
+function compactAnimes(): Promise<void> {
+    return apiClient.get<void>('/api/compact/animes/dir')
+}
+
+export { fetchAnimes, getSummary, getYearStatistics, reviewAnime, createJob, runJob, pauseJob, resumeJob, removeJob, listJobs, exportAnimes, importAnimes, compactAnimes }

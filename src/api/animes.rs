@@ -1,8 +1,10 @@
+use crate::api::types::{ManualMappingRequest, Summary, YearStatistics};
 use crate::errors::Result;
 use crate::{
     api::types::{Anime, Mapping, Pagination, QueryAnimes, Resp},
     server::AppState,
 };
+use actix_web::get;
 use actix_web::{
     post,
     web::{self, Json},
@@ -41,4 +43,39 @@ pub async fn query_animes(
         total: query_result.total,
         data: animes,
     }))))
+}
+
+#[get("/api/anime/{anilist_id}/manual_mapping/{platform}/{platform_id}/{season_number}")]
+pub async fn manual_mapping(
+    state: web::Data<AppState>,
+    request: web::Json<ManualMappingRequest>,
+) -> Result<Json<Resp<()>>> {
+    if let Some(season_number) = request.season_number {
+        state
+            .db
+            .update_season_number(request.anilist_id, season_number)
+            .await?;
+    }
+    state
+        .db
+        .update_anime_mapping(
+            request.anilist_id,
+            request.platform.clone(),
+            request.platform_id.clone(),
+            100,
+        )
+        .await?;
+    Ok(Json(Resp::ok(None)))
+}
+
+#[get("/api/animes/summary")]
+pub async fn summary(state: web::Data<AppState>) -> Result<Json<Resp<Summary>>> {
+    let summary = state.db.summary().await?;
+    Ok(Json(Resp::ok(Some(summary))))
+}
+
+#[get("/api/animes/year-statistics")]
+pub async fn year_statistics(state: web::Data<AppState>) -> Result<Json<Resp<YearStatistics>>> {
+    let statistics = state.db.get_year_statistics().await?;
+    Ok(Json(Resp::ok(Some(statistics))))
 }

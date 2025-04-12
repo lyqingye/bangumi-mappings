@@ -74,3 +74,29 @@ export interface JobDetails {
   status: JobStatus
   current_index: number
 }
+
+export interface Summary {
+  total_animes: number
+  total_tmdb_matched: number
+  total_tmdb_unmatched: number
+  total_tmdb_dropped: number
+  total_bgmtv_matched: number
+  total_bgmtv_unmatched: number
+  total_bgmtv_dropped: number
+}
+
+// 年份统计相关类型
+export interface YearStatistic {
+  year: number
+  total_animes: number
+  tmdb_matched: number
+  tmdb_unmatched: number
+  tmdb_dropped: number
+  bgmtv_matched: number
+  bgmtv_unmatched: number
+  bgmtv_dropped: number
+}
+
+export interface YearStatistics {
+  statistics: YearStatistic[]
+}

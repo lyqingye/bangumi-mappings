@@ -14,6 +14,9 @@ pub enum Error {
 
     #[error("json error: {0}")]
     JsonError(#[from] serde_json::Error),
+
+    #[error("file error: {0}")]
+    FileError(#[from] std::io::Error),
 }
 
 impl ResponseError for Error {
