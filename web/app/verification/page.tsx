@@ -224,35 +224,45 @@ function useAnimeVerificationSystem() {
     }
   }, [animeList, currentAnimeId, queryParams, updateQueryAndFetch, toast]);
   
-  // 审核操作
-  const reviewAnimeStatus = useCallback(async (status: ReviewStatus) => {
-    if (!currentAnimeId || !currentPlatform || !currentMapping) return;
+  // 核心更新函数 - 处理动画映射状态更新的通用逻辑
+  const updateAnimeMappings = useCallback(async (
+    animeId: number,
+    status: ReviewStatus,
+    targetPlatforms: 'current' | 'all' | 'unmatched',
+    currentPlatform?: Platform
+  ) => {
+    if (!animeId) return null;
     
     try {
       setUpdatingStatus(status);
       
-      // 如果状态是Dropped，处理所有UnMatched的映射
-      if (status === ReviewStatus.Dropped) {
-        // 先进行乐观更新
-        if (!animeList) return;
-        
-        // 创建新的列表和数据，保持不可变性
-        const newList = { ...animeList };
-        const newData = [...newList.data];
-        
-        // 找到当前动漫
-        const animeIndex = newData.findIndex(a => a.anilist_id === currentAnimeId);
-        if (animeIndex === -1) return;
-        
-        const anime = { ...newData[animeIndex] };
-        const newMappings = [...anime.mappings];
-        
-        // 记录所有需要更新的映射
-        const mappingsToUpdate: { platform: Platform, oldStatus: ReviewStatus }[] = [];
-        
-        // 先更新当前平台的映射
+      // 验证必要参数
+      if (targetPlatforms === 'current' && !currentPlatform) {
+        throw new Error('当前平台操作需要指定平台');
+      }
+      
+      // 准备乐观更新
+      if (!animeList) return null;
+      
+      // 创建新的列表和数据，保持不可变性
+      const newList = { ...animeList };
+      const newData = [...newList.data];
+      
+      // 找到当前动漫
+      const animeIndex = newData.findIndex(a => a.anilist_id === animeId);
+      if (animeIndex === -1) return null;
+      
+      const anime = { ...newData[animeIndex] };
+      const newMappings = [...anime.mappings];
+      
+      // 记录所有需要更新的映射
+      const mappingsToUpdate: { platform: Platform, oldStatus: ReviewStatus }[] = [];
+      
+      // 根据目标平台选择需要更新的映射
+      if (targetPlatforms === 'current' && currentPlatform) {
+        // 只更新当前平台
         const currentMappingIndex = newMappings.findIndex(m => m.platform === currentPlatform);
-        if (currentMappingIndex >= 0) {
+        if (currentMappingIndex >= 0 && newMappings[currentMappingIndex].review_status === ReviewStatus.Ready) {
           mappingsToUpdate.push({
             platform: currentPlatform,
             oldStatus: newMappings[currentMappingIndex].review_status
@@ -263,10 +273,10 @@ function useAnimeVerificationSystem() {
             review_status: status
           };
         }
-        
-        // 再找出所有UnMatched状态的映射并更新
+      } else if (targetPlatforms === 'unmatched') {
+        // 更新所有UnMatched状态的映射
         newMappings.forEach((mapping, index) => {
-          if (mapping.review_status === ReviewStatus.UnMatched && mapping.platform !== currentPlatform) {
+          if (mapping.review_status === ReviewStatus.UnMatched) {
             mappingsToUpdate.push({
               platform: mapping.platform,
               oldStatus: mapping.review_status
@@ -279,106 +289,171 @@ function useAnimeVerificationSystem() {
           }
         });
         
-        // 更新动漫的映射
-        anime.mappings = newMappings;
-        newData[animeIndex] = anime;
-        
-        // 更新列表数据
-        newList.data = newData;
-        setAnimeList(newList);
-        
-        // 对所有更新的映射调用API
-        const apiCalls = mappingsToUpdate.map(item => 
-          reviewAnime(currentAnimeId, item.platform, status)
-        );
-        
-        // 并行执行所有API调用
-        await Promise.all(apiCalls);
-        
-        // 显示成功提示
-        toast({
-          title: "状态已更新",
-          description: `已将${mappingsToUpdate.length}个映射标记为已丢弃`,
-          duration: 3000,
-        });
-        
-        // 判断是否所有平台都已审核完毕
-        const allVerified = newMappings.every(m => m.review_status !== ReviewStatus.Ready);
-        if (allVerified) {
-          // 所有平台都已审核，跳转到下一个动漫
-          navigateToNextAnime();
-        } else {
-          // 寻找下一个待审核平台
-          const nextPlatform = findFirstPendingPlatform(newMappings);
-          if (nextPlatform) {
-            setCurrentPlatform(nextPlatform);
-            toast({
-              title: "自动切换数据源",
-              description: `已切换到 ${PlatformLabels[nextPlatform]} 数据源进行验证`,
-              duration: 2000,
+        // 如果有指定当前平台，确保它也被更新
+        if (currentPlatform) {
+          const currentMappingIndex = newMappings.findIndex(m => m.platform === currentPlatform);
+          if (currentMappingIndex >= 0 && !mappingsToUpdate.some(m => m.platform === currentPlatform)) {
+            mappingsToUpdate.push({
+              platform: currentPlatform,
+              oldStatus: newMappings[currentMappingIndex].review_status
             });
-          } else {
-            navigateToNextAnime();
+            
+            newMappings[currentMappingIndex] = {
+              ...newMappings[currentMappingIndex],
+              review_status: status
+            };
           }
         }
-      } else {
-        // 常规状态更新 - 只处理当前平台
-        // 先进行乐观更新
-        const updates = updateAnimeStatus(currentAnimeId, currentPlatform, status);
-        if (!updates) return;
-        
-        // 发送API请求
-        await reviewAnime(currentAnimeId, currentPlatform, status);
-        
-        // 显示成功提示
-        toast({
-          title: "状态已更新",
-          description: `${PlatformLabels[currentPlatform]} 验证状态已更新为 ${getStatusLabel(status).label}`,
-          duration: 3000,
-        });
-        
-        // 判断是否需要切换平台或跳转到下一个动漫
-        const allVerified = updates.updatedMapping.every(m => m.review_status !== ReviewStatus.Ready);
-        
-        if (allVerified) {
-          // 所有平台都已审核，跳转到下一个动漫
-          navigateToNextAnime();
-        } else {
-          // 寻找下一个待审核平台
-          const nextPlatform = findFirstPendingPlatform(updates.updatedMapping);
-          if (nextPlatform) {
-            setCurrentPlatform(nextPlatform);
-            toast({
-              title: "自动切换数据源",
-              description: `已切换到 ${PlatformLabels[nextPlatform]} 数据源进行验证`,
-              duration: 2000,
+      } else if (targetPlatforms === 'all') {
+        // 更新所有Ready状态的映射
+        newMappings.forEach((mapping, index) => {
+          if (mapping.review_status === ReviewStatus.Ready) {
+            mappingsToUpdate.push({
+              platform: mapping.platform,
+              oldStatus: mapping.review_status
             });
-          } else {
-            navigateToNextAnime();
+            
+            newMappings[index] = {
+              ...mapping,
+              review_status: status
+            };
           }
-        }
+        });
       }
+      
+      // 如果没有找到可以更新的映射，提示并返回
+      if (mappingsToUpdate.length === 0) {
+        toast({
+          title: "提示",
+          description: "没有可更新的映射",
+          duration: 2000,
+        });
+        return null;
+      }
+      
+      // 更新动漫的映射
+      anime.mappings = newMappings;
+      newData[animeIndex] = anime;
+      
+      // 更新列表数据
+      newList.data = newData;
+      setAnimeList(newList);
+      
+      // 对所有更新的映射调用API
+      const apiCalls = mappingsToUpdate.map(item => 
+        reviewAnime(animeId, item.platform, status)
+      );
+      
+      // 并行执行所有API调用
+      await Promise.all(apiCalls);
+      
+      // 构建并显示成功提示
+      let toastMessage = '';
+      
+      if (targetPlatforms === 'current' && currentPlatform) {
+        toastMessage = `${PlatformLabels[currentPlatform]} 验证状态已更新为 ${getStatusLabel(status).label}`;
+      } else if (targetPlatforms === 'unmatched') {
+        toastMessage = `已将${mappingsToUpdate.length}个映射标记为已丢弃`;
+      } else {
+        const actionText = status === ReviewStatus.Accepted ? "接受" : "拒绝";
+        toastMessage = `已将所有${mappingsToUpdate.length}个映射标记为已${actionText}`;
+      }
+      
+      toast({
+        title: "状态已更新",
+        description: toastMessage,
+        duration: 3000,
+      });
+      
+      // 返回更新后的映射以便后续使用
+      return {
+        updatedMappings: newMappings
+      };
+      
     } catch (error) {
       console.error("更新状态失败:", error);
       setError("更新状态失败，请稍后重试");
       
       // 发生错误，重新获取数据恢复状态
       fetchAnimeList(queryParams);
+      return null;
     } finally {
       setUpdatingStatus(null);
+    }
+  }, [animeList, setUpdatingStatus, toast, setError, fetchAnimeList, queryParams]);
+
+  // 审核单个平台操作 - 简化版
+  const reviewAnimeStatus = useCallback(async (status: ReviewStatus) => {
+    if (!currentAnimeId || !currentPlatform || !currentMapping) return;
+    
+    try {
+      // 使用核心函数处理特定状态
+      let result;
+      
+      // 如果是丢弃操作，设置为处理所有未匹配的映射
+      if (status === ReviewStatus.Dropped) {
+        result = await updateAnimeMappings(currentAnimeId, status, 'unmatched', currentPlatform);
+      } else {
+        // 否则只处理当前平台
+        result = await updateAnimeMappings(currentAnimeId, status, 'current', currentPlatform);
+      }
+      
+      if (!result) return;
+      
+      // 检查是否所有平台都已审核完毕
+      const allVerified = result.updatedMappings.every(m => m.review_status !== ReviewStatus.Ready);
+      
+      if (allVerified) {
+        // 所有平台都已审核，跳转到下一个动漫
+        navigateToNextAnime();
+      } else {
+        // 寻找下一个待审核平台
+        const nextPlatform = findFirstPendingPlatform(result.updatedMappings);
+        if (nextPlatform) {
+          setCurrentPlatform(nextPlatform);
+          toast({
+            title: "自动切换数据源",
+            description: `已切换到 ${PlatformLabels[nextPlatform]} 数据源进行验证`,
+            duration: 2000,
+          });
+        } else {
+          navigateToNextAnime();
+        }
+      }
+    } catch (error) {
+      console.error("审核操作失败:", error);
     }
   }, [
     currentAnimeId, 
     currentPlatform, 
     currentMapping,
-    animeList,
-    updateAnimeStatus, 
-    toast, 
+    updateAnimeMappings, 
     navigateToNextAnime, 
     findFirstPendingPlatform, 
-    setError, 
-    fetchAnimeList, 
-    queryParams
+    setCurrentPlatform,
+    toast
+  ]);
+  
+  // 处理所有平台的状态更新（全部接受或全部拒绝）- 简化版
+  const reviewAllPlatforms = useCallback(async (status: ReviewStatus) => {
+    if (!currentAnimeId || !mapping) return;
+    
+    try {
+      // 使用核心函数处理所有平台
+      const result = await updateAnimeMappings(currentAnimeId, status, 'all');
+      
+      if (result) {
+        // 所有平台都已审核，跳转到下一个动漫
+        navigateToNextAnime();
+      }
+    } catch (error) {
+      console.error("批量审核操作失败:", error);
+    }
+  }, [
+    currentAnimeId,
+    mapping, 
+    updateAnimeMappings,
+    navigateToNextAnime
   ]);
   
   // 手动刷新数据
@@ -421,6 +496,7 @@ function useAnimeVerificationSystem() {
     changeTab,
     changePage,
     reviewAnimeStatus,
+    reviewAllPlatforms,
     refreshList
   };
 }
@@ -443,6 +519,7 @@ export default function VerificationPage() {
     changeTab,
     changePage,
     reviewAnimeStatus,
+    reviewAllPlatforms,
     refreshList
   } = useAnimeVerificationSystem();
   
@@ -462,7 +539,7 @@ export default function VerificationPage() {
     isLoading: isTmdbLoading, 
     isError: isTmdbError 
   } = useTMDBAnimeComplete(
-    currentPlatform === Platform.Tmdb && mapping?.platformIds?.[Platform.Tmdb]
+    mapping?.platformIds?.[Platform.Tmdb]
       ? mapping.platformIds[Platform.Tmdb] 
       : undefined
   );
@@ -473,7 +550,7 @@ export default function VerificationPage() {
     isLoading: isBgmtvLoading, 
     isError: isBgmtvError 
   } = useBGMTVAnimeDetail(
-    currentPlatform === Platform.BgmTv && mapping?.platformIds?.[Platform.BgmTv]
+    mapping?.platformIds?.[Platform.BgmTv]
       ? mapping.platformIds[Platform.BgmTv] 
       : undefined
   );
@@ -499,30 +576,30 @@ export default function VerificationPage() {
   }, [activeTab, changeTab]);
   
   // 渲染平台面板
-  const renderPlatformPanel = useCallback(() => {
-    const hasCurrentPlatformData = !!mapping?.platformIds?.[currentPlatform];
+  const renderPlatformPanel = useCallback((platform: Platform) => {
+    const hasData = !!mapping?.platformIds?.[platform];
     
-    switch (currentPlatform) {
+    switch (platform) {
       case Platform.Tmdb:
-        return tmdbData && hasCurrentPlatformData 
+        return tmdbData && hasData 
           ? <TMDBPanel data={tmdbData} mapping={mapping} /> 
-          : renderNoDataPanel();
+          : renderNoDataPanel(platform);
       case Platform.BgmTv:
-        return bgmtvData && hasCurrentPlatformData
+        return bgmtvData && hasData
           ? <BGMTVPanel data={bgmtvData} mapping={mapping} /> 
-          : renderNoDataPanel();
+          : renderNoDataPanel(platform);
       default:
-        return renderNoDataPanel();
+        return renderNoDataPanel(platform);
     }
-  }, [currentPlatform, mapping, tmdbData, bgmtvData]);
+  }, [mapping, tmdbData, bgmtvData]);
   
   // 无数据面板
-  const renderNoDataPanel = useCallback(() => (
+  const renderNoDataPanel = useCallback((platform: Platform) => (
     <div className="bg-[#111] border border-[#222] rounded-lg p-6 h-[450px] flex items-center justify-center">
       <div className="text-center">
         <AlertTriangle className="h-10 w-10 text-yellow-500 mx-auto mb-4" />
-        <h3 className="text-lg font-medium mb-2">无数据可用</h3>
-        <p className="text-[#777]">无法加载所选数据源的数据。</p>
+        <h3 className="text-lg font-medium mb-2">无{PlatformLabels[platform]}数据</h3>
+        <p className="text-[#777]">无法加载{PlatformLabels[platform]}数据源的数据。</p>
       </div>
     </div>
   ), []);
@@ -535,12 +612,12 @@ export default function VerificationPage() {
       <div className="min-h-screen bg-[#0a0a0a]">
         {/* Header */}
         <motion.div
-          className="border-b border-[#222] bg-[#111]"
+          className="border-b border-[#222] bg-[#111] w-full"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="container mx-auto px-4 py-3">
+          <div className="w-full px-6 py-3">
             <div className="flex items-center justify-between">
               <h1 className="text-xl font-bold">动漫审核系统</h1>
 
@@ -555,7 +632,7 @@ export default function VerificationPage() {
           </div>
         </motion.div>
 
-        <div className="container mx-auto px-4 py-6">
+        <div className="w-full px-6 py-6">
           {/* Filter Tabs */}
           <motion.div
             className="bg-[#111] border border-[#222] rounded-lg p-1 mb-6 flex flex-wrap justify-center"
@@ -777,86 +854,162 @@ export default function VerificationPage() {
                       </div>
                     </div>
 
-                    {/* 数据源比较 */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                      {/* 左侧面板 - AniList */}
-                      {anilistData && <AniListPanel data={anilistData} />}
+                    {/* 数据源比较 - 三列布局 */}
+                    <div className="mb-6">
+                      <h3 className="text-lg font-medium mb-4 text-white">数据源比较</h3>
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        {/* AniList */}
+                        <div>
+                          <div className="bg-[#111] border border-[#222] rounded-lg overflow-hidden">
+                            <div className="bg-purple-900/30 text-purple-300 py-2 px-4 font-medium border-b border-[#222]">
+                              AniList
+                            </div>
+                            <div className="p-4">
+                              {anilistData && <AniListPanel data={anilistData} />}
+                            </div>
+                          </div>
+                        </div>
 
-                      {/* 右侧面板 */}
-                      <div className="relative">
-                        {renderPlatformPanel()}
+                        {/* TMDB */}
+                        <div>
+                          <div className="bg-[#111] border border-[#222] rounded-lg overflow-hidden">
+                            <div className="bg-blue-900/30 text-blue-300 py-2 px-4 font-medium border-b border-[#222]">
+                              TMDB
+                            </div>
+                            <div className="p-4">
+                              {renderPlatformPanel(Platform.Tmdb)}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Bangumi */}
+                        <div>
+                          <div className="bg-[#111] border border-[#222] rounded-lg overflow-hidden">
+                            <div className="bg-green-900/30 text-green-300 py-2 px-4 font-medium border-b border-[#222]">
+                              Bangumi
+                            </div>
+                            <div className="p-4">
+                              {renderPlatformPanel(Platform.BgmTv)}
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   {/* 审核操作栏 - 移到底部 */}
                   <div className="mt-6 bg-[#111] border border-[#222] rounded-lg p-6 sticky bottom-0">
-                    <div className="flex flex-wrap items-center justify-between gap-4">
-                      {/* 审核按钮组 */}
-                      <div className="flex items-center gap-4">
-                        <Button
-                          size="sm"
-                          onClick={() => reviewAnimeStatus(ReviewStatus.Accepted)}
-                          disabled={updatingStatus !== null || !currentMapping}
-                          className="bg-gradient-to-r from-[#8a2be2] to-[#4169e1] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
-                        >
-                          {updatingStatus === ReviewStatus.Accepted ? (
-                            <RefreshCw className="h-4 w-4 animate-spin mr-2" />
-                          ) : (
-                            <Check className="h-4 w-4 mr-2" />
-                          )}
-                          接受
-                        </Button>
-
-                        <Button
-                          size="sm"
-                          onClick={() => reviewAnimeStatus(ReviewStatus.Rejected)}
-                          disabled={updatingStatus !== null || !currentMapping}
-                          className="bg-gradient-to-r from-[#ff1493] to-[#ff8c00] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
-                        >
-                          {updatingStatus === ReviewStatus.Rejected ? (
-                            <RefreshCw className="h-4 w-4 animate-spin mr-2" />
-                          ) : (
-                            <X className="h-4 w-4 mr-2" />
-                          )}
-                          拒绝
-                        </Button>
-
-                        <Button
-                          size="sm"
-                          onClick={() => reviewAnimeStatus(ReviewStatus.Dropped)}
-                          disabled={updatingStatus !== null || !currentMapping}
-                          className="bg-gradient-to-r from-[#6a82fb] to-[#67d1ff] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
-                        >
-                          {updatingStatus === ReviewStatus.Dropped ? (
-                            <RefreshCw className="h-4 w-4 animate-spin mr-2" />
-                          ) : (
-                            <Trash2 className="h-4 w-4 mr-2" />
-                          )}
-                          丢弃
-                        </Button>
+                    <div className="flex flex-col gap-6">
+                      {/* 标题显示当前选择的平台 */}
+                      <div className="w-full">
+                        <h3 className="text-lg font-medium text-white">当前审核: <span className={PlatformColors[currentPlatform]}>{PlatformLabels[currentPlatform]}</span></h3>
                       </div>
                       
-                      {/* 平台选择器 */}
-                      {availablePlatforms.length > 1 && (
-                        <div className="flex items-center gap-2 bg-[#222] rounded-lg px-4 py-2">
-                          <Select
-                            value={currentPlatform}
-                            onValueChange={(value) => selectPlatform(value as Platform)}
+                      {/* 单平台审核按钮组和平台选择器*/}
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        {/* 单平台审核按钮组 */}
+                        <div className="flex items-center gap-4">
+                          <Button
+                            size="sm"
+                            onClick={() => reviewAnimeStatus(ReviewStatus.Accepted)}
+                            disabled={updatingStatus !== null || !currentMapping}
+                            className="bg-gradient-to-r from-[#8a2be2] to-[#4169e1] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
                           >
-                            <SelectTrigger className="w-[150px] bg-[#111] border-[#222] text-[#ccc]">
-                              <SelectValue placeholder="选择数据源" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {availablePlatforms.map(platform => (
-                                <SelectItem key={platform} value={platform}>
-                                  <span className={PlatformColors[platform]}>{PlatformLabels[platform]}</span>
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
+                            {updatingStatus === ReviewStatus.Accepted ? (
+                              <RefreshCw className="h-4 w-4 animate-spin mr-2" />
+                            ) : (
+                              <Check className="h-4 w-4 mr-2" />
+                            )}
+                            接受
+                          </Button>
+
+                          <Button
+                            size="sm"
+                            onClick={() => reviewAnimeStatus(ReviewStatus.Rejected)}
+                            disabled={updatingStatus !== null || !currentMapping}
+                            className="bg-gradient-to-r from-[#ff1493] to-[#ff8c00] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
+                          >
+                            {updatingStatus === ReviewStatus.Rejected ? (
+                              <RefreshCw className="h-4 w-4 animate-spin mr-2" />
+                            ) : (
+                              <X className="h-4 w-4 mr-2" />
+                            )}
+                            拒绝
+                          </Button>
+
+                          <Button
+                            size="sm"
+                            onClick={() => reviewAnimeStatus(ReviewStatus.Dropped)}
+                            disabled={updatingStatus !== null || !currentMapping}
+                            className="bg-gradient-to-r from-[#6a82fb] to-[#67d1ff] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
+                          >
+                            {updatingStatus === ReviewStatus.Dropped ? (
+                              <RefreshCw className="h-4 w-4 animate-spin mr-2" />
+                            ) : (
+                              <Trash2 className="h-4 w-4 mr-2" />
+                            )}
+                            丢弃
+                          </Button>
                         </div>
-                      )}
+                        
+                        {/* 平台选择器 */}
+                        {availablePlatforms.length > 1 && (
+                          <div className="flex items-center gap-2 bg-[#222] rounded-lg px-4 py-2">
+                            <Select
+                              value={currentPlatform}
+                              onValueChange={(value) => selectPlatform(value as Platform)}
+                            >
+                              <SelectTrigger className="w-[150px] bg-[#111] border-[#222] text-[#ccc]">
+                                <SelectValue placeholder="选择数据源" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                {availablePlatforms.map(platform => (
+                                  <SelectItem key={platform} value={platform}>
+                                    <span className={PlatformColors[platform]}>{PlatformLabels[platform]}</span>
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* 横线分隔符 */}
+                      <div className="border-t border-[#333] my-2"></div>
+                      
+                      {/* 所有平台批量操作按钮 */}
+                      <div className="w-full">
+                        <h3 className="text-sm font-medium text-[#999] mb-4">批量操作所有平台:</h3>
+                        <div className="flex items-center gap-4">
+                          <Button
+                            size="sm"
+                            onClick={() => reviewAllPlatforms(ReviewStatus.Accepted)}
+                            disabled={updatingStatus !== null || !mapping}
+                            className="bg-gradient-to-r from-[#8a2be2] to-[#4169e1] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
+                          >
+                            {updatingStatus === ReviewStatus.Accepted ? (
+                              <RefreshCw className="h-4 w-4 animate-spin mr-2" />
+                            ) : (
+                              <Check className="h-4 w-4 mr-2" />
+                            )}
+                            全部接受
+                          </Button>
+
+                          <Button
+                            size="sm"
+                            onClick={() => reviewAllPlatforms(ReviewStatus.Rejected)}
+                            disabled={updatingStatus !== null || !mapping}
+                            className="bg-gradient-to-r from-[#ff1493] to-[#ff8c00] hover:opacity-90 text-white border-none rounded-md px-6 py-5 shadow-md transition-all"
+                          >
+                            {updatingStatus === ReviewStatus.Rejected ? (
+                              <RefreshCw className="h-4 w-4 animate-spin mr-2" />
+                            ) : (
+                              <X className="h-4 w-4 mr-2" />
+                            )}
+                            全部拒绝
+                          </Button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

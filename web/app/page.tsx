@@ -180,12 +180,12 @@ export default function Home() {
       <div className="min-h-screen bg-[#0a0a0a]">
         {/* Header */}
         <motion.div
-          className="border-b border-[#222] bg-[#111]"
+          className="border-b border-[#222] bg-[#111] w-full"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <div className="container mx-auto px-4 py-3">
+          <div className="w-full px-6 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ChevronLeft className="h-5 w-5 text-[#777]" />
@@ -203,7 +203,7 @@ export default function Home() {
           </div>
         </motion.div>
 
-        <div className="container mx-auto px-4 py-6">
+        <div className="w-full px-6 py-6">
           {/* Stats Cards */}
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6"
