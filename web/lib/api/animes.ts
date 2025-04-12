@@ -18,8 +18,20 @@ function runJob(platform: Platform, year: number): Promise<void> {
     return apiClient.get<void>(`/api/job/${platform}/run/${year}`)
 }
 
+function pauseJob(platform: Platform, year: number): Promise<void> {
+    return apiClient.get<void>(`/api/job/${platform}/pause/${year}`)
+}
+
+function resumeJob(platform: Platform, year: number): Promise<void> {
+    return apiClient.get<void>(`/api/job/${platform}/resume/${year}`)
+}
+
+function removeJob(platform: Platform, year: number): Promise<void> {
+    return apiClient.get<void>(`/api/job/${platform}/remove/${year}`)
+}
+
 function listJobs(): Promise<JobDetails[]> {
     return apiClient.get<JobDetails[]>('/api/job/list')
 }
 
-export { fetchAnimes, reviewAnime, createJob, runJob, listJobs }
+export { fetchAnimes, reviewAnime, createJob, runJob, pauseJob, resumeJob, removeJob, listJobs }

@@ -8,10 +8,10 @@ use tracing::info;
 
 use crate::anilist::AniListClient;
 use crate::api::animes::query_animes;
-use crate::api::job::{create_job, list_jobs, run_job};
+use crate::api::job::{create_job, list_jobs, pause_job, remove_job, resume_job, run_job};
 use crate::api::review::review_anime;
-use crate::models::db::DB;
 use crate::job::mapping_bgm::MappingBgmJobRunner;
+use crate::models::db::DB;
 
 #[derive(Clone)]
 pub struct AppState {
@@ -69,6 +69,9 @@ impl Server {
                 .service(create_job)
                 .service(run_job)
                 .service(list_jobs)
+                .service(pause_job)
+                .service(resume_job)
+                .service(remove_job)
                 .wrap(Logger::default())
                 .wrap(cors)
         })

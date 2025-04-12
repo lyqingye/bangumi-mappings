@@ -97,6 +97,16 @@ impl DB {
         Ok(())
     }
 
+    pub async fn update_season_number(&self, anilist_id: i32, season_number: i32) -> Result<()> {
+        AnimeEntity::update_many()
+            .filter(AnimeColumn::AnilistId.eq(anilist_id))
+            .col_expr(AnimeColumn::SeasonNumber, season_number.into())
+            .col_expr(AnimeColumn::UpdatedAt, Utc::now().into())
+            .exec(self.conn())
+            .await?;
+        Ok(())
+    }
+
     pub async fn query_animes(
         &self,
         query: &QueryAnimes,

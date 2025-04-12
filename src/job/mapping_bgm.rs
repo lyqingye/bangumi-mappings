@@ -17,6 +17,15 @@ use crate::{
     },
 };
 
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub enum JobStatus {
+    Created,
+    Running,
+    Paused,
+    Completed,
+    Failed,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct JobDetails {
     pub year: i32,
@@ -28,6 +37,8 @@ pub struct JobDetails {
     pub provider: String,
     pub model: String,
     pub platform: Platform,
+    pub status: JobStatus,
+    pub current_index: usize,
 
     #[serde(skip)]
     pub animes: Vec<Anime>,
@@ -69,9 +80,9 @@ impl MappingBgmJobRunner {
             .data
             .iter()
             .filter(|(_anime, mappings)| {
-                mappings.iter().any(|m| {
-                    m.platform == platform && m.review_status == ReviewStatus::UnMatched
-                })
+                mappings
+                    .iter()
+                    .any(|m| m.platform == platform && m.review_status == ReviewStatus::UnMatched)
             })
             .collect::<Vec<_>>();
 
@@ -86,6 +97,8 @@ impl MappingBgmJobRunner {
             animes: animes.iter().map(|(anime, _)| anime.clone()).collect(),
             provider,
             model,
+            status: JobStatus::Created,
+            current_index: 0,
         }));
 
         self.jobs.push(job_details.clone());
@@ -94,11 +107,15 @@ impl MappingBgmJobRunner {
     }
 
     pub async fn run(&self, platform: Platform, year: i32) {
-        let job_details = self
-            .jobs
-            .iter()
-            .find(|job| job.read().unwrap().platform == platform && job.read().unwrap().year == year);
+        let job_details = self.jobs.iter().find(|job| {
+            job.read().unwrap().platform == platform && job.read().unwrap().year == year
+        });
         if let Some(job_details) = job_details {
+            {
+                let mut guard = job_details.write().unwrap();
+                guard.status = JobStatus::Running;
+            }
+
             let cloned = self.clone();
             let job_details = job_details.clone();
             tokio::spawn(async move {
@@ -107,14 +124,81 @@ impl MappingBgmJobRunner {
         }
     }
 
+    pub async fn pause_job(&self, platform: Platform, year: i32) -> Result<bool> {
+        let job_details = self.jobs.iter().find(|job| {
+            job.read().unwrap().platform == platform && job.read().unwrap().year == year
+        });
+
+        if let Some(job_details) = job_details {
+            let mut guard = job_details.write().unwrap();
+            if guard.status == JobStatus::Running {
+                guard.status = JobStatus::Paused;
+                return Ok(true);
+            }
+        }
+
+        Ok(false)
+    }
+
+    pub async fn resume_job(&self, platform: Platform, year: i32) -> Result<bool> {
+        let job_details = self.jobs.iter().find(|job| {
+            job.read().unwrap().platform == platform && job.read().unwrap().year == year
+        });
+
+        if let Some(job_details) = job_details {
+            let mut guard = job_details.write().unwrap();
+            if guard.status == JobStatus::Paused {
+                guard.status = JobStatus::Running;
+                drop(guard); // 释放锁，避免死锁
+
+                let cloned = self.clone();
+                let job_details_clone = job_details.clone();
+                tokio::spawn(async move {
+                    cloned.run_job(job_details_clone).await;
+                });
+
+                return Ok(true);
+            }
+        }
+
+        Ok(false)
+    }
+
+    pub async fn remove_job(&mut self, platform: Platform, year: i32) -> Result<bool> {
+        // 查找任务索引
+        let index = self.jobs.iter().position(|job| {
+            let guard = job.read().unwrap();
+            guard.platform == platform && guard.year == year
+        });
+
+        // 如果找到任务，直接从数组中移除
+        if let Some(index) = index {
+            self.jobs.remove(index);
+            return Ok(true);
+        }
+
+        Ok(false)
+    }
+
     async fn run_job(&self, job_details: Arc<RwLock<JobDetails>>) {
-        // 提前克隆数据并释放锁，避免锁跨越线程边界
-        let details = {
+        // 提前获取需要处理的动画列表和起始索引
+        let (start_index, animes) = {
             let guard = job_details.read().unwrap();
-            guard.clone()
+            (guard.current_index, guard.animes.clone())
         };
 
-        for anime in details.animes {
+        // 确保只处理尚未处理的动画
+        for i in start_index..animes.len() {
+            // 每次循环开始时检查任务状态
+            {
+                let guard = job_details.read().unwrap();
+                if guard.status == JobStatus::Paused {
+                    // 如果任务已暂停，直接返回，不做进一步处理
+                    return;
+                }
+            }
+
+            let anime = &animes[i];
             let keywords = json!({
                 "titles": anime.titles,
                 "year": anime.year,
@@ -123,29 +207,42 @@ impl MappingBgmJobRunner {
                 "episode_number": anime.episode_number,
             });
 
-            let result = match details.platform {
-                Platform::BgmTv => run_mapping_bgm_tv_agent(
-                    keywords.to_string().as_str(),
-                    &details.provider,
-                    &details.model,
-                    3,
-                    10,
-                )
-                .await,
-                Platform::Tmdb => run_mapping_tmdb_agent(
-                    keywords.to_string().as_str(),
-                    &details.provider,
-                    &details.model,
-                    3,
-                    10,
-                )
-                .await,
+            let platform = {
+                let guard = job_details.read().unwrap();
+                guard.platform.clone()
+            };
+
+            let result = match platform {
+                Platform::BgmTv => {
+                    let provider = job_details.read().unwrap().provider.clone();
+                    let model = job_details.read().unwrap().model.clone();
+                    run_mapping_bgm_tv_agent(
+                        keywords.to_string().as_str(),
+                        &provider,
+                        &model,
+                        3,
+                        10,
+                    )
+                    .await
+                }
+                Platform::Tmdb => {
+                    let provider = job_details.read().unwrap().provider.clone();
+                    let model = job_details.read().unwrap().model.clone();
+                    run_mapping_tmdb_agent(keywords.to_string().as_str(), &provider, &model, 3, 10)
+                        .await
+                }
             };
 
             let result = match result {
                 Ok(result) => result,
                 Err(e) => {
                     error!("匹配Bgm失败: {}", e);
+                    {
+                        let mut guard = job_details.write().unwrap();
+                        guard.num_failed += 1;
+                        guard.num_processed += 1;
+                        guard.current_index = i + 1; // 更新索引以便下次从这里继续
+                    }
                     continue;
                 }
             };
@@ -157,12 +254,21 @@ impl MappingBgmJobRunner {
                 self.db
                     .update_anime_mapping(
                         anime.anilist_id,
-                        details.platform.clone(),
+                        platform.clone(),
                         id.to_string(),
                         result.confidence_score.unwrap_or_default() as u8,
                     )
                     .await
                     .unwrap();
+
+                if let Some(season) = result.season {
+                    if season > 0 {
+                        self.db
+                            .update_season_number(anime.anilist_id, season)
+                            .await
+                            .unwrap();
+                    }
+                }
             } else {
                 failed_count += 1;
             }
@@ -172,6 +278,20 @@ impl MappingBgmJobRunner {
                 guard.num_matched += success_count;
                 guard.num_failed += failed_count;
                 guard.num_processed += 1;
+                guard.current_index = i + 1; // 重要：更新当前索引为下一条记录
+
+                // 检查是否所有动画都已处理完毕
+                if guard.current_index >= animes.len() {
+                    guard.status = JobStatus::Completed;
+                }
+            }
+
+            // 再次检查是否应该继续执行
+            {
+                let guard = job_details.read().unwrap();
+                if guard.status != JobStatus::Running {
+                    return;
+                }
             }
         }
     }

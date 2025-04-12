@@ -53,6 +53,14 @@ export const ProviderModelMap = {
   [Provider.Gemini]: "gemini-2.0-flash",
 }
 
+export enum JobStatus {
+  Created = "Created",
+  Running = "Running",
+  Paused = "Paused",
+  Completed = "Completed",
+  Failed = "Failed",
+}
+
 export interface JobDetails {
   platform: Platform
   year: number
@@ -63,4 +71,6 @@ export interface JobDetails {
   num_matched: number
   num_failed: number
   job_start_time: string
+  status: JobStatus
+  current_index: number
 }

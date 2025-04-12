@@ -1,6 +1,6 @@
 // TMDB API documentation: https://developer.themoviedb.org/reference/intro/getting-started
 
-const TMDB_API_KEY = process.env.TMDB_API_KEY || "" // Replace with your actual API key
+const TMDB_API_KEY = process.env.TMDB_API_KEY || "702225c8ca516a5be2f062988438bfda" // Replace with your actual API key
 const TMDB_BASE_URL = "https://api.themoviedb.org/3"
 
 export interface TMDBSearchResult {
