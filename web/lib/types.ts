@@ -45,7 +45,7 @@ export enum Provider {
   Xai = "xai",
   Deepseek = "deepseek",
   Gemini = "gemini",
-  OpenAI_API = "openai_api",
+  openai_api = "openai_api",
 }
 
 export const ProviderModelMap = {
