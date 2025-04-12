@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 270 50% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.tmdb-badge {
+  @apply bg-blue-600 text-white;
+}
+
+.bgmtv-badge {
+  @apply bg-purple-600 text-white;
+}
+
+.confidence-high {
+  @apply bg-green-600 text-white;
+}
+
+.confidence-medium {
+  @apply bg-yellow-600 text-white;
+}
+
+.confidence-low {
+  @apply bg-red-600 text-white;
+}
+
+.tag-badge {
+  @apply bg-secondary text-secondary-foreground rounded-full px-2 py-0.5 text-xs;
+}
+
+.match-progress-bar {
+  @apply h-2 w-full rounded-full bg-secondary overflow-hidden;
+}
+
+.match-progress-value {
+  @apply h-full rounded-full bg-gradient-to-r from-green-500 via-blue-500 to-blue-600;
+}
+
+.match-criteria-badge {
+  @apply text-xs rounded-full px-3 py-1 font-medium;
+}
+
+.match-criteria-high {
+  @apply bg-green-600/20 text-green-500;
+}
+
+.match-criteria-medium {
+  @apply bg-yellow-600/20 text-yellow-500;
+}
+
+.match-criteria-exact {
+  @apply bg-green-600/20 text-green-500;
+}
+
+/* Ensure scrollbar is always present to prevent layout shifts */
+html {
+  overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-x: hidden; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Page transition container */
+.page-transition-container {
+  position: relative;
+  min-height: 100vh;
+}
+
