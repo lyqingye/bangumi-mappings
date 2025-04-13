@@ -543,9 +543,7 @@ export default function VerificationPage() {
     
     switch (platform) {
       case Platform.Tmdb:
-        return tmdbData && hasData 
-          ? <TMDBPanel detail={tmdbData} mapping={mapping} /> 
-          : renderNoDataPanel(platform);
+        return <TMDBPanel detail={tmdbData} mapping={mapping} /> 
       case Platform.BgmTv:
         return <BGMTVPanel 
           data={bgmtvData} 

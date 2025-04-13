@@ -1,8 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { Search, Loader2 } from "lucide-react"
+import { Search, Loader2, Star, Calendar, PlaySquare } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
@@ -122,51 +121,61 @@ export function BGMTVSearchDialog({ isOpen, setIsOpen, anilistId, onMappingSucce
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[700px] bg-[#111] border border-[#222] text-white max-h-[90vh] overflow-hidden flex flex-col">
-        <DialogHeader>
-          <DialogTitle className="text-xl">BgmTV 搜索 {anilistId ? `(ID: ${anilistId})` : ""}</DialogTitle>
+      <DialogContent className="sm:max-w-[700px] bg-black border border-[#2a2a40] text-white max-h-[90vh] overflow-hidden flex flex-col shadow-xl rounded-xl">
+        <DialogHeader className="border-b border-[#2a2a40] pb-4 px-6 pt-6">
+          <DialogTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">BgmTV 搜索 {anilistId ? `(ID: ${anilistId})` : ""}</DialogTitle>
         </DialogHeader>
         
-        <div className="flex items-center gap-2 my-4">
-          <Input 
-            placeholder="输入番剧名称搜索..." 
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="bg-[#222] border-[#333] text-white"
-            onKeyDown={handleKeyDown}
-          />
+        <div className="flex items-center gap-3 my-6 px-6">
+          <div className="relative flex-1">
+            <Input 
+              placeholder="输入番剧名称搜索..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="bg-[#1e1e30] border-[#2a2a40] text-white pr-10 focus-visible:ring-purple-500 transition-all duration-200 h-10"
+              onKeyDown={handleKeyDown}
+            />
+            <Search className="h-4 w-4 absolute right-3 top-3 text-[#8a8aaa]" />
+          </div>
           <Button 
             onClick={handleSearch}
             disabled={isSearching || !searchTerm.trim()}
-            className="bg-green-600 hover:bg-green-700"
+            className="bg-gradient-to-r from-[#8a2be2] to-[#4169e1] hover:opacity-90 text-white shadow-md transition-all duration-200 h-10"
           >
-            {isSearching ? <Loader2 className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}
-            搜索
+            {isSearching ? <Loader2 className="h-4 w-4 animate-spin" /> : "搜索"}
           </Button>
         </div>
         
-        <div className="flex-1 overflow-y-auto pr-2 min-h-[300px]">
+        <div className="flex-1 overflow-y-auto pr-2 min-h-[300px] px-6">
           {isSearching ? (
             <div className="h-full flex items-center justify-center">
-              <Loader2 className="h-8 w-8 animate-spin text-green-500" />
+              <div className="flex flex-col items-center">
+                <Loader2 className="h-10 w-10 animate-spin text-purple-500 mb-3" />
+                <p className="text-[#8a8aaa] text-sm">搜索中...</p>
+              </div>
             </div>
           ) : searchResults.length === 0 ? (
-            <div className="h-full flex items-center justify-center text-[#777]">
-              {searchTerm.trim() ? "未找到相关番剧" : "请输入番剧名称开始搜索"}
+            <div className="h-full flex items-center justify-center">
+              <div className="flex flex-col items-center text-center px-6">
+                <Search className="h-12 w-12 text-[#2a2a40] mb-4" />
+                <p className="text-[#8a8aaa] text-sm max-w-xs">
+                  {searchTerm.trim() ? "未找到相关番剧，请尝试其他关键词" : "请输入番剧名称开始搜索"}
+                </p>
+              </div>
             </div>
           ) : (
             <div className="space-y-4">
               {searchResults.map((anime) => (
                 <div 
                   key={anime.id}
-                  className={`p-3 rounded-md cursor-pointer transition-colors flex gap-3 ${
+                  className={`p-4 rounded-xl cursor-pointer transition-all duration-200 flex gap-4 ${
                     selectedAnime?.id === anime.id 
-                      ? "border-2 border-green-500 bg-green-950/20" 
-                      : "border border-[#333] hover:bg-[#1a1a1a]"
+                      ? "bg-[#121218] border-l-4 border-l-purple-500 border-t border-r border-b border-[#2a2a40]" 
+                      : "border border-[#2a2a40] bg-[#121218] hover:border-purple-500/50 hover:bg-[#0c0c14]"
                   }`}
                   onClick={() => setSelectedAnime(anime)}
                 >
-                  <div className="w-16 h-24 relative flex-shrink-0 rounded overflow-hidden bg-[#222]">
+                  <div className="w-16 h-24 relative flex-shrink-0 rounded-md overflow-hidden bg-[#0e0e18] shadow-md">
                     <Image 
                       src={anime.images?.large ? getBGMTVImageUrl(anime.images.large) : "/placeholder.svg"} 
                       alt={anime.name}
@@ -176,27 +185,27 @@ export function BGMTVSearchDialog({ isOpen, setIsOpen, anilistId, onMappingSucce
                   </div>
                   
                   <div className="flex-1">
-                    <h3 className="font-medium">
+                    <h3 className="font-semibold text-base text-white tracking-wide">
                       {anime.name_cn || anime.name}
                     </h3>
-                    <p className="text-sm text-[#777]">{anime.name}</p>
+                    <p className="text-sm text-[#8a8aaa] mt-0.5">{anime.name}</p>
                     
-                    <div className="flex items-center gap-2 mt-2">
-                      <Badge variant="outline" className="text-xs bg-[#222]">
-                        {anime.eps_count || anime.eps || "未知"} 集
+                    <div className="flex flex-wrap items-center gap-2 mt-3">
+                      <Badge variant="outline" className="text-xs bg-[#2a2a40]/50 border-[#3d3d5c] px-2 py-0.5 rounded-md">
+                        <PlaySquare className="h-3 w-3 mr-1" /> {anime.eps_count || anime.eps || "未知"} 集
                       </Badge>
-                      <Badge variant="outline" className="text-xs bg-[#222]">
-                        {anime.date || "日期未知"}
+                      <Badge variant="outline" className="text-xs bg-[#2a2a40]/50 border-[#3d3d5c] px-2 py-0.5 rounded-md">
+                        <Calendar className="h-3 w-3 mr-1" /> {anime.date || "日期未知"}
                       </Badge>
                       {anime.rating?.score && (
-                        <Badge variant="outline" className="text-xs bg-[#222]">
-                          评分: {anime.rating.score.toFixed(1)}
+                        <Badge variant="outline" className="text-xs bg-[#2a2a40]/50 border-[#3d3d5c] px-2 py-0.5 rounded-md">
+                          <Star className="h-3 w-3 mr-1 text-amber-400" /> {anime.rating.score.toFixed(1)}
                         </Badge>
                       )}
                       <Link
                         href={`https://bgm.tv/subject/${anime.id}`}
                         target="_blank"
-                        className="text-xs text-green-400 hover:text-green-300 ml-auto"
+                        className="text-xs text-purple-400 hover:text-purple-300 ml-auto transition-colors"
                         onClick={(e) => e.stopPropagation()}
                       >
                         查看详情
@@ -209,14 +218,26 @@ export function BGMTVSearchDialog({ isOpen, setIsOpen, anilistId, onMappingSucce
           )}
         </div>
         
-        <DialogFooter className="mt-4 pt-4 border-t border-[#333]">
-          <Button variant="outline" onClick={() => setIsOpen(false)} className="bg-transparent text-white border-[#333] hover:bg-[#333]">
+        <DialogFooter className="mt-4 pt-4 border-t border-[#2a2a40] px-6 pb-6 gap-3">
+          <div className="flex-1 text-sm text-[#8a8aaa]">
+            {selectedAnime && (
+              <div className="flex items-center">
+                <div className="w-2 h-2 rounded-full bg-purple-500 mr-2"></div>
+                <span>已选择: <span className="text-purple-400 font-medium">{selectedAnime.name_cn || selectedAnime.name}</span></span>
+              </div>
+            )}
+          </div>
+          <Button 
+            variant="outline" 
+            onClick={() => setIsOpen(false)} 
+            className="bg-transparent text-white border-[#3d3d5c] hover:bg-[#2a2a40] transition-colors"
+          >
             取消
           </Button>
           <Button 
             onClick={handleSaveMapping}
             disabled={!selectedAnime || isSaving || !anilistId}
-            className="bg-green-600 hover:bg-green-700"
+            className="bg-gradient-to-r from-[#8a2be2] to-[#4169e1] hover:opacity-90 text-white shadow-md transition-all duration-200"
           >
             {isSaving ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : null}
             确认选择

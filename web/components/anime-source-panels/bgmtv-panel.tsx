@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, ExternalLink, Search } from "lucide-react"
+import { ChevronDown, ExternalLink, Search, DatabaseZap } from "lucide-react"
 import { getBGMTVImageUrl, type BGMTVAnimeDetail } from "@/lib/api/bgmtv"
 import type { Mapping, Platform } from "@/lib/types"
 import { getStatusLabel, formatDate } from "@/lib/utils"
@@ -34,15 +34,68 @@ export function BGMTVPanel({ data, delay = 0.2, mapping, anilistId, onStatusUpda
   // 找到BGM平台的映射
   const bgmMapping = mapping?.mappings.find(m => m.platform === "BgmTv") || null;
   
-  const id = data?.id
-  const title = data?.name || "Unknown Title"
-  const titleCn = data?.name_cn || ""
-  const coverImage = data?.images?.large ? getBGMTVImageUrl(data.images.large) : ""
-  const airDate = data ? formatDate(data.date) : "Unknown"
-  const episodes = data?.eps_count || data?.eps
-  const type = data?.type === 2 ? "Anime" : "Other"
-  const score = data?.rating?.score ? data.rating.score.toFixed(1) : "N/A"
-  const tags = data?.tags?.map((t) => t.name) || []
+  // 如果没有数据，显示一个简单的面板，只有中央搜索按钮
+  if (!data) {
+    return (
+      <>
+        <motion.div
+          className="bg-[#111] border border-[#222] rounded-lg overflow-hidden h-[450px] flex flex-col"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay }}
+        >
+          <div className="p-4 bg-green-900/20 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Badge className="bg-green-600 text-white">BgmTV</Badge>
+              <Badge className="bg-yellow-600 text-white">未匹配</Badge>
+            </div>
+            <div className="flex items-center gap-2">
+              <Link
+                href="https://bgm.tv"
+                target="_blank"
+                className="text-green-400 hover:text-green-300 text-sm flex items-center gap-1"
+              >
+                BgmTV官网 <ExternalLink className="h-3 w-3" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
+            <DatabaseZap className="h-16 w-16 text-green-900/50 mb-4" />
+            <h3 className="text-xl font-medium mb-3 text-[#999]">未找到BgmTV匹配信息</h3>
+            <p className="text-[#777] text-sm max-w-md mb-6">
+              当前番剧尚未与BgmTV数据关联。请点击下方按钮来手动匹配相应的BgmTV条目。
+            </p>
+            <Button 
+              onClick={() => setSearchDialogOpen(true)}
+              className="bg-gradient-to-r from-[#8a2be2] to-[#4169e1] hover:opacity-90 text-white shadow-md transition-all duration-200"
+            >
+              <Search className="h-4 w-4 mr-2" />
+              搜索匹配
+            </Button>
+          </div>
+        </motion.div>
+
+        {/* 搜索对话框 */}
+        <BGMTVSearchDialog 
+          isOpen={searchDialogOpen}
+          setIsOpen={setSearchDialogOpen}
+          anilistId={anilistId ?? null}
+          onMappingSuccess={onStatusUpdated}
+        />
+      </>
+    );
+  }
+  
+  const id = data.id
+  const title = data.name || "Unknown Title"
+  const titleCn = data.name_cn || ""
+  const coverImage = data.images?.large ? getBGMTVImageUrl(data.images.large) : ""
+  const airDate = formatDate(data.date) || "Unknown"
+  const episodes = data.eps_count || data.eps
+  const type = data.type === 2 ? "Anime" : "Other"
+  const score = data.rating?.score ? data.rating.score.toFixed(1) : "N/A"
+  const tags = data.tags?.map((t) => t.name) || []
 
   return (
     <>
@@ -73,94 +126,86 @@ export function BGMTVPanel({ data, delay = 0.2, mapping, anilistId, onStatusUpda
               <Search className="h-3.5 w-3.5 mr-1" />
               搜索匹配
             </Button>
-            {id && (
-              <Link
-                href={`https://bgm.tv/subject/${id}`}
-                target="_blank"
-                className="text-green-400 hover:text-green-300 text-sm flex items-center gap-1"
-              >
-                查看原页面 <ExternalLink className="h-3 w-3" />
-              </Link>
-            )}
+            <Link
+              href={`https://bgm.tv/subject/${id}`}
+              target="_blank"
+              className="text-green-400 hover:text-green-300 text-sm flex items-center gap-1"
+            >
+              查看原页面 <ExternalLink className="h-3 w-3" />
+            </Link>
           </div>
         </div>
 
         <div className="p-4 flex-1 overflow-y-auto scrollbar-hide">
-          {data ? (
-            <div className="flex gap-4">
-              <div className="w-24 h-36 bg-[#222] rounded-md relative flex-shrink-0">
-                <Image src={coverImage || "/placeholder.svg"} alt={title} fill className="object-cover rounded-md" />
+          <div className="flex gap-4">
+            <div className="w-24 h-36 bg-[#222] rounded-md relative flex-shrink-0">
+              <Image src={coverImage || "/placeholder.svg"} alt={title} fill className="object-cover rounded-md" />
+            </div>
+
+            <div className="flex-1">
+              <h3 className="text-xl font-bold mb-1">
+                {titleCn || title}
+              </h3>
+              <p className="text-[#777] text-sm mb-4">
+                {title}
+              </p>
+
+              <div
+                className="flex items-center justify-between mb-2 cursor-pointer"
+                onClick={() => setSummaryExpanded((prev) => !prev)}
+              >
+                <span className="text-sm font-medium">Summary</span>
+                <ChevronDown
+                  className={`h-4 w-4 text-[#777] transition-transform ${summaryExpanded ? "rotate-180" : ""}`}
+                />
               </div>
-
-              <div className="flex-1">
-                <h3 className="text-xl font-bold mb-1">
-                  {titleCn || title}
-                </h3>
-                <p className="text-[#777] text-sm mb-4">
-                  {title}
-                </p>
-
-                <div
-                  className="flex items-center justify-between mb-2 cursor-pointer"
-                  onClick={() => setSummaryExpanded((prev) => !prev)}
+              {summaryExpanded && (
+                <motion.div
+                  className="mb-4 text-sm text-[#777]"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <span className="text-sm font-medium">Summary</span>
-                  <ChevronDown
-                    className={`h-4 w-4 text-[#777] transition-transform ${summaryExpanded ? "rotate-180" : ""}`}
-                  />
-                </div>
-                {summaryExpanded && (
-                  <motion.div
-                    className="mb-4 text-sm text-[#777]"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {data.summary || "No summary available."}
-                  </motion.div>
-                )}
+                  {data.summary || "No summary available."}
+                </motion.div>
+              )}
 
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
-                  <div>
-                    <div className="text-xs text-[#777]">Air Date</div>
-                    <div className="text-sm">{airDate}</div>
-                  </div>
-                  <div>
-                    <div className="text-xs text-[#777]">Episodes</div>
-                    <div className="text-sm">{episodes}</div>
-                  </div>
-                  <div>
-                    <div className="text-xs text-[#777]">Type</div>
-                    <div className="text-sm">{type}</div>
-                  </div>
-                  <div>
-                    <div className="text-xs text-[#777]">Rating</div>
-                    <div className="text-sm">{score} / 10</div>
-                  </div>
-                </div>
-
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
                 <div>
-                  <div className="text-xs text-[#777] mb-2">Tags</div>
-                  <div className="flex flex-wrap gap-1">
-                    {tags.slice(0, 10).map((tag, index) => (
-                      <Badge
-                        key={`bgmtv-tag-${index}`}
-                        variant="secondary"
-                        className="bg-[#222] text-white border-none text-xs"
-                      >
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
+                  <div className="text-xs text-[#777]">Air Date</div>
+                  <div className="text-sm">{airDate}</div>
+                </div>
+                <div>
+                  <div className="text-xs text-[#777]">Episodes</div>
+                  <div className="text-sm">{episodes}</div>
+                </div>
+                <div>
+                  <div className="text-xs text-[#777]">Type</div>
+                  <div className="text-sm">{type}</div>
+                </div>
+                <div>
+                  <div className="text-xs text-[#777]">Rating</div>
+                  <div className="text-sm">{score} / 10</div>
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs text-[#777] mb-2">Tags</div>
+                <div className="flex flex-wrap gap-1">
+                  {tags.slice(0, 10).map((tag, index) => (
+                    <Badge
+                      key={`bgmtv-tag-${index}`}
+                      variant="secondary"
+                      className="bg-[#222] text-white border-none text-xs"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
                 </div>
               </div>
             </div>
-          ) : (
-            <div className="h-full flex flex-col items-center justify-center text-[#777]">
-              <p>暂无 BgmTV 数据</p>
-            </div>
-          )}
+          </div>
         </div>
       </motion.div>
 
