@@ -7,7 +7,7 @@ use std::{env, sync::Arc};
 use tracing::info;
 
 use crate::anilist::AniListClient;
-use crate::api::animes::{query_animes, summary, year_statistics};
+use crate::api::animes::{manual_mapping, query_animes, summary, year_statistics};
 use crate::api::export::{compact_export_dir, export_animes, import_animes};
 use crate::api::job::{create_job, list_jobs, pause_job, remove_job, resume_job, run_job};
 use crate::api::review::review_anime;
@@ -78,6 +78,7 @@ impl Server {
                 .service(compact_export_dir)
                 .service(summary)
                 .service(year_statistics)
+                .service(manual_mapping)
                 .wrap(Logger::default())
                 .wrap(cors)
         })

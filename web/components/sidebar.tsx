@@ -12,7 +12,6 @@ export function Sidebar() {
 
   const navItems = [
     { icon: Home, href: "/", label: "Home" },
-    { icon: BarChart2, href: "/analytics", label: "Analytics" },
     { icon: CheckSquare, href: "/verification", label: "Verification" },
   ]
 

@@ -35,29 +35,16 @@ export function useTMDBAnimeDetail(id: string | number | undefined) {
 }
 
 /**
- * 获取 TMDB 演员表
- */
-export function useTMDBAnimeCredits(id: string | number | undefined) {
-  return useQuery({
-    queryKey: [QUERY_KEYS.TMDB, "credits", id],
-    queryFn: () => (id ? getTMDBAnimeCredits(id) : Promise.reject("No ID provided")),
-    enabled: !!id,
-  })
-}
-
-/**
  * 获取 TMDB 完整数据（详情和演员表）
  */
 export function useTMDBAnimeComplete(id: string | number | undefined) {
   const detailQuery = useTMDBAnimeDetail(id)
-  const creditsQuery = useTMDBAnimeCredits(id)
 
-  const isLoading = detailQuery.isLoading || creditsQuery.isLoading
-  const isError = detailQuery.isError || creditsQuery.isError
-  const error = detailQuery.error || creditsQuery.error
+  const isLoading = detailQuery.isLoading
+  const isError = detailQuery.isError
+  const error = detailQuery.error
 
-  const data =
-    detailQuery.data && creditsQuery.data ? { detail: detailQuery.data, credits: creditsQuery.data } : undefined
+  const data = detailQuery.data
 
   return {
     data,
@@ -65,7 +52,6 @@ export function useTMDBAnimeComplete(id: string | number | undefined) {
     isError,
     error,
     detailQuery,
-    creditsQuery,
   }
 }
 

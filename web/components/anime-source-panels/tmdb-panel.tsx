@@ -6,22 +6,30 @@ import Image from "next/image"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { ChevronDown, ExternalLink } from "lucide-react"
-import { getTMDBImageUrl, type TMDBAnimeDetail, type TMDBCredits } from "@/lib/api/tmdb"
-import type { AnimeMapping } from "@/lib/types"
+import { getTMDBImageUrl, type TMDBAnimeDetail } from "@/lib/api/tmdb"
+import type { Mapping, Platform } from "@/lib/types"
 import { getStatusLabel, formatDate } from "@/lib/utils"
 
+// 定义组件接收到的mapping结构
+interface MappingObject {
+  anilist_id: number;
+  mappings: Mapping[];
+  platformIds: Record<Platform, string | null>;
+}
+
 interface TMDBPanelProps {
-  data: { detail: TMDBAnimeDetail; credits: TMDBCredits } | null
+  detail: TMDBAnimeDetail
   delay?: number
-  mapping?: AnimeMapping | null
+  mapping?: MappingObject | null
   onStatusUpdated?: () => void
 }
 
-export function TMDBPanel({ data, delay = 0.2, mapping }: TMDBPanelProps) {
+export function TMDBPanel({ detail, delay = 0.2, mapping }: TMDBPanelProps) {
   const [summaryExpanded, setSummaryExpanded] = useState(false)
 
-  if (!data) return null
-  const detail = data.detail
+  // 找到TMDB平台的映射
+  const tmdbMapping = mapping?.mappings.find(m => m.platform === "Tmdb") || null;
+
   if (!detail) return null
 
   const id = detail.id
@@ -44,12 +52,11 @@ export function TMDBPanel({ data, delay = 0.2, mapping }: TMDBPanelProps) {
       <div className="p-4 bg-blue-900/20 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Badge className="bg-blue-600 text-white">TMDB</Badge>
-          <span className="font-semibold">Source Data</span>
 
           {/* 显示验证状态 */}
-          {mapping && mapping.tmdb_verify_status && (
-            <Badge className={`${getStatusLabel(mapping.tmdb_verify_status).color} text-white ml-2`}>
-              {getStatusLabel(mapping.tmdb_verify_status).label}
+          {tmdbMapping && tmdbMapping.review_status && (
+            <Badge className={`${getStatusLabel(tmdbMapping.review_status).color} text-white ml-2`}>
+              {getStatusLabel(tmdbMapping.review_status).label}
             </Badge>
           )}
         </div>

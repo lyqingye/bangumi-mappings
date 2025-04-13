@@ -148,6 +148,7 @@ impl Tool for BgmTVSearchTool {
                     "air_date": date_list,
                 }
             });
+            println!("{:?}", search_query);
 
             let body = match serde_json::to_string(&search_query) {
                 Ok(b) => b,
@@ -176,6 +177,7 @@ impl Tool for BgmTVSearchTool {
                 Ok(text) => text,
                 Err(e) => return Err(BgmTVError::new(format!("读取响应错误: {}", e))),
             };
+            println!("{}", response_text);
 
             match serde_json::from_str::<PageResponse<Subject>>(&response_text) {
                 Ok(mut resp) => {
@@ -191,5 +193,22 @@ impl Tool for BgmTVSearchTool {
         })
         .await
         .unwrap_or(Err(BgmTVError::new("搜索失败")))
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn test_bgm_tv_search() {
+        let tool = BgmTVSearchTool::new();
+        let args = BgmTVSearchArgs {
+            query: "平野と鍵浦".to_string(),
+            start_date: Some("2023".to_string()),
+            end_date: None,
+        };
+        let result = tool.call(args).await.unwrap();
+        println!("{:?}", result);
     }
 }

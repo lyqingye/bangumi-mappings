@@ -26,27 +26,6 @@ export interface BGMTVCollection {
   on_hold: number
 }
 
-export interface BGMTVSearchResult {
-  id: number
-  name: string
-  name_cn: string
-  type: number // 1: Book, 2: Anime, 3: Music, 4: Game, 6: Real
-  summary: string
-  air_date: string
-  air_weekday: number
-  images: BGMTVImage
-  eps: number
-  eps_count: number
-  rating: BGMTVRating
-  rank: number
-  collection: BGMTVCollection
-}
-
-export interface BGMTVSearchResponse {
-  results: number
-  list: BGMTVSearchResult[]
-}
-
 export interface BGMTVCharacterInfo {
   gender: string
   birth_year: number
@@ -131,27 +110,6 @@ export interface BGMTVAnimeDetail {
   staff: BGMTVStaff[]
 }
 
-export async function searchBGMTVAnime(query: string): Promise<BGMTVSearchResponse> {
-  const url = new URL(`${BGMTV_BASE_URL}/search/subject/${encodeURIComponent(query)}`)
-  url.searchParams.append("type", "2") // Type 2 is for anime
-  url.searchParams.append("responseGroup", "small")
-  url.searchParams.append("start", "0")
-  url.searchParams.append("max_results", "10")
-
-  const response = await fetch(url.toString(), {
-    headers: {
-      Accept: "application/json",
-      "User-Agent": "AnimeMatcherApp/1.0",
-    },
-  })
-
-  if (!response.ok) {
-    throw new Error(`BGMTV API error: ${response.status} ${response.statusText}`)
-  }
-
-  return response.json()
-}
-
 export async function getBGMTVAnimeDetail(id: string | number): Promise<BGMTVAnimeDetail> {
   const url = `${BGMTV_BASE_URL}/v0/subjects/${id}?responseGroup=large`
 
@@ -190,3 +148,63 @@ export function extractInfoboxValue(infobox: BGMTVAnimeDetail["infobox"], key: s
   return ""
 }
 
+export enum SubjectType {
+  Book = 1,
+  Anime = 2,
+  Music = 3,
+  Game = 4,
+  Real = 6
+}
+
+export interface BGMTVSearchFilter {
+  type?: SubjectType[]
+  tag?: string[]
+  meta_tags?: string[]
+  air_date?: string[]
+  rating?: string[]
+  rank?: string[]
+  nsfw?: boolean
+}
+
+export interface BGMTVSearchParams {
+  keyword: string
+  sort?: 'match' | 'heat' | 'rank' | 'score'
+  filter?: BGMTVSearchFilter
+}
+
+export interface BGMTVSearchResponse {
+  total: number
+  limit: number
+  offset: number
+  data: BGMTVAnimeDetail[]
+}
+
+export async function searchBGMTV(
+  params: BGMTVSearchParams = {
+    keyword: '',
+    sort: 'rank',
+    filter: {
+      type: [SubjectType.Anime],
+    },
+  },
+  limit: number = 10,
+  offset: number = 0,
+): Promise<BGMTVSearchResponse> {
+  const url = `${BGMTV_BASE_URL}/v0/search/subjects?limit=${limit}&offset=${offset}`
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'User-Agent': 'AnimeMatcherApp/1.0',
+    },
+    body: JSON.stringify(params)
+  })
+
+  if (!response.ok) {
+    throw new Error(`BGMTV API error: ${response.status} ${response.statusText}`)
+  }
+
+  return response.json()
+}

@@ -45,7 +45,7 @@ pub async fn query_animes(
     }))))
 }
 
-#[get("/api/anime/{anilist_id}/manual_mapping/{platform}/{platform_id}/{season_number}")]
+#[post("/api/anime/mapping/manual")]
 pub async fn manual_mapping(
     state: web::Data<AppState>,
     request: web::Json<ManualMappingRequest>,

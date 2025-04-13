@@ -46,7 +46,6 @@ export function AniListPanel({ data, delay = 0.2 }: AniListPanelProps) {
       <div className="p-4 bg-purple-900/20 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Badge className="bg-purple-600 text-white">AniList</Badge>
-          <span className="font-semibold">Source Data</span>
         </div>
         <Link
           href={`https://anilist.co/anime/${id}`}

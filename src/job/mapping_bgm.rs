@@ -202,7 +202,7 @@ impl MappingBgmJobRunner {
             let keywords = json!({
                 "titles": anime.titles,
                 "year": anime.year,
-                "media_type": anime.media_type,
+                // "media_type": anime.media_type,
                 "start_date": anime.start_date,
                 "episode_number": anime.episode_number,
             });

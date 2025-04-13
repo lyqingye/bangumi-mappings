@@ -159,44 +159,6 @@ function useAnimeVerificationSystem() {
     return pendingMapping ? pendingMapping.platform : null;
   }, []);
   
-  // 本地更新动漫映射状态
-  const updateAnimeStatus = useCallback((animeId: number, platform: Platform, status: ReviewStatus) => {
-    if (!animeList) return null;
-    
-    // 创建新的列表和数据，保持不可变性
-    const newList = { ...animeList };
-    const newData = [...newList.data];
-    
-    // 找到并更新动漫
-    const animeIndex = newData.findIndex(a => a.anilist_id === animeId);
-    if (animeIndex === -1) return null;
-    
-    const anime = { ...newData[animeIndex] };
-    const newMappings = [...anime.mappings];
-    
-    // 找到并更新特定平台的映射
-    const mappingIndex = newMappings.findIndex(m => m.platform === platform);
-    if (mappingIndex === -1) return null;
-    
-    newMappings[mappingIndex] = {
-      ...newMappings[mappingIndex],
-      review_status: status
-    };
-    
-    // 更新动漫的映射
-    anime.mappings = newMappings;
-    newData[animeIndex] = anime;
-    
-    // 更新列表数据
-    newList.data = newData;
-    setAnimeList(newList);
-    
-    return {
-      updatedAnime: anime,
-      updatedMapping: newMappings
-    };
-  }, [animeList]);
-  
   // 导航到下一个待审核动漫
   const navigateToNextAnime = useCallback(() => {
     if (!animeList?.data || animeList.data.length === 0) return;
@@ -582,16 +544,19 @@ export default function VerificationPage() {
     switch (platform) {
       case Platform.Tmdb:
         return tmdbData && hasData 
-          ? <TMDBPanel data={tmdbData} mapping={mapping} /> 
+          ? <TMDBPanel detail={tmdbData} mapping={mapping} /> 
           : renderNoDataPanel(platform);
       case Platform.BgmTv:
-        return bgmtvData && hasData
-          ? <BGMTVPanel data={bgmtvData} mapping={mapping} /> 
-          : renderNoDataPanel(platform);
+        return <BGMTVPanel 
+          data={bgmtvData} 
+          mapping={mapping} 
+          anilistId={currentAnimeId}
+          onStatusUpdated={refreshList}
+        /> 
       default:
         return renderNoDataPanel(platform);
     }
-  }, [mapping, tmdbData, bgmtvData]);
+  }, [mapping, tmdbData, bgmtvData, currentAnimeId, refreshList]);
   
   // 无数据面板
   const renderNoDataPanel = useCallback((platform: Platform) => (
@@ -732,7 +697,7 @@ export default function VerificationPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-6 gap-8">
             {/* 左侧列表 */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-1">
               <AnimatePresence mode="wait">
                 {isLoading ? (
                   <motion.div
@@ -828,7 +793,7 @@ export default function VerificationPage() {
             </div>
 
             {/* 右侧详情 */}
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-5">
               {isDetailLoading ? (
                 <div className="animate-pulse space-y-6">
                   <div className="h-8 w-1/3 rounded bg-[#222]"></div>

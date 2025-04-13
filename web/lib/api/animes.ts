@@ -17,7 +17,6 @@ function reviewAnime(anilist_id: number, platform: Platform, status: ReviewStatu
     return apiClient.get<void>(`/api/anime/${anilist_id}/review/${platform}/${status}`)
 }
 
-// 任务相关API
 function createJob(platform: Platform, year: number, provider: Provider, model: string): Promise<void> {
     return apiClient.get<void>(`/api/job/${platform}/create/${year}/${provider}/${model}`)
 }
@@ -55,4 +54,13 @@ function compactAnimes(): Promise<void> {
     return apiClient.get<void>('/api/compact/animes/dir')
 }
 
-export { fetchAnimes, getSummary, getYearStatistics, reviewAnime, createJob, runJob, pauseJob, resumeJob, removeJob, listJobs, exportAnimes, importAnimes, compactAnimes }
+function manualMapping(anilist_id: number, platform: Platform, platform_id: string, season_number: number | null): Promise<void> {
+    return apiClient.post<void>("/api/anime/mapping/manual", {
+        anilist_id,
+        platform,
+        platform_id,
+        season_number,
+    })
+}
+
+export { fetchAnimes, getSummary, getYearStatistics, reviewAnime, createJob, runJob, pauseJob, resumeJob, removeJob, listJobs, exportAnimes, importAnimes, compactAnimes, manualMapping }

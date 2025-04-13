@@ -49,7 +49,7 @@ export enum Provider {
 }
 
 export const ProviderModelMap = {
-  [Provider.Xai]: "grok-2-1212",
+  [Provider.Xai]: "grok-3-beta",
   [Provider.Deepseek]: "deepseek-chat",
   [Provider.Gemini]: "gemini-2.0-flash",
   [Provider.OpenAI]: "gpt-4o-mini",
